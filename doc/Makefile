@@ -9,8 +9,8 @@ clean:
 	rm    ${TARGETS}
 
 mrproper: clean
-	touch d~
-	rm    *~
+	touch d~ d.aux d.log d.out d.toc
+	rm    *~ *.aux *.log *.out *.toc
 
 
 report-writing.pdf: report-writing.tex
