@@ -4,10 +4,16 @@
 \usepackage{graphics} % for \scalebox
 \usepackage{hyperref} % for \href
 
+% https://github.com/latex3/babel/issues/51
+\makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
+
 % styling
 \setsecnumdepth{subsubsection} % how deep to number sections
 \setlength{\parindent}{0em} % horizontal indent for first line of paragraph
 \setlength{\parskip}{1em} % vertical space between paragraphs
+
+\newcommand{\textdesc}[1]{\textit{\textbf{#1}}}
+\newcommand{\descitem}[1]{\item \textdesc{#1}}
 
 \title{Report Writing \\ \scalebox{0.85}{for Software BSc and MSc Projects}}
 \author{Aslak Johansen}
@@ -30,6 +36,10 @@
 First of all: All supervisors are different. If your supervisor disagrees with this section, then they are right and this section is wrong.
 
 \subsection{Role}
+
+% inclusion: report structure (when presented with text of reasonable quality)
+
+% exclusion: basic grammar, spelling
 
 \subsection{Interaction}
 
@@ -115,6 +125,23 @@ At SDU there are a few deadlines to be concerned with. These are:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% The Art of Writing
 \chapter{The Art of Writing}
 
+\section{Commandments}
+
+\begin{enumerate}
+  \descitem{Make the Effort}
+  \descitem{It Has to Make Sense}
+  \descitem{Give and Take Credit}
+  \descitem{The Good Practice of Selective Violation of Best Practices / Be Prepared to Violate a Best Practice or Two/Don't Blindly Follow Best Practices}
+  \descitem{Do not Underestimate Experimental Evaluation}
+  \descitem{Respect your/the Audience}
+\end{enumerate}
+
+\section{Anti-Patterns}
+
+\subsection{Reason-Therefore-Reason}
+
+% Because of the "Therefore" you already have a reason and that reason will appear -- to the reader -- to be in conflict with what comes after the "as" of the last sentence.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduction
 \chapter{Introduction}
@@ -142,6 +169,42 @@ At SDU there are a few deadlines to be concerned with. These are:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Evaluation
 \chapter{Evaluation}
+
+% intro:
+When you have constructed your system, you have certainly achieved something. But at that point we know very little about \textsl{what} you have achieved. Does it work correctly? How well does it meet the requirements? To be able to make claims in these regards, you need an evaluation. What and how you need to evaluate depends on which kinds of claims you wish to make. At the end of the day the claims supported by your evaluation will define the success of the system. From a report perspective, that is.
+
+\section{Criteria}
+
+\subsection{Correctness}
+
+\subsection{Usability}
+
+\subsection{Performance}
+
+\subsection{Availability}
+
+\subsection{Scalability}
+
+\section{Methods}
+
+% argument: what is
+
+\subsection{Textual Argument}
+
+\subsection{Performance Evaluation}
+
+\subsection{User Test}
+
+\section{Process}
+
+Go through the requirements; one at a time. Determine the best way of evaluating this particular requirement. 
+
+\begin{figure}[tbp]
+  contents
+  \caption{Method suitability for various criteria.}
+\end{figure}
+
+\section{Presentation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Discussion
