@@ -115,6 +115,39 @@ At SDU there are a few deadlines to be concerned with. These are:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% First Steps
 \chapter{First Steps}
 
+\section{Tools}
+
+% google docs
+Many people like to work in Google Docs, and it truly is convenient for many things. However, the typographical qualities of the resulting PDF are awful. After having seen a a great many reports written in Google Docs, I have reached the conclusion that it is likely impossible to create a remotely professional looking report in Google Docs.
+
+% microsoft word
+Microsoft Word is an alternative. I have heard many students say that it is possible to create a professionally looking report in Microsoft Word, and they have all failed to do so. I am starting to think that it is possible to get quite close, but that the effort required is ridiculously high. The same goes for Libre/Open Office.
+
+% latex
+\LaTeX has all the right typographical rules needed, and it will allow you to tweak everything to your hearts desire. But, crucially, you don't have to. If you don't want to know about these things, then just use the (generally) sensible defaults, and you are already ahead.
+
+% working with latex
+\LaTeX is written as code in plain text files, and can therefore easily live in a git repository. There are online \LaTeX editors (e.g., Overleaf) that can be linked to such a git repository. But do \underline{not} rely on them. Their uptime is not impressive.
+
+% linking to code
+Finally, there are benefits to having the report code either in the same repository as the project code, or in one that is checked out at a well defined path relative to the code repository. This allows for inclusions and automatic building of the report (e.g., to include results of tests or code snippets).
+
+% required features
+Generally speaking I would expect support for the following in an even remotely modern system for writing IT related reports:
+\begin{itemize}
+  \item Inclusion of external standardized vector graphics formats\footnote{Note that many vector graphics formats support the inclusion of bitmapped graphics. Doing so to a screenshot does not make the result vector graphics.} (e.g., PDF and SVG) without going through rasterization.
+  \item Support for ligatures.
+  \item Proper support for kerning.
+  \item Automatic inclusion and highlight of code.
+  \item Floats.
+  \item References that "just work".
+  \item Citation system.
+  \item Automatic table of contents.
+\end{itemize}
+
+% why the focus
+Why does it matter? First of all, it shows that you care. If you did not care very much about this report, why should the reader? Secondly, it is obvious whether or not you used the right tools. If you don't command the right tools as an engineer, that's a problem right there!
+
 \section{Process}
 
 \section{Working Document}
