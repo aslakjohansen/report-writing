@@ -156,9 +156,34 @@ A report is a structured text that is made up of chapters. Each chapter is in tu
   \caption{\label{fig:firststeps:process:bnf} BNF of a report structure.}
 \end{figure}
 
+% differences in opinion
 But how do you come up with that tree structure; the \textsl{right} tree structure? People tend to prefer one of two strategies, and despise the other. I have seen both work for people who chose it of their own free will.
 
+% first strat
 The first strategy is to first get something (anything, really) down "on paper", and then iterate and keep on iterating until the end result is good. I am not a fan of this approach. Generally, it requires a lot of writing experience to succeed, the overhead of repeated iterations is high, and the iterations usually end up being cut short before a good result has been reached.
+
+% second strat
+The second strategy is to go top-down by growing the tree from the root. Only after understanding the final structure of a node (at a single level of depth) are you allowed to dig into a child node. Note that this allows you to go deep in some parts of the report while having little understanding of others.
+
+% second strat: mindset
+That implies a process of considering the topic of the node and all that came before it, and deciding:
+\begin{enumerate}
+  \item Which key points have to be covered?
+  \item Which pseudo points are needed to support these?
+  \item What is the best way of serializing the coverage of all of these points?
+  \item How can that sequence be broken down into themes?
+\end{enumerate}
+These themes are your subsections. Often it makes sense to consider naming conventions that transcends a single subtree to bring some consistency to the report.
+
+% second strat: tool
+Large reports can become hard to navigate and conclusions on the exact contents of som subsection may escape memory. One way of dealing with this is to write down pre and post conditions for individual (sub*)sections. This works particularly well in \LaTeX\ where you have comments:
+
+\begin{verbatim}
+\subsection{Publish Subscribe Substrates}
+\label{sec:analysis:transport:pubsub}
+% pre: It has been established that a transport is needed for moving streaming data from backend to front-end at a rate of 10-20Hz. Parameters for evaluation: [latency, throughput, robustness, inspection].
+% post: A clear definition of the pros and cons of using pubsub for this purpose.
+\end{verbatim}
 
 \section{Working Document}
 
