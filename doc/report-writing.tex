@@ -3,6 +3,7 @@
 \usepackage[english]{babel} % load typographical rules for the english language
 \usepackage{graphics} % for \scalebox
 \usepackage{hyperref} % for \href
+\usepackage{enumitem} % for options to the enumerate environment
 
 % https://github.com/latex3/babel/issues/51
 \makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
@@ -194,8 +195,8 @@ Large reports can become hard to navigate and conclusions on the exact contents 
 The following is a good starting point for the structure of most reports.
 
 \begin{enumerate}
-  \descitem{Introduction}
-    \begin{enumerate}
+  \descitem{Introduction} 
+    \begin{enumerate}[label*=\arabic*.]
       \descitem{Problem}
       \descitem{Approach}
     \end{enumerate}
