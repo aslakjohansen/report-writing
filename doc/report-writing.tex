@@ -304,6 +304,16 @@ The following is a good starting point for the structure of most reports.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Requirements
 \chapter{Requirements}
 
+\section{Testability}
+
+I often come across requirements like \textsl{"The system should be responsive"}. On the surface it appears fine, even sane. However, it is not testable. There is no agreement as to what it means for a system to be \textsl{"responsive"}. It is what is sometimes referred to as a \textsl{"bad requirement"}.
+
+Usually, we have requirements because we need something to evaluate a resulting system against. For this purpose, the above mentioned requirement is useless, and it is your problem not spotting it in due time.
+
+Sometimes this kind of problematic requirement can be \textsl{"leveled up"}. In this particular case it might be clear that the \textsl{"responsiveness"} property relates to the users of the system. That, in and of itself, doesn't help us much, but it does give us something to work with: We could construct a system that exposes users to varying response times and ask them to rank different runs as either \textsl{"responsive"} or \textsl{"not responsive"}.
+
+\textbf{Note:} This would be part of the requirement analysis, as you will need a good understanding of the requirements before starting on the design.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis
 \chapter{Analysis}
