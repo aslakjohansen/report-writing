@@ -5,6 +5,7 @@
 \usepackage{hyperref} % for \href
 \usepackage{enumitem} % for options to the enumerate environment
 \usepackage[cache=false]{minted} % code inclusion
+\usepackage{dirtytalk} % for \say quotation
 
 % https://github.com/latex3/babel/issues/51
 \makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
@@ -16,6 +17,7 @@
 
 \newcommand{\textdesc}[1]{\textit{\textbf{#1}}}
 \newcommand{\descitem}[1]{\item \textdesc{#1}}
+\newcommand{\quoted}[1]{\textsl{\say{#1}}}
 
 \title{Report Writing \\ \scalebox{0.85}{for Software BSc and MSc Projects}}
 \author{Aslak Johansen}
@@ -310,11 +312,11 @@ The following is a good starting point for the structure of most reports.
 
 \section{Testability}
 
-I often come across requirements like \textsl{"The system should be responsive"}. On the surface it appears fine, even sane. However, it is not testable. There is no agreement as to what it means for a system to be \textsl{"responsive"}. It is what is sometimes referred to as a \textsl{"bad requirement"}.
+I often come across requirements like \quoted{The system should be responsive}. On the surface it appears fine, even sane. However, it is not testable. There is no agreement as to what it means for a system to be \quoted{responsive}. It is what is sometimes referred to as a \quoted{bad requirement}.
 
 Usually, we have requirements because we need something to evaluate a resulting system against. For this purpose, the above mentioned requirement is useless, and it is your problem not spotting it in due time.
 
-Sometimes this kind of problematic requirement can be \textsl{"leveled up"}. In this particular case it might be clear that the \textsl{"responsiveness"} property relates to the users of the system. That, in and of itself, doesn't help us much, but it does give us something to work with: We could construct a system that exposes users to varying response times and ask them to rank different runs as either \textsl{"responsive"} or \textsl{"not responsive"}.
+Sometimes this kind of problematic requirement can be \quoted{leveled up}. In this particular case it might be clear that the \quoted{responsiveness} property relates to the users of the system. That, in and of itself, doesn't help us much, but it does give us something to work with: We could construct a system that exposes users to varying response times and ask them to rank different runs as either \quoted{responsive} or \quoted{not responsive}.
 
 \textbf{Note:} This would be part of the requirement analysis, as you will need a good understanding of the requirements before starting on the design.
 
