@@ -4,6 +4,7 @@
 \usepackage{graphics} % for \scalebox
 \usepackage{hyperref} % for \href
 \usepackage{enumitem} % for options to the enumerate environment
+\usepackage[cache=false]{minted} % code inclusion
 
 % https://github.com/latex3/babel/issues/51
 \makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
@@ -206,12 +207,12 @@ These themes are your subsections. Often it makes sense to consider naming conve
 % second strat: tool
 Large reports can become hard to navigate and conclusions on the exact contents of som subsection may escape memory. One way of dealing with this is to write down pre and post conditions for individual (sub*)sections. This works particularly well in \LaTeX\ where you have comments:
 
-\begin{verbatim}
+\begin{minted}[breaklines]{latex}
 \subsection{Publish Subscribe Substrates}
 \label{sec:analysis:transport:pubsub}
 % pre: It has been established that a transport is needed for moving streaming data from backend to front-end at a rate of 10-20Hz. Parameters for evaluation: [latency, throughput, robustness, inspection].
 % post: A clear definition of the pros and cons of using pubsub for this purpose.
-\end{verbatim}
+\end{minted}
 
 \section{Working Document}
 
