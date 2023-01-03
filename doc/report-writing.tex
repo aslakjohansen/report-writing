@@ -6,6 +6,9 @@
 \usepackage{enumitem} % for options to the enumerate environment
 \usepackage[cache=false]{minted} % code inclusion
 \usepackage{dirtytalk} % for \say quotation
+\usepackage{adjustbox} % for \adjustbox environment
+
+\usepackage{tikz} % for diagrams
 
 % https://github.com/latex3/babel/issues/51
 \makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
@@ -184,7 +187,138 @@ Why does it matter? First of all, it shows that you care. If you did not care ve
 A report is a structured text that is made up of chapters. Each chapter is in turn made up of sections, each section of subsections, each subsection of paragraphs, and each paragraph of sentences. You may forego the chapter level, and add further subsections if that happens to be a better fit. Paragraphs can be placed at any level of sections. Also, each section may have an introductory paragraph. Figure \ref{fig:firststeps:process:bnf} illustrates this in BNF, and it should be clear to you that this is an example of a tree structure.
 
 \begin{figure}
-  \caption{\label{fig:firststeps:process:bnf} BNF of a report structure.}
+    \begin{adjustbox}{trim=2.4cm 0 0 0mm} 
+      \scalebox{0.7}{
+        \begin{tikzpicture}[x=1cm, y=-1cm, node distance=0 cm,outer sep = 0pt]
+          \newcommand{\textminheight}{5mm}
+          \newcommand{\defminwidth}{14mm}
+          \newcommand{\defxoffset}{-10mm}
+          \newcommand{\spacing}{8mm}
+          \newcommand{\loopheight}{6mm}
+          
+          \tikzstyle{node}=[
+            draw,
+            rectangle,
+            rounded corners=2pt,
+            minimum height=\textminheight,
+            minimum width=1.5cm,
+            fill=blue!10,
+            anchor=west,
+            thick
+          ]
+          \tikzstyle{nodet}=[
+            draw,
+            rectangle,
+            rounded corners=2pt,
+            minimum height=\textminheight,
+            minimum width=1.5cm,
+            fill=white!10,
+            anchor=west,
+            thick
+          ]
+          \tikzstyle{def}=[
+            draw=none,
+            minimum height=\textminheight,
+            minimum width=\defminwidth,
+            anchor=east,
+          ]
+          \tikzstyle{line} = [thick, rounded corners, draw=black]
+          \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+          
+          \coordinate (origo) at (1,1);
+          \coordinate (oreport)           at ([xshift=0, yshift=0mm] origo);
+          \coordinate (ofront)            at  ([xshift=0, yshift=-1*(\textminheight+\loopheight*1.5)] origo);
+          \coordinate (olists)            at  ([xshift=0, yshift=-2*(\textminheight+\loopheight*1.5)] origo);
+          \coordinate (osection)          at  ([xshift=0, yshift=-3*(\textminheight+\loopheight*1.5)] origo);
+          \coordinate (oappendix)         at  ([xshift=0, yshift=-4*(\textminheight+\loopheight*1.5)] origo);
+          \coordinate (osubsection)       at  ([xshift=0, yshift=-5*(\textminheight+\loopheight*1.5)] origo);
+          \coordinate (osubsubsection)    at ([xshift=0, yshift=-6*(\textminheight+\loopheight*1.5)] origo);
+          \coordinate (osubsubsubsection) at ([xshift=0, yshift=-7*(\textminheight+\loopheight*1.5)] origo);
+          \coordinate (oparagraph)        at ([xshift=0, yshift=-8*(\textminheight+\loopheight*1.5)] origo);
+          
+          % report
+          \node[def] (defreport) at ([xshift=\defxoffset] oreport) {Report:};
+          \node[node] (report_front) at ([xshift=\defxoffset+\spacing*2] oreport) {Front Page};
+          \node[node] (report_lists) at ([xshift=\spacing] report_front.east) {Lists};
+          \node[node] (report_section) at ([xshift=\spacing] report_lists.east) {Section};
+          \node[nodet] (report_lit) at ([xshift=\spacing] report_section.east) {Literature};
+          \node[node] (report_appendix) at ([xshift=\spacing] report_lit.east) {Appendix};
+          \draw[arrow] (report_front) -- (report_lists);
+          \draw[arrow] (report_lists) -- (report_section);
+          \draw[arrow] (report_section) -- (report_lit);
+          \draw[arrow] (report_lit) -- (report_appendix);
+          \draw[line] (report_section.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] report_section.west) -| ([xshift=-\spacing/2] report_section.west) -- (report_section.west);
+          \draw[line] (report_appendix.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] report_appendix.west) -| ([xshift=-\spacing/2] report_appendix.west) -- (report_appendix.west);
+          
+          % front page
+          \node[def] (deffront) at ([xshift=\defxoffset] ofront) {Front Page:};
+          \node[nodet] (front_title) at ([xshift=\defxoffset+\spacing*2] ofront) {Title};
+          \node[nodet] (front_subtitle) at ([xshift=\spacing] front_title.east) {Subtitle};
+          \node[nodet] (front_author_n) at ([xshift=\spacing] front_subtitle.east) {Author Name};
+          \node[nodet] (front_author_e) at ([xshift=\spacing] front_author_n.east) {Author Email};
+          \node[nodet] (front_advisor_n) at ([xshift=\spacing*1.5] front_author_e.east) {Advisor Name};
+          \node[nodet] (front_advisor_e) at ([xshift=\spacing] front_advisor_n.east) {Advisor Email};
+          \node[nodet] (front_date) at ([xshift=\spacing] front_advisor_e.east) {Date};
+          \draw[arrow] (front_title) -- (front_subtitle);
+          \draw[arrow] (front_subtitle) -- (front_author_n);
+          \draw[arrow] (front_author_n) -- (front_author_e);
+          \draw[arrow] (front_author_e) -- (front_advisor_n);
+          \draw[arrow] (front_advisor_n) -- (front_advisor_e);
+          \draw[arrow] (front_advisor_e) -- (front_date);
+          \draw[line] (front_author_e.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] front_author_n.west) -| ([xshift=-\spacing/2] front_author_n.west) -- (front_author_n.west);
+          \draw[line] (front_advisor_e.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] front_advisor_n.west) -| ([xshift=-\spacing/2] front_advisor_n.west) -- (front_advisor_n.west);
+          
+          % lists
+          \node[def] (deflists) at ([xshift=\defxoffset] olists) {Lists:};
+          \node[nodet] (lists_toc) at ([xshift=\defxoffset+\spacing*2] olists) {Table of Contents};
+          \node[nodet] (lists_lof) at ([xshift=\spacing] lists_toc.east) {List of Figures};
+          \draw[arrow] (lists_toc) -- (lists_lof);
+          
+          % section
+          \node[def] (defsection) at ([xshift=\defxoffset] osection) {Section:};
+          \node[node] (section_paragraph) at ([xshift=\defxoffset+\spacing*2] osection) {Pararaph};
+          \node[node] (section_subsection) at ([xshift=\spacing*1.5] section_paragraph.east) {Subsection};
+          \draw[arrow] (section_paragraph) -- (section_subsection);
+          \draw[arrow, rounded corners] (section_paragraph.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] section_paragraph.west) -| ([xshift=-\spacing/2] section_paragraph.west) -- (section_paragraph.west);
+          \draw[line] (section_subsection.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] section_subsection.west) -| ([xshift=-\spacing/2] section_subsection.west) -- (section_subsection.west);
+          
+          % appendix
+          \node[def] (defappendix) at ([xshift=\defxoffset] oappendix) {Appendix:};
+          \node[node] (appendix_paragraph) at ([xshift=\defxoffset+\spacing*2] oappendix) {Pararaph};
+          \node[node] (appendix_subsection) at ([xshift=\spacing*1.5] appendix_paragraph.east) {Subsection};
+          \draw[arrow] (appendix_paragraph) -- (appendix_subsection);
+          \draw[arrow, rounded corners] (appendix_paragraph.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] appendix_paragraph.west) -| ([xshift=-\spacing/2] appendix_paragraph.west) -- (appendix_paragraph.west);
+          \draw[line] (appendix_subsection.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] appendix_subsection.west) -| ([xshift=-\spacing/2] appendix_subsection.west) -- (appendix_subsection.west);
+          
+          % subsection
+          \node[def] (defsubsection) at ([xshift=\defxoffset] osubsection) {Subsection:};
+          \node[node] (subsection_paragraph) at ([xshift=\defxoffset+\spacing*2] osubsection) {Pararaph};
+          \node[node] (subsection_subsubsection) at ([xshift=\spacing*1.5] subsection_paragraph.east) {Subsubsection};
+          \draw[arrow] (subsection_paragraph) -- (subsection_subsubsection);
+          \draw[arrow, rounded corners] (subsection_paragraph.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] subsection_paragraph.west) -| ([xshift=-\spacing/2] subsection_paragraph.west) -- (subsection_paragraph.west);
+          \draw[line] (subsection_subsubsection.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] subsection_subsubsection.west) -| ([xshift=-\spacing/2] subsection_subsubsection.west) -- (subsection_subsubsection.west);
+          
+          % subsubsection
+          \node[def] (defsubsubsection) at ([xshift=\defxoffset] osubsubsection) {Subsubsection:};
+          \node[node] (subsubsection_paragraph) at ([xshift=\defxoffset+\spacing*2] osubsubsection) {Pararaph};
+          \node[node] (subsubsection_subsubsubsection) at ([xshift=\spacing*1.5] subsubsection_paragraph.east) {Subsubsubsection};
+          \draw[arrow] (subsubsection_paragraph) -- (subsubsection_subsubsubsection);
+          \draw[arrow, rounded corners] (subsubsection_paragraph.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] subsubsection_paragraph.west) -| ([xshift=-\spacing/2] subsubsection_paragraph.west) -- (subsubsection_paragraph.west);
+          \draw[line] (subsubsection_subsubsubsection.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] subsubsection_subsubsubsection.west) -| ([xshift=-\spacing/2] subsubsection_subsubsubsection.west) -- (subsubsection_subsubsubsection.west);
+          
+          % subsubsubsection
+          \node[def] (defsubsubsubsection) at ([xshift=\defxoffset] osubsubsubsection) {Subsubsubsection:};
+          \node[node] (subsubsubsection_paragraph) at ([xshift=\defxoffset+\spacing*2] osubsubsubsection) {Pararaph};
+          \draw[arrow, rounded corners] (subsubsubsection_paragraph.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] subsubsubsection_paragraph.west) -| ([xshift=-\spacing/2] subsubsubsection_paragraph.west) -- (subsubsubsection_paragraph.west);
+          
+          % paragraph
+          \node[def] (defparagraph) at ([xshift=\defxoffset] oparagraph) {Paragraph:};
+          \node[nodet] (paragraph_sentence) at ([xshift=\defxoffset+\spacing*2] oparagraph) {Sentence};
+          \draw[arrow, rounded corners] (paragraph_sentence.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- ([xshift=-\spacing/2, yshift=-\loopheight] paragraph_sentence.west) -| ([xshift=-\spacing/2] paragraph_sentence.west) -- (paragraph_sentence.west);
+        ﻿﻿\end{tikzpicture}
+      }
+    \end{adjustbox}
+  \caption{\label{fig:firststeps:process:bnf} Railroad BNF of a typical report structure.}
 \end{figure}
 
 % differences in opinion
