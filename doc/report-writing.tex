@@ -423,6 +423,33 @@ The following is a good starting point for the structure of most reports.
 
 \subsection{Definitions}
 
+\subsection{Floats}
+
+% intro: what, examples (figure, table, code listing), refs are necessary
+A float is a piece of the report that you allow the layouter to place on your behalf. You don't have to care about it being broken up across multiple pages and you get a number that you can use to refer to it through. This is beneficial when you need to refer to it from multiple places in the document. In \LaTeX, there are a number of predefined float types (figure, table and code listing springs to mind), and you can define your own. The floats are also presented with a caption and stand out from the normal text.
+
+% refs and context
+No matter where the float ends up, you will have to refer to it by number. The text should always be written in such a manner that it is optional to look at the float. You must explicitly point out what you want the reader to take away from it. In the same way, the floats should make sense without locating the text that refers to them.
+
+% preference
+There are different schools of thought with regards to which kinds to floats to use. If you have a lot of figures and tables, it might make sense to use these environments so that they end up categorized in a list of figures and a list of tables. Typically, I prefer to use figures for everything. This solves the issue where you have to turn a lot of pages to figure out if you need to go forward or backward in order to find a particular float.
+
+% example
+Usually, floats works best when they are allowed to be at the top of a page, the bottom of a page and to fill up a whole page. In \LaTeX, this is accomplished this way:
+\begin{minted}[breaklines]{latex}
+\begin{figure}[tbp]
+  \ldots
+  \caption{Description of figure.}
+  \label{fig:art:floats}
+\end{figure}
+\end{minted}
+
+% short captions
+Sometimes the caption will naturally take up more space than fits nicely into an entry into the list of figures. The solution is to add a shorter, abbreviated, version that can be used for this purpose. That can be done like this:
+\begin{minted}[breaklines]{latex}
+\caption[Short caption]{Long caption}
+\end{minted}
+
 \section{Questions}
 
 \begin{itemize}
