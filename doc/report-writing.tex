@@ -568,11 +568,48 @@ The further along in your education the less focus there will be on functional r
 
 \subsection{Performance}
 
-% how performance may affect functional requirements
+% how performance may affect functional requirements and availability
 
 \subsection{Availability}
 
+% intro: definition
+Availability is a nebulous term. Surely, it has something to do with the system being available to provide some service. Your system is likely to provide multiple services, and they may not have (or need) equal availability. It might not even be clear what it means for a service to be \quoted{available}. Usually you see a definition over MTBF (mean time between failure) and MTBR (mean time between repair), but it is clearly much more complicated: Certain failures we can accept, and operating on means comes with its own share of problems. Often terms like \quoted{uptime} and \quoted{downtime} are introduced to simplify things. However, these can also have complex definitions. Sometimes a system is said to be \quoted{up} when it responds within a certain period of time. At other times a system is said to be \quoted{down} when the it has not been up for longer than some period of time. In other words, it may be allowed to not be up as long as this is a brief event.
+
+% intro: erlang "9-nines"
+
+% availability-over-time
+If you need to provide a high degree of availability over a significant amount of time you have to consider what kinds of changes can occur across this period of time. Naturally, you will have to update the software in order to react to bugs, feature needs and an changing security landscape. This means that you need to consider what the impact of a software update will have on availability. Over time, protocols and file formats change. How does this affect the availability of the system? Partial hot updates will be key to scoring well here.
+
+% be careful about terms like "high availability"
+Requirements on availability should be treated as seriously as any other requirement. Stating that your system \quoted{has high availability} provokes the question: High, relative to what? It is not a realistic assumption that we share an interpretation of what that means. If you are not looking to argue specifics, you can get away with a more correct \quoted{provides a high degree of availability}. But for the evaluation you will need to argue \textsl{how} high that degree is.
+
+% brute-force is not an option
+\subsubsection{Brute Force Strategy}
+
+% example
+Lets assume that it takes $1$s to detect a failure in any part of a system that is critical to availability and restart that part. If you have a requirement of 5-nines, then you can allow one such event to happen every $10^5$s (that's a bit shy of 3 hours). However, that does not mean that we just need to let the system run for 3 hours under load. We haven't gotten to the failure modes and the distributions of failures that fall into the modes yet. Some classes of failures appear more and more frequently as time goes by. In that case you will be much less likely to observe a failure during 3 hours of experimentation on a new system than you would on a 10 year old system.
+
+% problem
+To give confidence to a claim of availability you would have to argue that the event is (highly) likely to have happened during the experiment period, and that will end up increasing the length of that period significantly. The failures may also be triggered by certain stimuli. To trigger the failure mode you would have to produce that stimuli. If you don't know this to be the case, or don't know the specific stimuli, this strategy will require you to spend hours on each potential stimuli. This is time you don't have.
+
+% takeaways
+There are two interconnected issues at play here. Firstly, the unit is a whole system. We consider the all of its complexity as a single box, and try to reason about it at that level. As it quickly becomes extremely complicated to reason about such complexity we end up perceiving it as a black box. The second issue is that when dealing with a black box we have to throw statistics at it and for that to make sense we need lots and lots of data.
+
+\subsubsection{Scenario-Based Strategy}
+
+An alternative is to accept at we can't reasonably reach a single hard number that encompasses all aspects of availability in a perfectly balanced way. Instead we can settle for an evaluation that lists a number of (classes of) failure scenarios, and addresses these individually. While these scenarios are clearly relevant en terms of availability, they can also affect other qualities of the system (e.g., performance). Some scenarios can naturally be addressed experimentally, others can be addressed through a solid argument.
+
+As an example, consider a webshop consisting of a frontend, a backend and a DBMS. One failure scenario would be that the DBMS -- for whatever reason -- is restarted. How does the system deal with that? Does it make the system become unavailable, and -- if so -- for how long? How is the responsiveness of the system affected? This could be answered as a plot of response time as a function of time after the failure event. What about throughput? Answering these questions will document the behavior of the system after the failure event. The more scenarios you document the more of the availability mechanics is revealed.
+
+% evaluating specific failure modes, and triggering them
+\subsubsection{Structural Strategy}
+
+% actors and "which means that it is feasible to unit test for availability"
+The actor-model\cite{10.5555/889486} is a software modeling approach that can be seen as a extreme foundation for the scenario-based strategy. Code is split into actors that expose services through a per-actor mailbox. Supervision trees can be used to ensure that actors keep running. This -- at least theoretically -- allows us to make per-actor scenarios and unit test for availability. This, of course, requires tooling like what is provided by the Open Telecom Platform (OTP) and -- to a lesser degree -- Kubernetes.
+
 \subsection{Scalability}
+
+% side-note of efficiency
 
 \section{Methods}
 
