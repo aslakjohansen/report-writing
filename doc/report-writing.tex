@@ -604,15 +604,48 @@ The further along in your education the less focus there will be on functional r
 
 \subsection{Performance}
 
+% width
+When you simply refer to \quoted{performance} you are referring to every single aspect of performance, and thus you are making a very wide statement. Verifying the correctness of such a statement would mean to verify it for all aspects of performance, relevant or not. That is usually a very labor-intensive task. Instead, you should consider whether you want that statement to actually cover all performance aspects.
+
 % how performance may affect functional requirements and availability
 
 \subsubsection{Latency}
 
 % defining latency
+Latency is the amount of time it takes to pass though some part of the system. As such there can be multiple relevant latencies associated with a system. Often, one focuses on the latency imposed by individual services exposed by the system. This is essentially measured by obtaining a timestamp, invoking the service, taking another timestamp, and then subtracting the first timestamp from the last. For evaluation purposes, it is thus important to define \textsl{which} latencies need to be evaluated. This can either be done through very explicit text (in order to avoid ambiguity) or by visually highlighting certain points on a figure.
 
-% distribution as a function over load
+% dynamic properties, distribution as a function over load
+The approach of taking a single measurement, however, does not account for dynamic properties of the involved components. Such dynamics can stem from a number of sources, including but not limited to:
+\begin{itemize}
+  \descitem{Resources under Load} Resources are limited, usually in multiple dimensions. Sometimes this limitation is gradual, and sometimes it is binary (e.g., if only one component can have access to it at a time). For instance:
+    \begin{itemize}
+      \item The performance of a \textsl{DBMS} will vary depending on the load. A higher load will result in a higher response time.
+      \item The transfer rate of a \textsl{network link} depends on its utilization. If, for instance, a 1Gb/s link is under 90\% load then only 100Mb/s is left. Add to this a penalty of administration.
+    \end{itemize}
+  \descitem{Maintenance Operations} Operations that happens more or less regularly and has an effect on components of the system. For instance:
+    \begin{itemize}
+      \item A \textsl{scheduler} that shifts in and out code in order to give other code time. On a general purpose operating system, this is done at the kernel level to make sure that all OS processes get time and thus appear to run in parallel. Something similar happens when working with userspace threads.
+      \item Most modern \textsl{garbage collectors} use a \textsl{stop-the-world} algorithm like Mark-and-Sweep. This causes pauses in execution and are generally considered a bad fit for time-critical problems (e.g., those involving video, audio or real-time).
+    \end{itemize}
+\end{itemize}
+
+% uncertainty of a single measurement, combined distributions, noise
+Because of the inherent complexities of the systems that we want to investigate, we can't tell for sure which dynamics were at play during the collection of any single measurement. Instead, the underlying phenomena can be characterized by a distribution. Multiple measurements are needed to define that distribution. The more measurements we collect, the more rare events we will be able to capture. So, in order to determine how many measurements we need, we must consider the key events of the system, and how they interact to produce the final distribution. Finally, certain components have noisy latency. Even if the noise of all individual components is insignificant, at times the noise of the combination may add up to something significant.
+
+% bad requirements
+There a numerous horrible example of bad latency-related requirements. The worst is that \quoted{the system must have low latency}. This immediately forces a number of questions (for which the answers are defining for the outcome of the evaluation):
+\begin{itemize}
+  \descitem{Imprecise} Which part of the system? Is this relating to a specific service, or all services?
+  \descitem{Subjective} Low, relative to what? Your definition of \quoted{low} may be different from mine.
+  \descitem{Unclear} What is meant by \quoted{latency}? Is this the mean of the distribution, the top of the distribution\footnote{Note that this will require \quoted{a lot} of measurements to capture.}, or the 95 percentile?
+\end{itemize}
 
 % examples of good requirements
+Instead, effort should be made to remove ambiguity from the requirements when they are written. The following are examples of requirements that are easy to deal with in the evaluation:
+\begin{enumerate}
+  \item \textsl{The upload profile picture service of the system -- as measured on a 130kB picture from the moment the request is issued on the client side to the moment the behavior of other services of the system will reflect resulting state -- must on average complete within 10s.}
+  \item \textsl{The time it takes to load and display the front page of the system must in 97\% of all cases be below 5s. This measurement starts when the client initiates the first HTTP GET request, and finishes when the browser has finished layouting.}
+\end{enumerate}
 
 \subsubsection{Throughput}
 
@@ -668,6 +701,8 @@ The actor-model\cite{10.5555/889486} is a software modeling approach that can be
 \subsection{Performance Evaluation}
 
 \subsection{User Test}
+
+\section{Open-Endedness}
 
 \section{Process}
 
