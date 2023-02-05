@@ -10,6 +10,12 @@
 
 \usepackage{tikz} % for diagrams
 
+% biblatex setup
+\usepackage[
+    backend=biber,
+]{biblatex}
+\addbibresource{references.bib}
+
 % https://github.com/latex3/babel/issues/51
 \makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
 
@@ -495,6 +501,7 @@ Increased the line spacing is something used by public school teachers to write 
 \chapter{Literature Review}
 
 % purpose
+You are rarely expected to start building your solution from the ground up. Instead, you should \quoted{stand on the shoulders of giants}\cite{newton1959correspondence} or, at least, learn from them. If your project touch on areas that your knowledge doesn't obviously cover then you need to build up that knowledge, and you may need to do so in several different areas. For instance, if you will be working on a way of visualizing a large amount of graph data, you should look into the state of the art withing both graph visualization and graph storage, and perhaps also the interaction between those. One way of gaining such insights is a literature review. In the graph visualization example you would perform two or three literature reviews.
 
 \section{Goals}
 
@@ -807,5 +814,7 @@ During the examination we generally try to stay away from code. If there is some
 
 % report perception: report grade, usually +-1 grade, maybe more, potentially+exceptionally all the way down
 The report (likely) contains many pages and covers much information. You have spent a significant amount of time on it with few restrictions. Censor and examiner has spent a great deal of time reading it. Compared to that, the defense represents a small amount of time. Coming into the defense, both censor and examiner will have a rough idea of the level of the report, and it is generally -- in the brief time allotted -- hard to sway that perception. Typically, the end results will fall within $\pm 1$ grade step of that initial impression. It does happen that the final grade is shifted more, but it is rare. In exceptional cases (e.g., if it is discovered that someone hasn't participated), the grade could potentially go all the way down.
+
+\printbibliography
 
 \end{document}

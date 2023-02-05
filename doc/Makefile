@@ -15,5 +15,7 @@ mrproper: clean
 
 report-writing.pdf: report-writing.tex
 	pdflatex -shell-escape report-writing.tex
+	biber report-writing.bcf
+	pdflatex -shell-escape report-writing.tex
 	pdflatex -shell-escape report-writing.tex
 
