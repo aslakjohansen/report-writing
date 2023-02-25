@@ -24,6 +24,15 @@
 \setlength{\parindent}{0em} % horizontal indent for first line of paragraph
 \setlength{\parskip}{1em} % vertical space between paragraphs
 
+
+\newcommand{\varname}[1]{\texttt{\textcolor{teal}{#1}}}
+\newcommand{\typename}[1]{\texttt{\textcolor{purple}{#1}}}
+\newcommand{\methodname}[1]{\texttt{\textcolor{blue}{#1}}}
+\newcommand{\funcname}[1]{\methodname{#1}}
+\newcommand{\packagename}[1]{\texttt{#1}}
+\newcommand{\filename}[1]{\texttt{#1}}
+\newcommand{\keywordname}[1]{\texttt{#1}}
+
 \newcommand{\textdesc}[1]{\textit{\textbf{#1}}}
 \newcommand{\descitem}[1]{\item \textdesc{#1}}
 \newcommand{\quoted}[1]{\textsl{\say{#1}}}
@@ -377,7 +386,7 @@ This document represents a dissertation. In the beginning of it you are likely t
 
 \section{Report Structure}
 
-The following is a good starting point for the structure of most reports.
+The following is a good starting point for the structure of most reports. If you end up with \textsl{interesting} parts of your implementation then you can add an \textdesc{Implementation} section. However, we do expect you to be able to write code, and we generally don't care about you choosing a \keywordname{for} loop over a \keywordname{while} loop.
 
 \begin{enumerate}
   \descitem{Table of Contents}
