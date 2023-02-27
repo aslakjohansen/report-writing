@@ -520,8 +520,12 @@ Increased the line spacing is something used by public school teachers to write 
 You are rarely expected to start building your solution from the ground up. Instead, you should \quoted{stand on the shoulders of giants}\cite{newton1959correspondence} or, at least, learn from them. If your project touch on areas that your knowledge doesn't obviously cover then you need to build up that knowledge, and you may need to do so in several different areas. For instance, if you will be working on a way of visualizing a large amount of graph data, you should look into the state of the art withing both graph visualization and graph storage, and perhaps also the interaction between those. One way of gaining such insights is a literature review. In the graph visualization example you would perform two or three literature reviews.
 
 \section{Goals}
+\label{sec:relatedwork:questions}
 
 The first step is to come up with a set of questions that you seek to answer. For each of these you construct search queries that are to be resolved against literature search engines to form the basis of a literature review. By dealing with each question independently, you (i) avoid the situation where you need to map individual articles back to a specific question and (ii) have a direct way of adapting the process to produce a reasonable number of articles for each topic.
+
+% completion criteria
+But, what is a reasonable number of articles? From a practical perspective, you will need to be able to read them; at least at some level of depth. That is more of a practical restriction though. A successful literature review covers a question to completion. If you know very little about the subject to begin with, then you may need to go for coverage. You do so by going wide. You can argue for completeness, when you have passed the point of diminishing returns. If you already know something about the subject, then you can use this to inform a more directed effort.
 
 \section{Building Blocks}
 \label{sec:realtedwork:buildingblocks}
@@ -585,9 +589,15 @@ You ended up producing a configuration of a DAG of building blocks (from section
 
 \section{Presentation}
 
-% proposed structure: follow the questions, if few papers then one per paragraph
+% proposed structure: follow the questions, one subsection per question, if few papers then one per paragraph
+The overall strategy of presentations should be to follow and structure according to the questions (from section \ref{sec:relatedwork:questions}). One subsection per question is a good start. If you end up having a small number of papers (e.g., 4), then you have the option of simply adding one paragraph per paper covering:
+\begin{itemize}
+  \item A brief summary of the paper highlighting the relevance.
+  \item Takeaways in the form of insights that needs to be considered for the project.
+\end{itemize}
 
 % if many papers then write a text presenting the space in a structured manner, themes, add references to the papers collaborating each point, quotes can be added.
+That strategy does not scale with the number of papers though. Another option is to structure according to themes across the papers reviewed. Add a subsection per theme containing a summary of the domain of that these. Here you can add references to the reviewed papers to support statements, and even quotes if that is the best way of presenting a point.
 
 % theme figure: tree structure with bitvector for which times are covered by which papers
 
