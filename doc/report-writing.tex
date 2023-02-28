@@ -540,6 +540,14 @@ As such, the most relevant organizations are -- in order of decreasing significa
 
 % search queries: search engines, query languages with set operations (union ↦ OR, intersection ↦ AND), constructing the search query (purpose, strategy)
 
+% domain connection: problem/approach separation example
+Not all questions are equally linked to a domain. Common scenarios include (but may not be limited to):
+\begin{itemize}
+  \item Some questions only exists within a very narrow domain. Then it is strictly limited to the domain and filtering shouldn't make much of a difference (if we are correct in this assumption, that is).
+  \item Some questions make sense in multiple domains, only one of which we care about. In this case, filtering will make a whole lot of sense.
+  \item Some questions are independent of domain. As an example, if I want to evaluate the scalability of a webapp for streaming videos of kittens I might look for a workload generator that can throw requests at it. In my search for such generators I certainly don't care if they were designed with videos \textsl{of kittens} in mind. It may make a difference if they are designed with videos in mind, but -- depending on the specific need -- it might be enough for the workload generator simply to operate at HTTP level and send REST commands.
+\end{itemize}
+
 \subsection{Filtering}
 
 % problem
