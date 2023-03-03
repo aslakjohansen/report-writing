@@ -644,6 +644,17 @@ Sometimes this kind of problematic requirement can be \quoted{leveled up}. In th
 
 \section{Tuning}
 
+Often, software has parameters whose ideal values are non-obvious. This is something that is very common in some types of software and very rare in others. In order to properly evaluate the software these parameters need to be \textsl{tuned} first.
+
+Such parameters are often used for:
+\begin{itemize}
+  \item Size of a buffer/queue/cache/batch.
+  \item Frequency of polling/sampling.
+  \item Lengths of timeouts.
+\end{itemize}
+
+\subsection{Strategies}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Evaluation
 \chapter{Evaluation}
