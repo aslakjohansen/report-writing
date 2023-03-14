@@ -2,11 +2,18 @@
 
 \usepackage[english]{babel} % load typographical rules for the english language
 \usepackage{graphics} % for \scalebox
-\usepackage{hyperref} % for \href
 \usepackage{enumitem} % for options to the enumerate environment
 \usepackage[cache=false]{minted} % code inclusion
 \usepackage{dirtytalk} % for \say quotation
 \usepackage{adjustbox} % for \adjustbox environment
+\usepackage{marginnote} % for margin notes
+
+% configure index: https://en.wikibooks.org/wiki/LaTeX/Indexing
+\usepackage{imakeidx}
+\indexsetup{othercode=\small}
+\makeindex[program=makeindex,columns=2,intoc=true,options={-s index_style.ist}]
+
+\usepackage{hyperref} % for \href
 
 \usepackage{tikz} % for diagrams
 
@@ -37,6 +44,14 @@
 \newcommand{\descitem}[1]{\item \textdesc{#1}}
 \newcommand{\quoted}[1]{\textsl{\say{#1}}}
 
+\newcommand{\idx}[1]{
+  \index{#1}\marginnote{\tiny #1}[0cm]
+}
+\newcommand{\idxx}[2]{
+  \index{#1}\marginnote{\tiny #2}[0cm]
+}
+%\newcommand{\aslakindex}[2]{}
+
 \title{Report Writing \\ \scalebox{0.85}{for Software BSc and MSc Projects}}
 \author{Aslak Johansen}
 
@@ -62,7 +77,7 @@ You can get your hands on the latest versions of this document by checking out t
 
 \section{Advisor}
 
-First of all: All advisors are different. If your advisor disagrees with this section, then they are right and this section is wrong.
+\idx{Advisor} First of all: All advisors are different. If your advisor disagrees with this section, then they are right and this section is wrong.
 
 \subsection{Role}
 
@@ -72,14 +87,14 @@ First of all: All advisors are different. If your advisor disagrees with this se
 
 \subsection{Interaction}
 
-The perfect interaction model for supervision depends on the specific project. However, as a starting point I like to have a weekly recurring status meeting of 30 minutes that goes into the calendar. That way there is time allocated. If I don't receive an agenda over Discord 24 hours before the meeting I consider it canceled and may reallocate the time. In some weeks there won't be anything to cover in this status meeting, and in other weeks there may be a need for an extra meeting.
+\idxx{Advisor!Interaction}{Interacting with advisor} The perfect interaction model for supervision depends on the specific project. However, as a starting point I like to have a weekly recurring status meeting of 30 minutes that goes into the calendar. That way there is time allocated. If I don't receive an agenda over Discord 24 hours before the meeting I consider it canceled and may reallocate the time. In some weeks there won't be anything to cover in this status meeting, and in other weeks there may be a need for an extra meeting.
 
 When it comes to the day-to-day supervision (aka the small questions and messages) I find that a per-project Discord channels works best. That setup also integrates well with online meetings and screensharing.
 
 \subsection{Choice}
 
 % intro: partnership
-The relationship between the students of a group, their advisor(s) is a partnership. Ideally, all partners should get something out of it. From the advisors side that will usually be a domain or field of interest, and the project could be rooted in a research project.
+\idxx{Advisor!Choice}{Choosing advisor} The relationship between the students of a group, their advisor(s) is a partnership. Ideally, all partners should get something out of it. From the advisors side that will usually be a domain or field of interest, and the project could be rooted in a research project.
 
 % if it doesnt work out
 If you have a negative previous experience with a potential advisor (e.g., from a bachelor project), then you should obviously look elsewhere. Do note that this is does not have to indicate more that incompatibilities of personality types.
@@ -97,12 +112,12 @@ Good reasons to choose a advisor may include:
 \label{sec:projectsize}
 
 % project length
-Currently, at SDU, a BSc project is 15 ECTS points across the spring semester, and a MSc project is either 30 ECTS across the spring semester or 40 ECTS points across two semesters starting in the fall. The workload of the 40 ECTS variant is distributed so that 10 ECTS points are placed in the fall semester and the remaining 30 ECTS points fill up the entire spring semester. When that model is followed, the fall semester is typically spent interviewing stakeholders, doing the literature review and generally laying things out so that everything is ready for a focused spring semester. If you have found a project that gets you excited, and you should, then I really recommend that you choose a 40 ECTS point MSc. The 30 ECTS points variant has a tendency to get crammed. Be aware that there is a deadline for applying for a 40 ECTS project.
+\idx{Project size} Currently, at SDU, a BSc project is 15 ECTS points across the spring semester, and a MSc project is either 30 ECTS across the spring semester or 40 ECTS points across two semesters starting in the fall. The workload of the 40 ECTS variant is distributed so that 10 ECTS points are placed in the fall semester and the remaining 30 ECTS points fill up the entire spring semester. When that model is followed, the fall semester is typically spent interviewing stakeholders, doing the literature review and generally laying things out so that everything is ready for a focused spring semester. If you have found a project that gets you excited, and you should, then I really recommend that you choose a 40 ECTS point MSc. The 30 ECTS points variant has a tendency to get crammed. Be aware that there is a deadline for applying for a 40 ECTS project.
 
 \section{Group Composition}
 
 % don't do it alone
-Groups of one can work, but they rarely do. What usually happens is that -- lacking experience with a project of this size -- the student starts postponing tasks (e.g., due to waning motivation). Groups of two are much more robust in that sense, likely due to a combination of a feeling of responsibility towards the other group member and the shared support structure. Groups of three can also work, but here the trick becomes (i) to size to project workload, and (ii) to make it clear that all have done their fair share of the project.
+\idx{Group composition} Groups of one can work, but they rarely do. What usually happens is that -- lacking experience with a project of this size -- the student starts postponing tasks (e.g., due to waning motivation). Groups of two are much more robust in that sense, likely due to a combination of a feeling of responsibility towards the other group member and the shared support structure. Groups of three can also work, but here the trick becomes (i) to size to project workload, and (ii) to make it clear that all have done their fair share of the project.
 
 % friends but not too good friends
 It is important for group members to be on good terms. Positive experience from previous groupwork is a plus. However, groups consisting of too \textsl{good} friends have a tendency to find topics irrelevant to the project to spend their time on. While that is a healthy thing it is not conductive in terms of progressing the project.
@@ -120,14 +135,14 @@ It is important for group members to be on good terms. Positive experience from 
 \subsection{Non-Disclosure Agreement}
 
 % purpose and involvement
-Often, an industrial collaborator will insist on the anyone coming into contact with what they consider company secrets to sign a nondisclosure agreement (NDA). That includes the group members and SDU. SDU will sign this on behalf of the advisor(s) and censor. You can get the ball rolling by contacting \href{mailto:contracts@sdu.dk}{contracts@sdu.dk}. But before doing so, you should read their intro\footnote{\url{https://www.sdu.dk/en/om_sdu/institutter_centre/tekinnovation/for_studerende/nda}}.
+\idxx{NDA}{NDA} Often, an industrial collaborator will insist on the anyone coming into contact with what they consider company secrets to sign a nondisclosure agreement (NDA). That includes the group members and SDU. SDU will sign this on behalf of the advisor(s) and censor. You can get the ball rolling by contacting \href{mailto:contracts@sdu.dk}{contracts@sdu.dk}. But before doing so, you should read their intro\footnote{\url{https://www.sdu.dk/en/om_sdu/institutter_centre/tekinnovation/for_studerende/nda}}.
 
 % warning
 You should, however, be aware that getting an NDA in place can be a lengthy process. All parties need to agree on the legalese and that means that representatives of the legal organizations have to dead through the document and agree on the contents. SDU has a standard NDA, but the industrial partner may not be happy about it. Expect this process to be measured in months, and expect not to have access to material from the industrial collaborators before it is in place. If you are doing a 40 ECTS project that is likely to be highly inconvenient, but if you are doing a 30 ECTS project that can quickly become detrimental. The lesson learned is to start as early as possible, and aim to have that NDA in place \textsl{before} handing in the project description.
 
 \section{Deadlines}
 
-At SDU there are a few deadlines to be concerned with. These are:
+\idx{Deadlines} At SDU there are a few deadlines to be concerned with. These are:
 \begin{itemize}
   \item The deadline for signing up for a 40 ECTS MSc project and is, naturally, only applicable to MSc projects. See section \ref{sec:projectsize} for details.
   \item The deadline of handing in the project description. Please note that this needs to be approved. See section \ref{sec:projectdesc} for details.
@@ -140,7 +155,7 @@ At SDU there are a few deadlines to be concerned with. These are:
 \chapter{Project Description}
 \label{sec:projectdesc}
 
-The project description is a document you hand in via \url{spoc.sdu.dk}. This document frames your project by describing which problem you will be addressing and how you plan on doing so. When writing this, it is important to keep your learning objectives in mind. Through the report you end up writing for this project, it should be clear to censor that you have reached all of your learning objectives.
+\idx{Project description} The project description is a document you hand in via \url{spoc.sdu.dk}. This document frames your project by describing which problem you will be addressing and how you plan on doing so. When writing this, it is important to keep your learning objectives in mind. Through the report you end up writing for this project, it should be clear to censor that you have reached all of your learning objectives.
 
 But lets imagine that you end up with a project description that makes it is impossible for you to do any work that relates to one of the learning objectives. Accordingly, it will be impossible for you to not a have at least one major weakness, and thus you cannot possibly get a higher grade than 7.
 
@@ -180,13 +195,13 @@ A rejection in any of these steps means that you will have to reupload.
 \section{Tools}
 
 % google docs
-Many people like to work in Google Docs, and it truly is convenient for many things. However, the typographical qualities of the resulting PDF are awful. After having seen a a great many reports written in Google Docs, I have reached the conclusion that it is likely impossible to create a remotely professional looking report in Google Docs.
+Many people like to work in Google Docs\idx{Google Docs}, and it truly is convenient for many things. However, the typographical qualities of the resulting PDF are awful. After having seen a a great many reports written in Google Docs, I have reached the conclusion that it is likely impossible to create a remotely professional looking report in Google Docs.
 
 % microsoft word
-Microsoft Word is an alternative. I have heard many students say that it is possible to create a professionally looking report in Microsoft Word, and they have all failed to do so. I am starting to think that it is possible to get quite close, but that the effort required is ridiculously high. The same goes for Libre/Open Office.
+Microsoft Word\idx{Microsoft Word} is an alternative. I have heard many students say that it is possible to create a professionally looking report in Microsoft Word, and they have all failed to do so. I am starting to think that it is possible to get quite close, but that the effort required is ridiculously high. The same goes for Libre/Open Office.
 
 % latex
-\LaTeX\ has all the right typographical rules needed, and it will allow you to tweak everything to your hearts desire. But, crucially, you don't have to. If you don't want to know about these things, then just use the (generally) sensible defaults, and you are already ahead.
+\LaTeX\ \idxx{LaTeX@\LaTeX}{\LaTeX} has all the right typographical rules needed, and it will allow you to tweak everything to your hearts desire. But, crucially, you don't have to. If you don't want to know about these things, then just use the (generally) sensible defaults, and you are already ahead.
 
 % working with latex
 \LaTeX\ is written as code in plain text files, and can therefore easily live in a git repository. It is a good practice to have a single sentence per line. It is worth the effort when the merge conflicts hits you. There are online \LaTeX\ editors (e.g., Overleaf) that can be linked to such a git repository. But do \underline{not} rely on them. Their uptime is not impressive.
@@ -212,7 +227,7 @@ Why does it matter? First of all, it shows that you care. If you did not care ve
 
 \section{Process}
 
-A report is a structured text that is made up of chapters. Each chapter is in turn made up of sections, each section of subsections, each subsection of paragraphs, and each paragraph of sentences. You may forego the chapter level, and add further subsections if that happens to be a better fit. Paragraphs can be placed at any level of sections. Also, each section may have an introductory paragraph. Figure \ref{fig:firststeps:process:bnf} illustrates this in BNF, and it should be clear to you that this is an example of a tree structure.
+\idx{Writing process} A report is a structured text that is made up of chapters. Each chapter is in turn made up of sections, each section of subsections, each subsection of paragraphs, and each paragraph of sentences. You may forego the chapter level, and add further subsections if that happens to be a better fit. Paragraphs can be placed at any level of sections. Also, each section may have an introductory paragraph. Figure \ref{fig:firststeps:process:bnf} illustrates this in BNF, and it should be clear to you that this is an example of a tree structure.
 
 \begin{figure}
     \begin{adjustbox}{trim=2.4cm 0 0 0mm} 
@@ -386,7 +401,7 @@ This document represents a dissertation. In the beginning of it you are likely t
 
 \section{Report Structure}
 
-The following is a good starting point for the structure of most reports. If you end up with \textsl{interesting} parts of your implementation then you can add an \textdesc{Implementation} section. However, we do -- especially at the MSc level -- expect you to be able to write code, and we generally don't care about you choosing a \keywordname{for} loop over a \keywordname{while} loop.
+\idx{Report structure} The following is a good starting point for the structure of most reports. If you end up with \textsl{interesting} parts of your implementation then you can add an \textdesc{Implementation} section. However, we do -- especially at the MSc level -- expect you to be able to write code, and we generally don't care about you choosing a \keywordname{for} loop over a \keywordname{while} loop.
 
 \begin{enumerate}
   \descitem{Table of Contents}
@@ -448,7 +463,7 @@ The following is a good starting point for the structure of most reports. If you
 \subsection{Floats}
 
 % intro: what, examples (figure, table, code listing), refs are necessary
-A float is a piece of the report that you allow the layouter to place on your behalf. You don't have to care about it being broken up across multiple pages and you get a number that you can use to refer to it through. This is beneficial when you need to refer to it from multiple places in the document. In \LaTeX, there are a number of predefined float types (figure, table and code listing springs to mind), and you can define your own. The floats are also presented with a caption and stand out from the normal text.
+\idx{Floats} A float is a piece of the report that you allow the layouter to place on your behalf. You don't have to care about it being broken up across multiple pages and you get a number that you can use to refer to it through. This is beneficial when you need to refer to it from multiple places in the document. In \LaTeX, there are a number of predefined float types (figure, table and code listing springs to mind), and you can define your own. The floats are also presented with a caption and stand out from the normal text.
 
 % refs and context
 No matter where the float ends up, you will have to refer to it by number. The text should always be written in such a manner that it is optional to look at the float. You must explicitly point out what you want the reader to take away from it. In the same way, the floats should make sense without locating the text that refers to them.
@@ -515,21 +530,21 @@ Increased the line spacing is something used by public school teachers to write 
 \section{Stakeholder Interviews}
 
 % deeper understanding of the actual problem, to properly describe the structure of the problem and how different aspect affect different parts of the organization (both for qualifying problem structure, and for understanding underlying tradeoffs), cover as many aspects as possible (argued through stakeholder roles)
-To get a deeper understanding of the actual problem we often perform stakeholder interviews. The goal is to properly describe the structure of the problem, and highlight how various aspects of the problem affects different parts of the organization. This allows us to qualify structural elements of the problem and understand underlying tradeoffs. To accomplish this, we should go for coverage of as many aspects as possible. That coverage can be argued through interviews of of people from a wide list of stakeholder roles.
+To get a deeper understanding of the actual problem we often perform stakeholder interviews\idx{Stakeholder interview}. The goal is to properly describe the structure of the problem, and highlight how various aspects of the problem affects different parts of the organization. This allows us to qualify structural elements of the problem and understand underlying tradeoffs. To accomplish this, we should go for coverage of as many aspects as possible. That coverage can be argued through interviews of of people from a wide list of stakeholder roles.
 
 % questions: questions need to be prepared, should cover all relevant aspects
 Before the interviews you must have prepared a framework for the interview, and a list of questions. Do you interview stakeholders individually, or do you pit opposing roles against each other? You have a limited amount of time. Which questions will give you the most value within the allotted time? And how much time should you ask of your interviewees?
 
 % fully structured
-The perhaps most immediate strategy is to come up with a long list of very specific questions. Questions, which build of your knowledge of the field and go straight to the point. They might even be yes/no type of questions. You provide a tight structure and guide the interviewee neatly through it all. That is what is referred to as a \textsl{structured} interview. Its success depends on you having a deep enough understanding of the field and the stakeholders. In reality, you are unlikely to have that level of understanding, and the responses you get will be limited to your previous understanding of the field. Little will be learned.
+The perhaps most immediate strategy is to come up with a long list of very specific questions. Questions, which build of your knowledge of the field and go straight to the point. They might even be yes/no type of questions. You provide a tight structure and guide the interviewee neatly through it all. That is what is referred to as a \textsl{structured} interview\idx{Structured interview}. Its success depends on you having a deep enough understanding of the field and the stakeholders. In reality, you are unlikely to have that level of understanding, and the responses you get will be limited to your previous understanding of the field. Little will be learned.
 
 % level of structure: structured as immediate choice, the other extreme, semistructured being wide, argue for the level of structure
-At the opposite end of the scale we have an \textsl{unstructured} interview, where you make sure that you never lead the interviewee. By not leading the, you make sure that they get to make up their own minds and bring up the things they really think matter. However, there is little reason to think that what they bring up is of any interest to you. The rest of the scale is covered by various degrees of \textsl{semistructured} interviews, and this is obviously where you want to be. This part of the scale is, however, still very wide, and it is up to you to argue where exactly you fall and why. When, and to which degree, do you force an aspect into the conversation?
+At the opposite end of the scale we have an \textsl{unstructured} interview\idx{Unstructured interview}, where you make sure that you never lead the interviewee. By not leading the, you make sure that they get to make up their own minds and bring up the things they really think matter. However, there is little reason to think that what they bring up is of any interest to you. The rest of the scale is covered by various degrees of \textsl{semistructured} interviews\idx{Semistructured interview}, and this is obviously where you want to be. This part of the scale is, however, still very wide, and it is up to you to argue where exactly you fall and why. When, and to which degree, do you force an aspect into the conversation?
 
 % recording and referencing
 Recording the interview, will free you of the job of having to take notes \textsl{during} the interview. This, obviously, requires the concent of all participants. Ideally, you will hand in the recording along with your report and simply refer to timestamps in the interview. However, not all stakeholders are willing to participate on such terms and then you will have to find a common ground. Video is useful to catch the context of the discussion (e.g., a whiteboard). Some tools provide convening features\footnote{Please write me if you have positive experience with some other tool, and I will add it here}:
 \begin{itemize}
-  \descitem{Teams} allows you to record a video meeting, and to transcribe it according to a user-selected language (e.g., Danish).
+  \descitem{Teams}\idx{Microsoft Teams} allows you to record a video meeting, and to transcribe it according to a user-selected language (e.g., Danish).
 \end{itemize}
 
 % upskilling may be necessary, so it might be necessary to investigate some related work first
@@ -540,7 +555,7 @@ In order to act as a qualified interviewer it may be necessary to upskill before
 \chapter{Related Work}
 
 % purpose
-You are rarely expected to start building your solution from the ground up. Instead, you should \quoted{stand on the shoulders of giants}\cite{newton1959correspondence} or, at least, learn from them. If your project touch on areas that your knowledge doesn't obviously cover then you need to build up that knowledge, and you may need to do so in several different areas. For instance, if you will be working on a way of visualizing a large amount of graph data, you should look into the state of the art withing both graph visualization and graph storage, and perhaps also the interaction between those. One way of gaining such insights is a literature review. In the graph visualization example you would perform two or three literature reviews.
+\idx{Related work} You are rarely expected to start building your solution from the ground up. Instead, you should \quoted{stand on the shoulders of giants}\cite{newton1959correspondence} or, at least, learn from them. If your project touch on areas that your knowledge doesn't obviously cover then you need to build up that knowledge, and you may need to do so in several different areas. For instance, if you will be working on a way of visualizing a large amount of graph data, you should look into the state of the art withing both graph visualization and graph storage, and perhaps also the interaction between those. One way of gaining such insights is a literature review. In the graph visualization example you would perform two or three literature reviews.
 
 \section{Goals}
 \label{sec:relatedwork:questions}
@@ -604,11 +619,11 @@ In describing this, it might be useful to introduce the notion of an \textsl{exc
 
 \subsection{Snowballing}
 
-Papers come with references. If a paper is relevant chances are that some of the references are relevant as well. Follow these, and repeat the process. When documenting the process, it is important to describe this recursive process is concluded. This is known as snowballing.
+\idx{Snowballing} Papers come with references. If a paper is relevant chances are that some of the references are relevant as well. Follow these, and repeat the process. When documenting the process, it is important to describe this recursive process is concluded. This is known as snowballing.
 
 \subsection{Reverse Snowballing}
 
-Reverse snowballing is when you search the other way: You have a relevant paper, and want to know which papers refer to it. This will yield newer papers.
+\idx{Reverse snowballing} Reverse snowballing is when you search the other way: You have a relevant paper, and want to know which papers refer to it. This will yield newer papers.
 
 \subsection{Author Tracking}
 
@@ -643,11 +658,11 @@ That strategy does not scale with the number of papers though. Another option is
 \chapter{Requirements}
 
 % evaluation
-The requirements will eventually have to be evaluated. Before leaving the requirement capture phase of the project you should consider how you will evaluate each requirement. This can also function as a sanity check. So, before moving on, you should skim section \ref{sec:eval} on evaluation.
+\idx{Requirements} The requirements will eventually have to be evaluated. Before leaving the requirement capture phase of the project you should consider how you will evaluate each requirement. This can also function as a sanity check. So, before moving on, you should skim section \ref{sec:eval} on evaluation.
 
 \section{Testability}
 
-I often come across requirements like \quoted{The system should be responsive}. On the surface it appears fine, even sane. However, it is not testable. There is no agreement as to what it means for a system to be \quoted{responsive}. It is what is sometimes referred to as a \quoted{bad requirement}.
+\idx{Testability} I often come across requirements like \quoted{The system should be responsive}. On the surface it appears fine, even sane. However, it is not testable. There is no agreement as to what it means for a system to be \quoted{responsive}. It is what is sometimes referred to as a \quoted{bad requirement}.
 
 Usually, we have requirements because we need something to evaluate a resulting system against. For this purpose, the above mentioned requirement is useless, and it is your problem not spotting it in due time.
 
@@ -694,7 +709,7 @@ Each of these figures should have exactly the details needed to tell the story y
 
 \section{Tuning}
 
-Often, software has parameters whose ideal values are non-obvious. This is something that is very common in some types of software and very rare in others. In order to properly evaluate the software these parameters need to be \textsl{tuned} first.
+\idx{Tuning} Often, software has parameters whose ideal values are non-obvious. This is something that is very common in some types of software and very rare in others. In order to properly evaluate the software these parameters need to be \textsl{tuned} first.
 
 Such parameters are often used for:
 \begin{itemize}
@@ -715,7 +730,7 @@ Such parameters are often used for:
 \label{sec:eval}
 
 % intro:
-When you have constructed your system, you have certainly achieved something. But at that point we know very little about \textsl{what} you have achieved. Does it work correctly? How well does it meet the requirements? To be able to make claims in these regards, you need an evaluation. What and how you need to evaluate depends on which kinds of claims you wish to make. At the end of the day the claims supported by your evaluation will define the success of the system. From a report perspective, that is.
+\idx{Evaluation} When you have constructed your system, you have certainly achieved something. But at that point we know very little about \textsl{what} you have achieved. Does it work correctly? How well does it meet the requirements? To be able to make claims in these regards, you need an evaluation. What and how you need to evaluate depends on which kinds of claims you wish to make. At the end of the day the claims supported by your evaluation will define the success of the system. From a report perspective, that is.
 
 % TODO: needs a rewrite:
 My recommendation is for you to think the evaluation into the design so that you end up designing for evaluation. One benefit of that would be that your mental model of the evaluation process evolves along with the project. Another would be that that you end up having natural points for instrumentation in the codebase that gives you exactly the kind of access that you need for your *ideal* evaluation.
@@ -757,14 +772,14 @@ The further along in your education the less focus there will be on functional r
 \subsection{Performance}
 
 % width
-When you simply refer to \quoted{performance} you are referring to every single aspect of performance, and thus you are making a very wide statement. Verifying the correctness of such a statement would mean to verify it for all aspects of performance, relevant or not. That is usually a very labor-intensive task. Instead, you should consider whether you want that statement to actually cover all performance aspects.
+\idx{Performance evaluation} When you simply refer to \quoted{performance} you are referring to every single aspect of performance, and thus you are making a very wide statement. Verifying the correctness of such a statement would mean to verify it for all aspects of performance, relevant or not. That is usually a very labor-intensive task. Instead, you should consider whether you want that statement to actually cover all performance aspects.
 
 % how performance may affect functional requirements and availability
 
 \subsubsection{Latency}
 
 % defining latency
-Latency is the amount of time it takes to pass though some part of the system. As such there can be multiple relevant latencies associated with a system. Often, one focuses on the latency imposed by individual services exposed by the system. This is essentially measured by obtaining a timestamp, invoking the service, taking another timestamp, and then subtracting the first timestamp from the last. For evaluation purposes, it is thus important to define \textsl{which} latencies need to be evaluated. This can either be done through very explicit text (in order to avoid ambiguity) or by visually highlighting certain points on a figure.
+Latency\idx{Latency} is the amount of time it takes to pass though some part of the system. As such there can be multiple relevant latencies associated with a system. Often, one focuses on the latency imposed by individual services exposed by the system. This is essentially measured by obtaining a timestamp, invoking the service, taking another timestamp, and then subtracting the first timestamp from the last. For evaluation purposes, it is thus important to define \textsl{which} latencies need to be evaluated. This can either be done through very explicit text (in order to avoid ambiguity) or by visually highlighting certain points on a figure.
 
 % dynamic properties, distribution as a function over load
 The approach of taking a single measurement, however, does not account for dynamic properties of the involved components. Such dynamics can stem from a number of sources, including but not limited to:
@@ -804,7 +819,7 @@ Instead, effort should be made to remove ambiguity from the requirements when th
 \subsection{Availability}
 
 % intro: definition
-Availability is a nebulous term. Surely, it has something to do with the system being available to provide some service. Your system is likely to provide multiple services, and they may not have (or need) equal availability. It might not even be clear what it means for a service to be \quoted{available}. Usually you see a definition over MTBF (mean time between failure) and MTBR (mean time between repair), but it is clearly much more complicated: Certain failures we can accept, and operating on means comes with its own share of problems. Often terms like \quoted{uptime} and \quoted{downtime} are introduced to simplify things. However, these can also have complex definitions. Sometimes a system is said to be \quoted{up} when it responds within a certain period of time. At other times a system is said to be \quoted{down} when the it has not been up for longer than some period of time. In other words, it may be allowed to not be up as long as this is a brief event.
+Availability\idx{Availability} is a nebulous term. Surely, it has something to do with the system being available to provide some service. Your system is likely to provide multiple services, and they may not have (or need) equal availability. It might not even be clear what it means for a service to be \quoted{available}. Usually you see a definition over MTBF\idx{MTBF} (mean time between failure) and MTBR\idx{MTBR} (mean time between repair), but it is clearly much more complicated: Certain failures we can accept, and operating on means comes with its own share of problems. Often terms like \quoted{uptime}\idx{Uptime} and \quoted{downtime}\idx{Downtime} are introduced to simplify things. However, these can also have complex definitions. Sometimes a system is said to be \quoted{up} when it responds within a certain period of time. At other times a system is said to be \quoted{down} when the it has not been up for longer than some period of time. In other words, it may be allowed to not be up as long as this is a brief event.
 
 % intro: erlang "9-nines"
 
@@ -812,13 +827,13 @@ Availability is a nebulous term. Surely, it has something to do with the system 
 If you need to provide a high degree of availability over a significant amount of time you have to consider what kinds of changes can occur across this period of time. Naturally, you will have to update the software in order to react to bugs, feature needs and an changing security landscape. This means that you need to consider what the impact of a software update will have on availability. Over time, protocols and file formats change. How does this affect the availability of the system? Partial hot updates will be key to scoring well here.
 
 % be careful about terms like "high availability"
-Requirements on availability should be treated as seriously as any other requirement. Stating that your system \quoted{has high availability} provokes the question: High, relative to what? It is not a realistic assumption that we share an interpretation of what that means. If you are not looking to argue specifics, you can get away with a more correct \quoted{provides a high degree of availability}. But for the evaluation you will need to argue \textsl{how} high that degree is.
+Requirements on availability should be treated as seriously as any other requirement. Stating that your system \quoted{has high availability}\idx{High availability} provokes the question: High, relative to what? It is not a realistic assumption that we share an interpretation of what that means. If you are not looking to argue specifics, you can get away with a more correct \quoted{provides a high degree of availability}. But for the evaluation you will need to argue \textsl{how} high that degree is.
 
 % brute-force is not an option
 \subsubsection{Brute Force Strategy}
 
 % example
-Lets assume that it takes $1$s to detect a failure in any part of a system that is critical to availability and restart that part. If you have a requirement of 5-nines, then you can allow one such event to happen every $10^5$s (that's a bit shy of 3 hours). However, that does not mean that we just need to let the system run for 3 hours under load. We haven't gotten to the failure modes and the distributions of failures that fall into the modes yet. Some classes of failures appear more and more frequently as time goes by. In that case you will be much less likely to observe a failure during 3 hours of experimentation on a new system than you would on a 10 year old system.
+\idx{Brute force} Lets assume that it takes $1$s to detect a failure in any part of a system that is critical to availability and restart that part. If you have a requirement of 5-nines, then you can allow one such event to happen every $10^5$s (that's a bit shy of 3 hours). However, that does not mean that we just need to let the system run for 3 hours under load. We haven't gotten to the failure modes and the distributions of failures that fall into the modes yet. Some classes of failures appear more and more frequently as time goes by. In that case you will be much less likely to observe a failure during 3 hours of experimentation on a new system than you would on a 10 year old system.
 
 % problem
 To give confidence to a claim of availability you would have to argue that the event is (highly) likely to have happened during the experiment period, and that will end up increasing the length of that period significantly. The failures may also be triggered by certain stimuli. To trigger the failure mode you would have to produce that stimuli. If you don't know this to be the case, or don't know the specific stimuli, this strategy will require you to spend hours on each potential stimuli. This is time you don't have.
@@ -836,7 +851,7 @@ As an example, consider a webshop consisting of a frontend, a backend and a DBMS
 \subsubsection{Structural Strategy}
 
 % actors and "which means that it is feasible to unit test for availability"
-The actor-model\cite{10.5555/889486} is a software modeling approach that can be seen as a extreme foundation for the scenario-based strategy. Code is split into actors that expose services through a per-actor mailbox. Supervision trees can be used to ensure that actors keep running. This -- at least theoretically -- allows us to make per-actor scenarios and unit test for availability. This, of course, requires tooling like what is provided by the Open Telecom Platform (OTP) and -- to a lesser degree -- Kubernetes.
+The actor-model\cite{10.5555/889486} is a software modeling approach that can be seen as a extreme foundation for the scenario-based strategy. Code is split into actors that expose services through a per-actor mailbox. Supervision trees can be used to ensure that actors keep running. This -- at least theoretically -- allows us to make per-actor scenarios and unit test for availability. This, of course, requires tooling like what is provided by the Open Telecom Platform\idx{OTP} (OTP) and -- to a lesser degree -- Kubernetes\idx{Kurbernetes}.
 
 \subsection{Scalability}
 
@@ -911,7 +926,7 @@ Figures make great partners when you explain something. It allows you to point a
 
 \section{Defense}
 
-The allocated time for the defense can be seen in figure \ref{fig:defense:time}\footnote{Please note that this may not be up to date.}.
+\idx{Defense} The allocated time for the defense can be seen in figure \ref{fig:defense:time}\footnote{Please note that this may not be up to date.}.
 
 \begin{figure}
   \centering
@@ -944,7 +959,7 @@ Few projects go according to plan, and mistakes are frequently made. There are n
 \subsection{Presentation}
 
 % distribution of time (between group members)
-When presenting, be sure to distribute the presentation duties roughly evenly across all group members. It doesn't matter too much how large segments each member presents at a time, so try to find a natural balance. However, if no other indication of who did what is available, censor and advisor may try to glen this from the mapping from contents to group member.
+\idx{Presentation} When presenting, be sure to distribute the presentation duties roughly evenly across all group members. It doesn't matter too much how large segments each member presents at a time, so try to find a natural balance. However, if no other indication of who did what is available, censor and advisor may try to glen this from the mapping from contents to group member.
 
 % clarifying uncertainties
 After the presentation, advisor and censor are likely to have e few questions to clarify uncertainties before progressing to the individual part of the exam.
@@ -952,7 +967,7 @@ After the presentation, advisor and censor are likely to have e few questions to
 \subsection{Questions}
 
 % based on learning objectives: clear pass -> verify, middle -> can we pull up? (expectation high), bottom -> can we pull up (expectation low)?, within the given restrictions (e.g., time), => we are going to sample
-Some questions will seek to clarify what have been done, and others will address the reasoning behind the choices. In general, we look at the learning objectives. If a learning objective is a clear pass then the goal is to verify that you did the job. If a learning objective is partially fulfilled then the goal is to see if the level of the student is higher than that of the report. The same goes for learning objectives which have not been fulfilled, but here the expectation is low. Because of the time restrictions the questions will represent an attempt to sample enough insights to land on a grade.
+\idxx{Defense!Questions}{Questions} Some questions will seek to clarify what have been done, and others will address the reasoning behind the choices. In general, we look at the learning objectives. If a learning objective is a clear pass then the goal is to verify that you did the job. If a learning objective is partially fulfilled then the goal is to see if the level of the student is higher than that of the report. The same goes for learning objectives which have not been fulfilled, but here the expectation is low. Because of the time restrictions the questions will represent an attempt to sample enough insights to land on a grade.
 
 % code: may ask about code in report main, highly unlikely to ask about the rest of the code
 During the examination we generally try to stay away from code. If there is something in the report main that sticks out it might warrant a follow up, and then it could potentially be taken all the way. In practice, that doesn't happen though.
@@ -963,5 +978,7 @@ During the examination we generally try to stay away from code. If there is some
 The report (likely) contains many pages and covers much information. You have spent a significant amount of time on it with few restrictions. Censor and examiner has spent a great deal of time reading it. Compared to that, the defense represents a small amount of time. Coming into the defense, both censor and examiner will have a rough idea of the level of the report, and it is generally -- in the brief time allotted -- hard to sway that perception. Typically, the end results will fall within $\pm 1$ grade step of that initial impression. It does happen that the final grade is shifted more, but it is rare. In exceptional cases (e.g., if it is discovered that someone hasn't participated), the grade could potentially go all the way down.
 
 \printbibliography
+
+\printindex
 
 \end{document}
