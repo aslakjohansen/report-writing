@@ -677,7 +677,7 @@ Do note that a MoSCoW prioritization is a priority of eventual requirements. Tha
 
 Usually, we have requirements because we need something to evaluate a resulting system against. For this purpose, the above mentioned requirement is useless, and it is your problem not spotting it in due time.
 
-Sometimes this kind of problematic requirement can be \quoted{leveled up}. In this particular case it might be clear that the \quoted{responsiveness} property relates to the users of the system. That, in and of itself, doesn't help us much, but it does give us something to work with: We could construct a system that exposes users to varying response times and ask them to rank different runs as either \quoted{responsive} or \quoted{not responsive}. That way we can \textsl{quantify} what it means to be responsive in this context.
+Sometimes this kind of problematic requirement can be \quoted{leveled up}. In this particular case it might be clear that the \quoted{responsiveness}\idx{Responsiveness} property relates to the users of the system. That, in and of itself, doesn't help us much, but it does give us something to work with: We could construct a system that exposes users to varying response times and ask them to rank different runs as either \quoted{responsive} or \quoted{not responsive}. That way we can \textsl{quantify} what it means to be responsive in this context.
 
 \textbf{Note:} This would be part of the requirement analysis, as you will need a good understanding of the requirements before starting on the design.
 
@@ -706,7 +706,7 @@ Sometimes this kind of problematic requirement can be \quoted{leveled up}. In th
 \section{Figures}
 
 % problem: complex figure that is unreadable on print
-Figures are not included for show; they should have a purpose. Often a large and intricate class diagram is included: \quoted{Now we have documented out design}. That feels like a excuse. In reality, such figures are very hard to read, and even harder to wrap your head around. In such cases the diagram i scaled to fit an A4 page. However, a consequence of this is that the text is so small that it is barely readable, or worse. And because of the complexity of the systems that go into these projects they also represent an overload of information. This is not the way to document a design.
+Figures are not included for show; they should have a purpose. Often a large and intricate class diagram\idx{Class diagram} is included: \quoted{Now we have documented out design}. That feels like a excuse. In reality, such figures are very hard to read, and even harder to wrap your head around. In such cases the diagram i scaled to fit an A4 page. However, a consequence of this is that the text is so small that it is barely readable, or worse. And because of the complexity of the systems that go into these projects they also represent an overload of information. This is not the way to document a design.
 
 % many small (and clean) figures that each have a specific purpose
 Instead, consider the system design from different aspects and granularities. Start by presenting the principal components of the system and how they relate to each other. If needed, each of these principal components can be outlined in separate figures. Then present the remaining (relevant) details through aspects; how does each of the underlying mechanisms work?
@@ -743,7 +743,7 @@ Such parameters are often used for:
 \label{sec:eval}
 
 % intro:
-\idx{Evaluation} When you have constructed your system, you have certainly achieved something. But at that point we know very little about \textsl{what} you have achieved. Does it work correctly? How well does it meet the requirements? To be able to make claims in these regards, you need an evaluation. What and how you need to evaluate depends on which kinds of claims you wish to make. At the end of the day the claims supported by your evaluation will define the success of the system. From a report perspective, that is.
+\idx{Evaluation} When you have constructed your system, you have certainly achieved something. But at that point we know very little about \textsl{what} you have achieved. Does it work correctly? How well does it meet the requirements? To be able to make claims in these regards, you need an evaluation. What and how you need to evaluate depends on which kinds of claims\idx{Claim} you wish to make. At the end of the day the claims supported by your evaluation will define the success of the system. From a report perspective, that is.
 
 % TODO: needs a rewrite:
 My recommendation is for you to think the evaluation into the design so that you end up designing for evaluation. One benefit of that would be that your mental model of the evaluation process evolves along with the project. Another would be that that you end up having natural points for instrumentation in the codebase that gives you exactly the kind of access that you need for your *ideal* evaluation.
@@ -753,7 +753,7 @@ My recommendation is for you to think the evaluation into the design so that you
 \subsection{Functionality}
 
 % dealing with
-From an evaluation perspective, functional requirements are trivial. Is the requirement fulfilled? It's a yes or no question. At times you will find that the answer is somewhere in the middle (and thus: No). In those cases, you should ask yourself whether the requirement is too loosely phrased. It may make sense to split it into two or three subrequirements and deal with them individually. In any case, you will have some explanation to do.
+From an evaluation perspective, functional requirements\idxx{Requirement!Functional}{Functional requirement} are trivial. Is the requirement fulfilled? It's a yes or no question. At times you will find that the answer is somewhere in the middle (and thus: No). In those cases, you should ask yourself whether the requirement is too loosely phrased. It may make sense to split it into two or three subrequirements and deal with them individually. In any case, you will have some explanation to do.
 
 % change throughout the educations
 The further along in your education the less focus there will be on functional requirements. In your BSc it is key. In your MSc will usually\footnote{This depends on project type.} need to be there, but the nonfunctional requirements is normally the more interesting side of the spectrum. In your PhD, unless you work is directly linked to functional requirements you just expect that part to be in place and focus on the nonfunctional ones.
@@ -804,8 +804,8 @@ The approach of taking a single measurement, however, does not account for dynam
     \end{itemize}
   \descitem{Maintenance Operations} Operations that happens more or less regularly and has an effect on components of the system. For instance:
     \begin{itemize}
-      \item A \textsl{scheduler} that shifts in and out code in order to give other code time. On a general purpose operating system, this is done at the kernel level to make sure that all OS processes get time and thus appear to run in parallel. Something similar happens when working with userspace threads.
-      \item Most modern \textsl{garbage collectors} use a \textsl{stop-the-world} algorithm like Mark-and-Sweep. This causes pauses in execution and are generally considered a bad fit for time-critical problems (e.g., those involving video, audio or real-time).
+      \item A \textsl{scheduler}\idx{Scheduler} that shifts in and out code in order to give other code time. On a general purpose operating system, this is done at the kernel level to make sure that all OS processes get time and thus appear to run in parallel. Something similar happens when working with userspace threads.
+      \item Most modern \textsl{garbage collectors}\idxx{Garbage collection!Stop-the-world}{Stop-the-world Garbage collection} use a \textsl{stop-the-world} algorithm like Mark-and-Sweep\idx{Mark-and-Sweep}. This causes pauses in execution and are generally considered a bad fit for time-critical problems (e.g., those involving video, audio or real-time).
     \end{itemize}
 \end{itemize}
 
@@ -813,7 +813,7 @@ The approach of taking a single measurement, however, does not account for dynam
 Because of the inherent complexities of the systems that we want to investigate, we can't tell for sure which dynamics were at play during the collection of any single measurement. Instead, the underlying phenomena can be characterized by a distribution. Multiple measurements are needed to define that distribution. The more measurements we collect, the more rare events we will be able to capture. So, in order to determine how many measurements we need, we must consider the key events of the system, and how they interact to produce the final distribution. Finally, certain components have noisy latency. Even if the noise of all individual components is insignificant, at times the noise of the combination may add up to something significant.
 
 % bad requirements
-There a numerous horrible example of bad latency-related requirements. The worst is that \quoted{the system must have low latency}. This immediately forces a number of questions (for which the answers are defining for the outcome of the evaluation):
+\idxx{Requirement!Bad}{Bad requirements}There a numerous horrible example of bad latency-related requirements. The worst is that \quoted{the system must have low latency}. This immediately forces a number of questions (for which the answers are defining for the outcome of the evaluation):
 \begin{itemize}
   \descitem{Imprecise} Which part of the system? Is this relating to a specific service, or all services?
   \descitem{Subjective} Low, relative to what? Your definition of \quoted{low} may be different from mine.
@@ -858,13 +858,13 @@ There are two interconnected issues at play here. Firstly, the unit is a whole s
 
 An alternative is to accept at we can't reasonably reach a single hard number that encompasses all aspects of availability in a perfectly balanced way. Instead we can settle for an evaluation that lists a number of (classes of) failure scenarios, and addresses these individually. While these scenarios are clearly relevant en terms of availability, they can also affect other qualities of the system (e.g., performance). Some scenarios can naturally be addressed experimentally, others can be addressed through a solid argument.
 
-As an example, consider a webshop consisting of a frontend, a backend and a DBMS. One failure scenario would be that the DBMS -- for whatever reason -- is restarted. How does the system deal with that? Does it make the system become unavailable, and -- if so -- for how long? How is the responsiveness of the system affected? This could be answered as a plot of response time as a function of time after the failure event. What about throughput? Answering these questions will document the behavior of the system after the failure event. The more scenarios you document the more of the availability mechanics is revealed.
+As an example, consider a webshop consisting of a frontend, a backend and a DBMS. One failure scenario would be that the DBMS -- for whatever reason -- is restarted. How does the system deal with that? Does it make the system become unavailable, and -- if so -- for how long? How is the responsiveness\idx{Responsiveness} of the system affected? This could be answered as a plot of response time as a function of time after the failure event. What about throughput? Answering these questions will document the behavior of the system after the failure event\idx{Failure event}. The more scenarios you document the more of the availability mechanics is revealed.
 
 % evaluating specific failure modes, and triggering them
 \subsubsection{Structural Strategy}
 
 % actors and "which means that it is feasible to unit test for availability"
-The actor-model\cite{10.5555/889486} is a software modeling approach that can be seen as a extreme foundation for the scenario-based strategy. Code is split into actors that expose services through a per-actor mailbox. Supervision trees can be used to ensure that actors keep running. This -- at least theoretically -- allows us to make per-actor scenarios and unit test for availability. This, of course, requires tooling like what is provided by the Open Telecom Platform\idx{OTP} (OTP) and -- to a lesser degree -- Kubernetes\idx{Kurbernetes}.
+The actor-model\cite{10.5555/889486}\idx{Actor model} is a software modeling approach that can be seen as a extreme foundation for the scenario-based strategy. Code is split into actors that expose services through a per-actor mailbox. Supervision trees\idx{Supervision tree} can be used to ensure that actors keep running. This -- at least theoretically -- allows us to make per-actor scenarios and unit test for availability. This, of course, requires tooling like what is provided by the Open Telecom Platform\idx{OTP} (OTP) and -- to a lesser degree -- Kubernetes\idx{Kurbernetes}.
 
 \subsection{Scalability}
 
@@ -923,7 +923,7 @@ After handing in, and having licked your wounds, it's time to start considering 
 
 \section{Presentation Structure}
 
-The following is a good starting point for the presentation structure:
+\idxx{Defense!Presentation}{Presentation} The following is a good starting point for the presentation structure:
 \begin{enumerate}
   \descitem{Front Page} Including the title, your names and email, advisors name and email\textcolor{teal}{[1 slide]}.
   \descitem{Context} The information necessary for understanding the following slides\textcolor{teal}{[0-1 slide]}.
@@ -971,12 +971,12 @@ Figures make great partners when you explain something. It allows you to point a
 You are always allowed to conduct the presentation in English. If censor knows Danish, then Danish becomes an option as well. My recommendation is that the slides are written in English either way. The language for the presentation and the language for the following individual defense are not required to be the same. You decide.
 
 % be critical, admit mistakes, explain them, describe what you have learnt and how to avoid it in the future
-Few projects go according to plan, and mistakes are frequently made. There are not problems. Revisiting these situations, figuring out what the problem was and how you could have handled the situation better is actually a positive. It shows that you can be critical of your own work, and learn from your mistakes. As we know everybody makes mistakes. This provides the recipient with insights into how you deal with the.
+Few projects go according to plan, and mistakes\idx{Mistakes} are frequently made. There are not problems. Revisiting these situations, figuring out what the problem was and how you could have handled the situation better is actually a positive. It shows that you can be critical of your own work, and learn from your mistakes. As we know everybody makes mistakes. This provides the recipient with insights into how you deal with the.
 
 \subsection{Presentation}
 
 % distribution of time (between group members)
-\idx{Presentation} When presenting, be sure to distribute the presentation duties roughly evenly across all group members. It doesn't matter too much how large segments each member presents at a time, so try to find a natural balance. However, if no other indication of who did what is available, censor and advisor may try to glen this from the mapping from contents to group member.
+\idxx{Defense!Presentation}{Presentation} When presenting, be sure to distribute the presentation duties roughly evenly across all group members. It doesn't matter too much how large segments each member presents at a time, so try to find a natural balance. However, if no other indication of who did what is available, censor and advisor may try to glen this from the mapping from contents to group member.
 
 % clarifying uncertainties
 After the presentation, advisor and censor are likely to have e few questions to clarify uncertainties before progressing to the individual part of the exam.
