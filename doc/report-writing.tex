@@ -85,7 +85,7 @@ You can get your hands on the latest versions of this document by checking out t
 
 \idxx{Advisor!Interaction}{Interacting with advisor} The perfect interaction model for supervision depends on the specific project. However, as a starting point I like to have a weekly recurring status meeting of 30 minutes that goes into the calendar. That way there is time allocated. If I don't receive an agenda over Discord 24 hours before the meeting I consider it canceled and may reallocate the time. In some weeks there won't be anything to cover in this status meeting, and in other weeks there may be a need for an extra meeting.
 
-When it comes to the day-to-day supervision (aka the small questions and messages) I find that a per-project Discord channels works best. That setup also integrates well with online meetings and screensharing.
+When it comes to the day-to-day supervision (aka the small questions and messages) I find that a per-project Discord\idx{Discord} channels works best. That setup also integrates well with online meetings and screensharing.
 
 \subsection{Choice}
 
@@ -155,18 +155,18 @@ You should, however, be aware that getting an NDA in place can be a lengthy proc
 
 But lets imagine that you end up with a project description that makes it is impossible for you to do any work that relates to one of the learning objectives. Accordingly, it will be impossible for you to not a have at least one major weakness, and thus you cannot possibly get a higher grade than 7.
 
-The strategy for getting the best possible grade (on the Danish 7-point grading scale) is to focus on doing best in the worst of the learning objectives. This is a direct consequence of the focus on weaknesses. However, all projects are different and not all learning objectives are equally important for all projects. At the end of the day, all learning objectives are in effect, only with weights depending on the concrete project.
+The strategy for getting the best possible grade\idx{Grade} (on the Danish 7-point grading scale) is to focus on doing best in the worst of the learning objectives. This is a direct consequence of the focus on weaknesses. However, all projects are different and not all learning objectives are equally important for all projects. At the end of the day, all learning objectives are in effect, only with weights depending on the concrete project.
 
 \section{Structure}
 
 The structure of the project description is not set in stone. I usually recommend following the following template:
 
 \begin{enumerate}
-  \descitem{Context} This section covers all background information necessary for understanding the "Problem" and "Approach" sections. If the project is grounded by an industrial partner, then this partner should be introduced using one paragraph. This section is typically less than one page, and can be as short as one paragraph.
-  \descitem{Problem} This section contains the problem statement, and absolutely nothing besides the problem statement. A problem statement can take many forms. Often, it is a (research) question that you seek to answer, and that is typically decomposed into a (small) number of subquestions. This section usually takes up less than half a page.
-  \descitem{Approach} This section briefly details \textsl{how} you plan to answer this question. This does not relate to the process, but the overall technological choices. Note that you are allowed to make changes to this once you progress through the project itself. This section usually takes up less than half a page.
-  \descitem{Timeline} Describe how you plan to organize your project period time. Usually, this includes a Gantt diagram covering the basics: Problem elaboration, related work, analysis, design, implementation, and evaluation\footnote{Experimental evaluation takes significantly longer than you would expect. Multiplying the time you expect by four is likely a good call.}. You should also cover to which degree you want to work iteratively, and how you plan on interacting with your advisor(s)\footnote{My suggestion is to have short weekly meetings with your advisor(s). No later that 24h before the meeting you send an agenda. If you fail to do so the advisor(s) are allowed to reschedule that timeslot.}.
-  \descitem{Preliminaries/Feasibility} With the project description you should present your preliminaries; that is the work you have done in order to conclude that the proposed project has a high likelihood of success. Examples of components this can have include (but is not limited to) a preliminary literature review, a survey, a mockup and a risk analysis. The purpose is to convince the three people approving the project description that the project is feasible. This section is usually less than a page, but can take up a few if deemed necessary.
+  \descitem{Context} \idx{Context} This section covers all background information necessary for understanding the "Problem" and "Approach" sections. If the project is grounded by an industrial partner, then this partner should be introduced using one paragraph. This section is typically less than one page, and can be as short as one paragraph.
+  \descitem{Problem} \idx{Problem} This section contains the problem statement, and absolutely nothing besides the problem statement. A problem statement can take many forms. Often, it is a (research) question that you seek to answer, and that is typically decomposed into a (small) number of subquestions. This section usually takes up less than half a page.
+  \descitem{Approach} \idx{Approach} This section briefly details \textsl{how} you plan to answer this question. This does not relate to the process, but the overall technological choices. Note that you are allowed to make changes to this once you progress through the project itself. This section usually takes up less than half a page.
+  \descitem{Timeline} \idx{Timeline} Describe how you plan to organize your project period time. Usually, this includes a Gantt diagram covering the basics: Problem elaboration, related work, analysis, design, implementation, and evaluation\footnote{Experimental evaluation takes significantly longer than you would expect. Multiplying the time you expect by four is likely a good call.}. You should also cover to which degree you want to work iteratively, and how you plan on interacting with your advisor(s)\footnote{My suggestion is to have short weekly meetings with your advisor(s). No later that 24h before the meeting you send an agenda. If you fail to do so the advisor(s) are allowed to reschedule that timeslot.}.
+  \descitem{Preliminaries/Feasibility} \idxx{Feasibility}{Preliminaries Feasibility}\index{Preliminaries} With the project description you should present your preliminaries; that is the work you have done in order to conclude that the proposed project has a high likelihood of success. Examples of components this can have include (but is not limited to) a preliminary literature review, a survey, a mockup and a risk analysis. The purpose is to convince the three people approving the project description that the project is feasible. This section is usually less than a page, but can take up a few if deemed necessary.
 \end{enumerate}
 
 Note that the problem and approach sections can be reused in the final project report.
@@ -203,7 +203,7 @@ Microsoft Word\idx{Microsoft Word} is an alternative. I have heard many students
 \LaTeX\ is written as code in plain text files, and can therefore easily live in a git repository. It is a good practice to have a single sentence per line. It is worth the effort when the merge conflicts hits you. There are online \LaTeX\ editors (e.g., Overleaf) that can be linked to such a git repository. But do \underline{not} rely on them. Their uptime is not impressive.
 
 % linking to code
-Finally, there are benefits to having the report code either in the same repository as the project code, or in one that is checked out at a well defined path relative to the code repository. This allows for inclusions and automatic building of the report (e.g., to include results of tests or code snippets).
+Finally, there are benefits to having the report code\idx{Code inclusion} either in the same repository as the project code, or in one that is checked out at a well defined path relative to the code repository. This allows for inclusions and automatic building of the report (e.g., to include results of tests or code snippets).
 
 % required features
 Generally speaking I would expect support for the following in an even remotely modern system for writing IT related reports:
@@ -427,18 +427,18 @@ This document represents a dissertation. In the beginning of it you are likely t
 \section{Commandments}
 
 \begin{enumerate}
-  \descitem{Make the Effort}
+  \descitem{Make the Effort} \idx{Effort}
     As with pretty much else in life, if you want to excel at writing you need to put in significant amounts of focused work and active considerations about the nature of what makes a text good. Take pride in your work.
   \descitem{It Has to Make Sense}
     Above all else, what you do (and write) has to make sense. This should be your guiding light throughout the entire project. Much can be excused as long as the it is done for the right reasons. While this is used to balance learning objectives according to the individual project, in cannot completely remove a learning objective.
-  \descitem{Give and Take Credit}
+  \descitem{Give and Take Credit} \idx{Credit}
     In order to evaluate the contribution of a text it is necessary to know which parts the author has been responsible for contributing. If some insight, term or similar is original, then credit should be given to the author. If not, then credit should be given to the original authors (e.g., through a citation) and credit should be given to the author for citing them. It is bad practice to leave credit unclear, and it erodes overall confidence in the text itself. Therefore, always make sure that you give credit where it is needed, and take credit where you can.
   \descitem{Best Practices are Fallacies}
     While it is a good practice to explore best practices, real projects never seem to be quite that simple. Best practices are based on typical situations, and it is thus a good practice to be critical towards them. You will likely have to violate one or two of them.
-  \descitem{Do not Underestimate Experimental Evaluation}
+  \descitem{Do not Underestimate Experimental Evaluation} \idxx{Evaluation!Experimental}{Experimental evaluation}
     When working on something of experimental nature it is hard to assess the time to completion. Before beginning the work it is harder. Does all the needed experimental tooling already exists, or do you need to construct parts of it yourself? How many repetitions are necessary to get trustworthy results? How much time is needed to conduct the experiments? Which kinds of post processing of results are needed to reach the relevant insights?
     However long you think it is going to take, it is going to take longer. In part because things are going to go wrong, and you might realize that your design needs to change. For that to even be a possibility, you need to start experimental work early. A good rule of thumb is to take the time you expect it to take, and multiply it by $\pi$.
-  \descitem{Respect your Audience}
+  \descitem{Respect your Audience} \idx{Audience}
     You are writing a report because you expect someone to read it. Knowing who that someone is is key to understanding what is necessary in order to convey your subject. You can expect your reader to have an IT-related background and at least an MSc. Also, you should expect the reader to print your report on A4 paper. A consequence of this is that you cannot rely on the reader zooming in to read certain parts of a figure.
   \descitem{One sentence One message}
     Rarely is anything achieved by having a single sentence deliver more than a single message. Often, readability is affected negatively. A sequence of short messages, each progressing the narrative towards a point is a simple way of ensuring a concise and readable language. It takes considerable effort to shoehorn multiple messages into a single sentence without negatively affecting readability.
@@ -446,9 +446,9 @@ This document represents a dissertation. In the beginning of it you are likely t
     A text (e.g., a paragraph) may refer to other resources like sections, citations, appendices or floats (figures and tables), but the reader should not need to follow any of these to read the text. So, when referring to a figure make sure to highlight what you would get out of looking at it. The reader then has a \textsl{choice} of looking at the figure. In much the same way, when looking at the figure the reader should not have to look for a reference in the text for that figure in order to understand how to read it. Instead these details should be covered by a legend or the figures label.
   \descitem{The Specific-Generic Spectrum} % Can we make this statement more specific to a degree where it is as wide as possible without becoming untrue for some cases?
     Most statements has (at least one) inherent specificity. That is, what it expresses fits on a scale from specific to generic. If a statement is too generic then part of it is untrue. That is obviously problematic. If a statement is too specific then it doesn't express the full gamut of the underlying mechanics. That is less-obviously problematic. Perhaps it doesn't need to be covered to make your point, but it is makes it unclear whether you actually understand those implications. So, make every statement specific to a degree where it is as wide as possible without becoming untrue for any case.
-  \descitem{Make the Argument Explicit}
+  \descitem{Make the Argument Explicit} \idx{Argument}
     When providing an argument, do not rely on the reader to fold out steps that you consider implicit. The reader may have other standards for what is implicit, or have a different cultural background where those steps are not obvious. Also, this is an opportunity to show that you can construct a line of reasoning, and that opportunity should be grabbed.
-  \descitem{Remember the Context}
+  \descitem{Remember the Context} \idx{Context}
     Everything communicated is expressed in some context. Key aspects of this context are necessary to correctly decipher the communication. Be aware of these aspects and make sure that they are shared with the reader. For instance, the word \quoted{technical} can be rooted in software, but could also be legal or mechanical. I assume that people from legal also refer to the technical aspects, but have a fairly different interpretation of what that means.
 \end{enumerate}
 
@@ -515,7 +515,7 @@ Sometimes the caption will naturally take up more space than fits nicely into an
 
 \subsection{Triple Linespacing}
 
-Increased the line spacing is something used by public school teachers to write grammar notes on print. You are expected to write grammatically correct text when you reach the university level so we don't do that. Please stick to a reasonable line spacing. In reality, increasing the line spacing makes the report appear \textsl{thin}.
+Increased the line spacing\idx{Linespacing} is something used by public school teachers to write grammar notes on print. You are expected to write grammatically correct text when you reach the university level so we don't do that. Please stick to a reasonable line spacing. In reality, increasing the line spacing makes the report appear \textsl{thin}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduction
