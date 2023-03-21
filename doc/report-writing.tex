@@ -674,9 +674,16 @@ In projects that are explorative\idx{Explorative project} in nature, it often ma
 \section{MoSCoW Method}
 
 % brief description: not an analysis
+The MoSCoW Method\idx{MoSCoW} is a technique used to understand the importance placed by stakeholders on individual requirements. It introduces four categories of priorities (with grossly simplified definitions):
+\begin{enumerate}
+  \descitem{Must have}\idx{Must have} Critical for success of the product. Note that the success of your project is not dependent on producing a successful product; there are other ways of providing value to the stakeholders (e.g., by showing that it is impossible to produce such a product).
+  \descitem{Should have}\idx{Should have} Important, but critical to the viability of the product (it can provide value without these requirements).
+  \descitem{Could have}\idx{Could have} Desirable, but fulfillment should be weighed against required effort.
+  \descitem{Won't have}\idx{Won't have} Would provide value but won't be considered. This essentially makes it a non-requirement\idxx{Requirement!Non}{Non-Requirement}.
+\end{enumerate}
 
 % rationale: lack of analytical rationale for ranking
-In and of itself, MoSCoW\idx{MoSCoW} is simply a categorical ranking scheme. It does not provide an analytical framework for coming up with a rationale for such a ranking. This does not mean that no rationale is needed. You should provide that rationale as a textual argument.
+In and of itself, MoSCoW is simply a categorical ranking scheme. It does not provide an analytical framework for coming up with a rationale for such a ranking. This does not mean that no rationale is needed. You should provide that rationale as a textual argument.
 
 % simply prioritization: does not mean that "would" don't need to be covered, example (don't choose a framework that cannot support all would's)
 Do note that a MoSCoW prioritization is a priority of eventual requirements\idxx{Requirement!Eventual}{Eventual requirements}. That is, requirements that, sometime in a future, should be fulfilled. Whether or not you use an iterative approach you should consider your project to represent the beginning of a (potentially iterative) lifecycle. You may not end up implementing all the \textit{coulds}. Then that job will be left to the next (at handin time yet unrealized) iteration of the project. So you still need to make sure that implementing those requirements won't require scrapping the base design. It is thus critical to either (i) make sure you don't end up in a situation where a design choice (e.g., a choice of framework) paints you into a corner where it becomes impossible to fulfill a requirement, or (ii) be up-front about which requirement you choose to reject and what your reasoning for doing so is.
