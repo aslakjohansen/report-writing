@@ -44,6 +44,7 @@
 \newcommand{\descitem}[1]{\item \textdesc{#1}}
 \newcommand{\quoted}[1]{\textsl{\say{#1}}}
 
+% https://en.wikibooks.org/wiki/LaTeX/Indexing
 \newcommand{\idx}[1]{\index{#1}\marginpar{\raggedright \tiny #1}}
 \newcommand{\idxx}[2]{\index{#1}\marginpar{\raggedright \tiny #2}}
 
@@ -900,8 +901,10 @@ The actor-model\cite{10.5555/889486}\idx{Actor model} is a software modeling app
 
 \subsection{Performance Evaluation}
 
-% intro: often done experimentally
-\cite{jain1991art}
+% intro:
+Evaluating the performance of a computer system\idxx{Performance evaluation|textbf}{Performance evaluation} is a task that is littered with pitfalls. In 1991, Raj Jain\idxx{Jain, Raj}{Raj Jain}, wrote \quoted{The Art of Computer Systems Performance Analysis}\cite{jain1991art}, and with it redefined the field. While some of the examples are a bit dated -- if not carbon-dated -- the principles still hold and there is nothing else out there that comes close.
+
+% often done experimentally
 
 \subsection{User Test}
 
