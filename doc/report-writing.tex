@@ -47,17 +47,22 @@
 % https://en.wikibooks.org/wiki/LaTeX/Indexing
 \newcommand{\idx}[1]{\index{#1}\marginpar{\raggedright \tiny #1}}
 \newcommand{\idxx}[2]{\index{#1}\marginpar{\raggedright \tiny #2}}
-\index{Directed Acyclic Graph|see {DAG}}
-\index{Datalogi|see {Computer science}}
-\index{Mean time between failures|see {MTBF}}
-\index{Mean time between repair|see {MTBR}}
 
 \title{Report Writing \\ \scalebox{0.85}{for Software BSc and MSc Projects}}
 \author{Aslak Johansen}
 
 \begin{document}
 
+
 \maketitle
+
+% cross-index entries
+\scalebox{0}{
+  \textcolor{white}{\index{Directed Acyclic Graph|see {DAG}}}
+  \textcolor{white}{\index{Datalogi|see {Computer science}}}
+  \textcolor{white}{\index{Mean time between failures|see {MTBF}}}
+  \textcolor{white}{\index{Mean time between repair|see {MTBR}}}
+}
 
 \setcounter{tocdepth}{2}
 \tableofcontents
