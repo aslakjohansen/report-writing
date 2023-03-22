@@ -447,8 +447,8 @@ This document represents a dissertation. In the beginning of it you are likely t
     Above all else, what you do (and write) has to make sense. This should be your guiding light throughout the entire project. Much can be excused as long as the it is done for the right reasons. While this is used to balance learning objectives according to the individual project, in cannot completely remove a learning objective.
   \descitem{Give and Take Credit} \idx{Credit}
     In order to evaluate the contribution of a text it is necessary to know which parts the author has been responsible for contributing. If some insight, term or similar is original, then credit should be given to the author. If not, then credit should be given to the original authors (e.g., through a citation) and credit should be given to the author for citing them. It is bad practice to leave credit unclear, and it erodes overall confidence in the text itself. Therefore, always make sure that you give credit where it is needed, and take credit where you can.
-  \descitem{Best Practices are Fallacies}
-    While it is a good practice to explore best practices, real projects never seem to be quite that simple. Best practices are based on typical situations, and it is thus a good practice to be critical towards them. You will likely have to violate one or two of them.
+  \descitem{Best Practices are Fallacies} \idx{Best practices}
+    While it is a good practice to explore best practices, real projects never seem to be quite that simple. Best practices are based on typical situations, and it is thus a good practice to be critical towards them. You will likely have to violate\idx{Fallacy} one or two of them.
   \descitem{Do not Underestimate Experimental Evaluation} \idxx{Evaluation!Experimental}{Experimental evaluation}
     When working on something of experimental nature it is hard to assess the time to completion. Before beginning the work it is harder. Does all the needed experimental tooling already exists, or do you need to construct parts of it yourself? How many repetitions are necessary to get trustworthy results? How much time is needed to conduct the experiments? Which kinds of post processing of results are needed to reach the relevant insights?
     However long you think it is going to take, it is going to take longer. In part because things are going to go wrong, and you might realize that your design needs to change. For that to even be a possibility, you need to start experimental work early. A good rule of thumb is to take the time you expect it to take, and multiply it by $\pi$.
@@ -457,8 +457,8 @@ This document represents a dissertation. In the beginning of it you are likely t
   \descitem{One sentence One message}
     Rarely is anything achieved by having a single sentence deliver more than a single message. Often, readability is affected negatively. A sequence of short messages, each progressing the narrative towards a point is a simple way of ensuring a concise and readable language. It takes considerable effort to shoehorn multiple messages into a single sentence without negatively affecting readability.
   \descitem{A Text Should Be Self-Contained}
-    A text (e.g., a paragraph) may refer to other resources like sections, citations, appendices or floats (figures and tables), but the reader should not need to follow any of these to read the text. So, when referring to a figure make sure to highlight what you would get out of looking at it. The reader then has a \textsl{choice} of looking at the figure. In much the same way, when looking at the figure the reader should not have to look for a reference in the text for that figure in order to understand how to read it. Instead these details should be covered by a legend or the figures label.
-  \descitem{The Specific-Generic Spectrum} % Can we make this statement more specific to a degree where it is as wide as possible without becoming untrue for some cases?
+    A text (e.g., a paragraph) may refer to other resources like sections, citations, appendices or floats (figures and tables), but the reader should not need to follow any of these to read the text. So, when referring to a figure\idx{Figure} make sure to highlight what you would get out of looking at it. The reader then has a \textsl{choice} of looking at the figure. In much the same way, when looking at the figure the reader should not have to look for a reference in the text for that figure in order to understand how to read it. Instead these details should be covered by a legend or the figures label.
+  \descitem{The Specific-Generic Spectrum} \idx{Specific-generic spectrum}% Can we make this statement more specific to a degree where it is as wide as possible without becoming untrue for some cases?
     Most statements has (at least one) inherent specificity. That is, what it expresses fits on a scale from specific to generic. If a statement is too generic then part of it is untrue. That is obviously problematic. If a statement is too specific then it doesn't express the full gamut of the underlying mechanics. That is less-obviously problematic. Perhaps it doesn't need to be covered to make your point, but it is makes it unclear whether you actually understand those implications. So, make every statement specific to a degree where it is as wide as possible without becoming untrue for any case.
   \descitem{Make the Argument Explicit} \idx{Argument}
     When providing an argument, do not rely on the reader to fold out steps that you consider implicit. The reader may have other standards for what is implicit, or have a different cultural background where those steps are not obvious. Also, this is an opportunity to show that you can construct a line of reasoning, and that opportunity should be grabbed.
@@ -473,16 +473,16 @@ This document represents a dissertation. In the beginning of it you are likely t
 \subsection{Floats}
 
 % intro: what, examples (figure, table, code listing), refs are necessary
-\idx{Floats} A float is a piece of the report that you allow the layouter to place on your behalf. You don't have to care about it being broken up across multiple pages and you get a number that you can use to refer to it through. This is beneficial when you need to refer to it from multiple places in the document. In \LaTeX, there are a number of predefined float types (figure, table and code listing springs to mind), and you can define your own. The floats are also presented with a caption and stand out from the normal text.
+\idx{Floats} A float is a piece of the report that you allow the layouter to place on your behalf. You don't have to care about it being broken up across multiple pages and you get a number that you can use to refer to it through. This is beneficial when you need to refer to it from multiple places in the document. In \LaTeX\idxx{LaTeX@\LaTeX}{\LaTeX}, there are a number of predefined float types (figure, table and code listing springs to mind), and you can define your own. The floats are also presented with a caption and stand out from the normal text.
 
 % refs and context
-No matter where the float ends up, you will have to refer to it by number. The text should always be written in such a manner that it is optional to look at the float. You must explicitly point out what you want the reader to take away from it. In the same way, the floats should make sense without locating the text that refers to them.
+No matter where the float ends up, you will have to refer to it by number\idxx{Floats!Referencing}{Referencing floats}. The text should always be written in such a manner that it is optional to look at the float. You must explicitly point out what you want the reader to take away from it. In the same way, the floats should make sense without locating the text that refers to them.
 
 % preference
-There are different schools of thought with regards to which kinds to floats to use. If you have a lot of figures and tables, it might make sense to use these environments so that they end up categorized in a list of figures and a list of tables. Typically, I prefer to use figures for everything. This solves the issue where you have to turn a lot of pages to figure out if you need to go forward or backward in order to find a particular float.
+There are different schools of thought with regards to which kinds to floats\idxx{Floats!Types of}{Types of floats} to use. If you have a lot of figures and tables, it might make sense to use these environments so that they end up categorized in a list of figures and a list of tables. Typically, I prefer to use figures for everything. This solves the issue where you have to turn a lot of pages to figure out if you need to go forward or backward in order to find a particular float.
 
 % example
-Usually, floats works best when they are allowed to be at the top of a page, the bottom of a page and to fill up a whole page. In \LaTeX, this is accomplished this way:
+Usually, floats works best when they are allowed to be placed\idxx{Floats!Placement of}{Placement of floats} at the top of a page, the bottom of a page and to fill up a whole page. In \LaTeX, this is accomplished this way:
 \begin{minted}[breaklines]{latex}
 \begin{figure}[tbp]
   \ldots
@@ -492,7 +492,7 @@ Usually, floats works best when they are allowed to be at the top of a page, the
 \end{minted}
 
 % short captions
-Sometimes the caption will naturally take up more space than fits nicely into an entry into the list of figures. The solution is to add a shorter, abbreviated, version that can be used for this purpose. That can be done like this:
+Sometimes the caption\idxx{Floats!Caption}{Caption} will naturally take up more space than fits nicely into an entry into the list of figures. The solution is to add a shorter, abbreviated, version that can be used for this purpose. That can be done like this:
 \begin{minted}[breaklines]{latex}
 \caption[Short caption]{Long caption}
 \end{minted}
