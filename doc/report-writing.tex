@@ -1,6 +1,8 @@
 \documentclass[a4paper, oneside]{memoir}
 
 \usepackage[english]{babel} % load typographical rules for the english language
+\usepackage{csquotes} % to ensure that quoted texts are typeset according to the rules of main language
+
 \usepackage{graphics} % for \scalebox
 \usepackage{enumitem} % for options to the enumerate environment
 \usepackage[cache=false]{minted} % code inclusion
@@ -22,6 +24,7 @@
 \usetikzlibrary{datavisualization}
 \usetikzlibrary{datavisualization.formats.functions}
 \usetikzlibrary{tikzmark}
+\usetikzlibrary{decorations.markings}
 
 % configure index: https://en.wikibooks.org/wiki/LaTeX/Indexing
 \usepackage{imakeidx}
@@ -535,6 +538,27 @@ This document represents a dissertation. In the beginning of it you are likely t
         node,
         draw=\colorAspectsCombinedII,
       ]
+      
+      % https://tex.stackexchange.com/questions/141378/path-following-color-gradient-in-tikz
+      \tikzset{gradient/.style n args={3}{
+        postaction={
+          decorate,
+          decoration={
+            markings,
+            mark=between positions 0 and \pgfdecoratedpathlength step 0.5pt with {
+              \pgfmathsetmacro\myval{multiply(
+                  divide(
+                  \pgfkeysvalueof{/pgf/decoration/mark info/distance from start}, \pgfdecoratedpathlength
+                  ),
+                  100
+              )};
+              \pgfsetfillcolor{#3!\myval!#2};
+              \pgfpathcircle{\pgfpointorigin}{#1};
+              \pgfusepath{fill};
+            }
+          }
+        }
+      }}
       
       % nodes and edges
       {
