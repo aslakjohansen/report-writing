@@ -500,8 +500,16 @@ This document represents a dissertation. In the beginning of it you are likely t
     \begin{tikzpicture}
       \newcommand{\yspacing}[0]{6mm}
       \newcommand{\xspacing}[0]{24mm}
+      \newcommand{\colorAspectI}[0]{purple}
+      \newcommand{\colorAspectII}[0]{orange!50!black}
+      \newcommand{\colorAspectsCombinedI}[0]{teal}
+      \newcommand{\colorAspectsCombinedII}[0]{blue}
       
       \tikzstyle{edge} = [thick,->,>=stealth,draw=black]
+      \tikzstyle{edgeAspectI} = [edge,draw=\colorAspectI]
+      \tikzstyle{edgeAspectII} = [edge,draw=\colorAspectII]
+      \tikzstyle{edgeAspectsCombinedI} = [edge,draw=\colorAspectsCombinedI]
+      \tikzstyle{edgeAspectsCombinedII} = [edge,draw=\colorAspectsCombinedII]
       
       \tikzstyle{node}=[
         overlay,
@@ -511,56 +519,72 @@ This document represents a dissertation. In the beginning of it you are likely t
         thick,
         minimum size=1,
       ]
+      \tikzstyle{nodeAspectI}=[
+        node,
+        draw=\colorAspectI,
+      ]
+      \tikzstyle{nodeAspectII}=[
+        node,
+        draw=\colorAspectII,
+      ]
+      \tikzstyle{nodeAspectsCombinedI}=[
+        node,
+        draw=\colorAspectsCombinedI,
+      ]
+      \tikzstyle{nodeAspectsCombinedII}=[
+        node,
+        draw=\colorAspectsCombinedII,
+      ]
       
       % nodes and edges
       {
         {
-          \node[node] (n1) at (0,0) {};
+          \node[nodeAspectI] (n1) at (0,0) {};
           
-          \node[node] (n11) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n1) {};
-          \node[node] (n12) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n1) {};
-          \node[node] (n13) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n1) {};
-          \node[node] (n14) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n1) {};
-          \draw[edge] (n1) to [out=0,in=180] (n11);
-          \draw[edge] (n1) to [out=0,in=180] (n12);
-          \draw[edge] (n1) to [out=0,in=180] (n13);
-          \draw[edge] (n1) to [out=0,in=180] (n14);
+          \node[nodeAspectI] (n11) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[nodeAspectI] (n12) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[nodeAspectI] (n13) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[nodeAspectI] (n14) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n1) {};
+          \draw[edgeAspectI] (n1) to [out=0,in=180] (n11);
+          \draw[edgeAspectI] (n1) to [out=0,in=180] (n12);
+          \draw[edgeAspectI] (n1) to [out=0,in=180] (n13);
+          \draw[edgeAspectI] (n1) to [out=0,in=180] (n14);
           
-          \node[node] (n141) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n14) {};
-          \node[node] (n142) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n14) {};
-          \node[node] (n143) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n14) {};
-          \node[node] (n144) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n14) {};
-          \draw[edge] (n14) to [out=0,in=180] (n141);
-          \draw[edge] (n14) to [out=0,in=180] (n142);
-          \draw[edge] (n14) to [out=0,in=180] (n143);
-          \draw[edge] (n14) to [out=0,in=180] (n144);
+          \node[nodeAspectI] (n141) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[nodeAspectI] (n142) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[nodeAspectI] (n143) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[nodeAspectI] (n144) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n14) {};
+          \draw[edgeAspectI] (n14) to [out=0,in=180] (n141);
+          \draw[edgeAspectI] (n14) to [out=0,in=180] (n142);
+          \draw[edgeAspectI] (n14) to [out=0,in=180] (n143);
+          \draw[edgeAspectI] (n14) to [out=0,in=180] (n144);
           
-          \node[node] (n1411) at ([yshift= 1*\yspacing, xshift=\xspacing] n141) {};
-          \node[node] (n1412) at ([yshift= 0*\yspacing, xshift=\xspacing] n141) {};
-          \node[node] (n1413) at ([yshift=-1*\yspacing, xshift=\xspacing] n141) {};
-          \node[node] (n1441) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n144) {};
-          \node[node] (n1442) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n144) {};
-          \draw[edge] (n141) to [out=0,in=180] (n1411);
-          \draw[edge] (n141) to [out=0,in=180] (n1412);
-          \draw[edge] (n141) to [out=0,in=180] (n1413);
-          \draw[edge] (n144) to [out=0,in=180] (n1441);
-          \draw[edge] (n144) to [out=0,in=180] (n1442);
+          \node[nodeAspectI] (n1411) at ([yshift= 1*\yspacing, xshift=\xspacing] n141) {};
+          \node[nodeAspectI] (n1412) at ([yshift= 0*\yspacing, xshift=\xspacing] n141) {};
+          \node[nodeAspectI] (n1413) at ([yshift=-1*\yspacing, xshift=\xspacing] n141) {};
+          \node[nodeAspectI] (n1441) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n144) {};
+          \node[nodeAspectI] (n1442) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n144) {};
+          \draw[edgeAspectI] (n141) to [out=0,in=180] (n1411);
+          \draw[edgeAspectI] (n141) to [out=0,in=180] (n1412);
+          \draw[edgeAspectI] (n141) to [out=0,in=180] (n1413);
+          \draw[edgeAspectI] (n144) to [out=0,in=180] (n1441);
+          \draw[edgeAspectI] (n144) to [out=0,in=180] (n1442);
         }
         
         {
-          \node[node] (n221) at ([yshift=-2.5*\yspacing, xshift=0] n1442) {};
-          \node[node] (n222) at ([yshift=-3.5*\yspacing, xshift=0] n1442) {};
+          \node[nodeAspectII] (n221) at ([yshift=-2.5*\yspacing, xshift=0] n1442) {};
+          \node[nodeAspectII] (n222) at ([yshift=-3.5*\yspacing, xshift=0] n1442) {};
           
-          \node[node] (n22) at ([yshift=-0.5*\yspacing, xshift=-\xspacing] n221) {};
-          \node[node] (n21) at ([yshift= 1*\yspacing, xshift=0] n22) {};
-          \node[node] (n23) at ([yshift=-1*\yspacing, xshift=0] n22) {};
-          \draw[edge] (n22) to [out=0,in=180] (n221);
-          \draw[edge] (n22) to [out=0,in=180] (n222);
+          \node[nodeAspectII] (n22) at ([yshift=-0.5*\yspacing, xshift=-\xspacing] n221) {};
+          \node[nodeAspectII] (n21) at ([yshift= 1*\yspacing, xshift=0] n22) {};
+          \node[nodeAspectII] (n23) at ([yshift=-1*\yspacing, xshift=0] n22) {};
+          \draw[edgeAspectII] (n22) to [out=0,in=180] (n221);
+          \draw[edgeAspectII] (n22) to [out=0,in=180] (n222);
           
-          \node[node] (n2) at ([yshift=0, xshift=-\xspacing] n22) {};
-          \draw[edge] (n2) to [out=0,in=180] (n21);
-          \draw[edge] (n2) to [out=0,in=180] (n22);
-          \draw[edge] (n2) to [out=0,in=180] (n23);
+          \node[nodeAspectII] (n2) at ([yshift=0, xshift=-\xspacing] n22) {};
+          \draw[edgeAspectII] (n2) to [out=0,in=180] (n21);
+          \draw[edgeAspectII] (n2) to [out=0,in=180] (n22);
+          \draw[edgeAspectII] (n2) to [out=0,in=180] (n23);
         }
         
         % merged graph
@@ -568,10 +592,10 @@ This document represents a dissertation. In the beginning of it you are likely t
           \coordinate (m1) at ($(n1411)!0.2!(n222)$);
           \coordinate (m2) at ($(n1411)!0.8!(n222)$);
           
-          \node[node] (m1n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m1) {};
-          \node[node] (m1n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m1) {};
-          \node[node] (m2n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m2) {};
-          \node[node] (m2n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m2) {};
+          \node[nodeAspectsCombinedI] (m1n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m1) {};
+          \node[nodeAspectsCombinedI] (m1n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m1) {};
+          \node[nodeAspectsCombinedI] (m2n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m2) {};
+          \node[nodeAspectsCombinedI] (m2n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m2) {};
           \draw[edge] (n1411) to [out=0,in=160] (m1n1);
           \draw[edge] (n1411) to [out=0,in=135] (m1n2);
           \draw[edge] (n1441) to [out=0,in=135] (m2n1);
@@ -581,25 +605,25 @@ This document represents a dissertation. In the beginning of it you are likely t
           \draw[edge] (n221) to [out=0,in=225] (m2n1);
           \draw[edge] (n222) to [out=0,in=200] (m2n2);
           
-          \node[node] (m1n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m1n1) {};
-          \node[node] (m1n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m1n1) {};
-          \draw[edge] (m1n1) to [out=0,in=180] (m1n11);
-          \draw[edge] (m1n1) to [out=0,in=180] (m1n12);
+          \node[nodeAspectsCombinedI] (m1n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m1n1) {};
+          \node[nodeAspectsCombinedI] (m1n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m1n1) {};
+          \draw[edgeAspectsCombinedI] (m1n1) to [out=0,in=180] (m1n11);
+          \draw[edgeAspectsCombinedI] (m1n1) to [out=0,in=180] (m1n12);
           
-          \node[node] (m2n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n1) {};
-          \node[node] (m2n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n1) {};
-          \draw[edge] (m2n1) to [out=0,in=180] (m2n11);
-          \draw[edge] (m2n1) to [out=0,in=180] (m2n12);
+          \node[nodeAspectsCombinedI] (m2n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n1) {};
+          \node[nodeAspectsCombinedI] (m2n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n1) {};
+          \draw[edgeAspectsCombinedI] (m2n1) to [out=0,in=180] (m2n11);
+          \draw[edgeAspectsCombinedI] (m2n1) to [out=0,in=180] (m2n12);
           
-          \node[node] (m2n21) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n2) {};
-          \node[node] (m2n22) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n2) {};
-          \draw[edge] (m2n2) to [out=0,in=180] (m2n21);
-          \draw[edge] (m2n2) to [out=0,in=180] (m2n22);
+          \node[nodeAspectsCombinedI] (m2n21) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n2) {};
+          \node[nodeAspectsCombinedI] (m2n22) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n2) {};
+          \draw[edgeAspectsCombinedI] (m2n2) to [out=0,in=180] (m2n21);
+          \draw[edgeAspectsCombinedI] (m2n2) to [out=0,in=180] (m2n22);
         }
         
         {
           \coordinate (l1) at ($(m1n12)!0.5!(m2n12)$);
-          \node[node] (l1n1) at ([yshift=0, xshift=\xspacing] l1) {};
+          \node[nodeAspectsCombinedII] (l1n1) at ([yshift=0, xshift=\xspacing] l1) {};
           \draw[edge] (m1n12) to [out=0,in=135] (l1n1);
           \draw[edge] (m2n12) to [out=0,in=225] (l1n1);
         }
