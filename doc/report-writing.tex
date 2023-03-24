@@ -507,6 +507,10 @@ This document represents a dissertation. In the beginning of it you are likely t
       \newcommand{\colorAspectII}[0]{orange!50!black}
       \newcommand{\colorAspectsCombinedI}[0]{teal}
       \newcommand{\colorAspectsCombinedII}[0]{blue}
+      \newcommand{\colorAspectIdead}[0]{\colorAspectI!20}
+      \newcommand{\colorAspectIIdead}[0]{\colorAspectII!20}
+      \newcommand{\colorAspectsCombinedIdead}[0]{\colorAspectsCombinedI!20}
+      \newcommand{\colorAspectsCombinedIIdead}[0]{\colorAspectsCombinedII!20}
       
       \tikzstyle{edge} = [thick,->,>=stealth,draw=black]
       \tikzstyle{edgeAspectI} = [edge,draw=\colorAspectI]
@@ -565,9 +569,9 @@ This document represents a dissertation. In the beginning of it you are likely t
         {
           \node[nodeAspectI] (n1) at (0,0) {};
           
-          \node[nodeAspectI] (n11) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n1) {};
-          \node[nodeAspectI] (n12) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n1) {};
-          \node[nodeAspectI] (n13) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n11) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n12) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n13) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n1) {};
           \node[nodeAspectI] (n14) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n1) {};
           \draw[edgeAspectI] (n1) to [out=0,in=180] (n11);
           \draw[edgeAspectI] (n1) to [out=0,in=180] (n12);
@@ -575,8 +579,8 @@ This document represents a dissertation. In the beginning of it you are likely t
           \draw[edgeAspectI] (n1) to [out=0,in=180] (n14);
           
           \node[nodeAspectI] (n141) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n14) {};
-          \node[nodeAspectI] (n142) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n14) {};
-          \node[nodeAspectI] (n143) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n142) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n143) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n14) {};
           \node[nodeAspectI] (n144) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n14) {};
           \draw[edgeAspectI] (n14) to [out=0,in=180] (n141);
           \draw[edgeAspectI] (n14) to [out=0,in=180] (n142);
@@ -584,10 +588,10 @@ This document represents a dissertation. In the beginning of it you are likely t
           \draw[edgeAspectI] (n14) to [out=0,in=180] (n144);
           
           \node[nodeAspectI] (n1411) at ([yshift= 1*\yspacing, xshift=\xspacing] n141) {};
-          \node[nodeAspectI] (n1412) at ([yshift= 0*\yspacing, xshift=\xspacing] n141) {};
-          \node[nodeAspectI] (n1413) at ([yshift=-1*\yspacing, xshift=\xspacing] n141) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n1412) at ([yshift= 0*\yspacing, xshift=\xspacing] n141) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n1413) at ([yshift=-1*\yspacing, xshift=\xspacing] n141) {};
           \node[nodeAspectI] (n1441) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n144) {};
-          \node[nodeAspectI] (n1442) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n144) {};
+          \node[nodeAspectI,fill=\colorAspectIdead] (n1442) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n144) {};
           \draw[edgeAspectI] (n141) to [out=0,in=180] (n1411);
           \draw[edgeAspectI] (n141) to [out=0,in=180] (n1412);
           \draw[edgeAspectI] (n141) to [out=0,in=180] (n1413);
@@ -600,8 +604,8 @@ This document represents a dissertation. In the beginning of it you are likely t
           \node[nodeAspectII] (n222) at ([yshift=-3.5*\yspacing, xshift=0] n1442) {};
           
           \node[nodeAspectII] (n22) at ([yshift=-0.5*\yspacing, xshift=-\xspacing] n221) {};
-          \node[nodeAspectII] (n21) at ([yshift= 1*\yspacing, xshift=0] n22) {};
-          \node[nodeAspectII] (n23) at ([yshift=-1*\yspacing, xshift=0] n22) {};
+          \node[nodeAspectII,fill=\colorAspectIIdead] (n21) at ([yshift= 1*\yspacing, xshift=0] n22) {};
+          \node[nodeAspectII,fill=\colorAspectIIdead] (n23) at ([yshift=-1*\yspacing, xshift=0] n22) {};
           \draw[edgeAspectII] (n22) to [out=0,in=180] (n221);
           \draw[edgeAspectII] (n22) to [out=0,in=180] (n222);
           
@@ -617,7 +621,7 @@ This document represents a dissertation. In the beginning of it you are likely t
           \coordinate (m2) at ($(n1411)!0.8!(n222)$);
           
           \node[nodeAspectsCombinedI] (m1n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m1) {};
-          \node[nodeAspectsCombinedI] (m1n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m1) {};
+          \node[nodeAspectsCombinedI,fill=\colorAspectsCombinedIdead] (m1n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m1) {};
           \node[nodeAspectsCombinedI] (m2n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m2) {};
           \node[nodeAspectsCombinedI] (m2n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m2) {};
           \draw[edge] (n1411) to [out=0,in=160] (m1n1);
@@ -629,18 +633,18 @@ This document represents a dissertation. In the beginning of it you are likely t
           \draw[edge] (n221) to [out=0,in=225] (m2n1);
           \draw[edge] (n222) to [out=0,in=200] (m2n2);
           
-          \node[nodeAspectsCombinedI] (m1n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m1n1) {};
+          \node[nodeAspectsCombinedI,fill=\colorAspectsCombinedIdead] (m1n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m1n1) {};
           \node[nodeAspectsCombinedI] (m1n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m1n1) {};
           \draw[edgeAspectsCombinedI] (m1n1) to [out=0,in=180] (m1n11);
           \draw[edgeAspectsCombinedI] (m1n1) to [out=0,in=180] (m1n12);
           
-          \node[nodeAspectsCombinedI] (m2n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n1) {};
+          \node[nodeAspectsCombinedI,fill=\colorAspectsCombinedIdead] (m2n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n1) {};
           \node[nodeAspectsCombinedI] (m2n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n1) {};
           \draw[edgeAspectsCombinedI] (m2n1) to [out=0,in=180] (m2n11);
           \draw[edgeAspectsCombinedI] (m2n1) to [out=0,in=180] (m2n12);
           
-          \node[nodeAspectsCombinedI] (m2n21) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n2) {};
-          \node[nodeAspectsCombinedI] (m2n22) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n2) {};
+          \node[nodeAspectsCombinedI,fill=\colorAspectsCombinedIdead] (m2n21) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n2) {};
+          \node[nodeAspectsCombinedI,fill=\colorAspectsCombinedIdead] (m2n22) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n2) {};
           \draw[edgeAspectsCombinedI] (m2n2) to [out=0,in=180] (m2n21);
           \draw[edgeAspectsCombinedI] (m2n2) to [out=0,in=180] (m2n22);
         }
@@ -654,7 +658,7 @@ This document represents a dissertation. In the beginning of it you are likely t
       }
     \end{tikzpicture}
   \end{center}
-  \caption{Pruning the coverage DAG.}
+  \caption[Pruning the coverage DAG]{Pruning the coverage DAG. Filled nodes represent dead ends.}
   \label{fig:writing:coverage}
 \end{figure}
 
