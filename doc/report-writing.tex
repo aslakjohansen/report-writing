@@ -8,6 +8,21 @@
 \usepackage{adjustbox} % for \adjustbox environment
 \usepackage{marginnote} % for margin notes
 
+\usepackage{tikz} % for diagrams
+\usetikzlibrary[positioning]
+\usetikzlibrary[fit]
+\usetikzlibrary{patterns}
+\usetikzlibrary{patterns.meta}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+\usetikzlibrary{tikzmark}
+
 % configure index: https://en.wikibooks.org/wiki/LaTeX/Indexing
 \usepackage{imakeidx}
 \indexsetup{othercode=\small}
@@ -477,6 +492,123 @@ This document represents a dissertation. In the beginning of it you are likely t
   \descitem{Remember the Context} \idx{Context}
     Everything communicated is expressed in some context. Key aspects of this context are necessary to correctly decipher the communication. Be aware of these aspects and make sure that they are shared with the reader. For instance, the word \quoted{technical} can be rooted in software, but could also be legal or mechanical. I assume that people from legal also refer to the technical aspects, but have a fairly different interpretation of what that means.
 \end{enumerate}
+
+\section{Coverage}
+
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}
+      \newcommand{\yspacing}[0]{6mm}
+      \newcommand{\xspacing}[0]{24mm}
+      
+      \tikzstyle{edge} = [thick,->,>=stealth,draw=black]
+      
+      \tikzstyle{node}=[
+        overlay,
+        circle,
+        draw=purple,
+        anchor=center,
+        thick,
+        minimum size=1,
+      ]
+      
+      % nodes and edges
+      {
+        {
+          \node[node] (n1) at (0,0) {};
+          
+          \node[node] (n11) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[node] (n12) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[node] (n13) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[node] (n14) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n1) {};
+          \draw[edge] (n1) to [out=0,in=180] (n11);
+          \draw[edge] (n1) to [out=0,in=180] (n12);
+          \draw[edge] (n1) to [out=0,in=180] (n13);
+          \draw[edge] (n1) to [out=0,in=180] (n14);
+          
+          \node[node] (n141) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[node] (n142) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[node] (n143) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[node] (n144) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n14) {};
+          \draw[edge] (n14) to [out=0,in=180] (n141);
+          \draw[edge] (n14) to [out=0,in=180] (n142);
+          \draw[edge] (n14) to [out=0,in=180] (n143);
+          \draw[edge] (n14) to [out=0,in=180] (n144);
+          
+          \node[node] (n1411) at ([yshift= 1*\yspacing, xshift=\xspacing] n141) {};
+          \node[node] (n1412) at ([yshift= 0*\yspacing, xshift=\xspacing] n141) {};
+          \node[node] (n1413) at ([yshift=-1*\yspacing, xshift=\xspacing] n141) {};
+          \node[node] (n1441) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n144) {};
+          \node[node] (n1442) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n144) {};
+          \draw[edge] (n141) to [out=0,in=180] (n1411);
+          \draw[edge] (n141) to [out=0,in=180] (n1412);
+          \draw[edge] (n141) to [out=0,in=180] (n1413);
+          \draw[edge] (n144) to [out=0,in=180] (n1441);
+          \draw[edge] (n144) to [out=0,in=180] (n1442);
+        }
+        
+        {
+          \node[node] (n221) at ([yshift=-2.5*\yspacing, xshift=0] n1442) {};
+          \node[node] (n222) at ([yshift=-3.5*\yspacing, xshift=0] n1442) {};
+          
+          \node[node] (n22) at ([yshift=-0.5*\yspacing, xshift=-\xspacing] n221) {};
+          \node[node] (n21) at ([yshift= 1*\yspacing, xshift=0] n22) {};
+          \node[node] (n23) at ([yshift=-1*\yspacing, xshift=0] n22) {};
+          \draw[edge] (n22) to [out=0,in=180] (n221);
+          \draw[edge] (n22) to [out=0,in=180] (n222);
+          
+          \node[node] (n2) at ([yshift=0, xshift=-\xspacing] n22) {};
+          \draw[edge] (n2) to [out=0,in=180] (n21);
+          \draw[edge] (n2) to [out=0,in=180] (n22);
+          \draw[edge] (n2) to [out=0,in=180] (n23);
+        }
+        
+        % merged graph
+        {
+          \coordinate (m1) at ($(n1411)!0.2!(n222)$);
+          \coordinate (m2) at ($(n1411)!0.8!(n222)$);
+          
+          \node[node] (m1n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m1) {};
+          \node[node] (m1n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m1) {};
+          \node[node] (m2n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m2) {};
+          \node[node] (m2n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m2) {};
+          \draw[edge] (n1411) to [out=0,in=160] (m1n1);
+          \draw[edge] (n1411) to [out=0,in=135] (m1n2);
+          \draw[edge] (n1441) to [out=0,in=135] (m2n1);
+          \draw[edge] (n1441) to [out=0,in=135] (m2n2);
+          \draw[edge] (n221) to [out=0,in=225] (m1n1);
+          \draw[edge] (n222) to [out=0,in=225] (m1n2);
+          \draw[edge] (n221) to [out=0,in=225] (m2n1);
+          \draw[edge] (n222) to [out=0,in=200] (m2n2);
+          
+          \node[node] (m1n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m1n1) {};
+          \node[node] (m1n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m1n1) {};
+          \draw[edge] (m1n1) to [out=0,in=180] (m1n11);
+          \draw[edge] (m1n1) to [out=0,in=180] (m1n12);
+          
+          \node[node] (m2n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n1) {};
+          \node[node] (m2n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n1) {};
+          \draw[edge] (m2n1) to [out=0,in=180] (m2n11);
+          \draw[edge] (m2n1) to [out=0,in=180] (m2n12);
+          
+          \node[node] (m2n21) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n2) {};
+          \node[node] (m2n22) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n2) {};
+          \draw[edge] (m2n2) to [out=0,in=180] (m2n21);
+          \draw[edge] (m2n2) to [out=0,in=180] (m2n22);
+        }
+        
+        {
+          \coordinate (l1) at ($(m1n12)!0.5!(m2n12)$);
+          \node[node] (l1n1) at ([yshift=0, xshift=\xspacing] l1) {};
+          \draw[edge] (m1n12) to [out=0,in=135] (l1n1);
+          \draw[edge] (m2n12) to [out=0,in=225] (l1n1);
+        }
+      }
+    \end{tikzpicture}
+  \end{center}
+  \caption{Pruning the search tree.}
+  \label{fig:writing:coverage}
+\end{figure}
 
 \section{Pieces}
 
