@@ -503,6 +503,7 @@ This document represents a dissertation. In the beginning of it you are likely t
     \begin{tikzpicture}
       \newcommand{\yspacing}[0]{6mm}
       \newcommand{\xspacing}[0]{19mm}
+      \newcommand{\legendxspacing}[0]{6.5mm}
       \newcommand{\colorAspectI}[0]{purple}
       \newcommand{\colorAspectII}[0]{orange!50!black}
       \newcommand{\colorAspectsCombinedI}[0]{teal}
@@ -655,6 +656,16 @@ This document represents a dissertation. In the beginning of it you are likely t
           \draw[edge] (m1n12) to [out=0,in=135] (l1n1);
           \draw[edge] (m2n12) to [out=0,in=225] (l1n1);
         }
+      }
+      
+      % legend
+      {
+        \coordinate (legend) at ([yshift=-54mm, xshift=-6mm] n1);
+        
+        \node[rectangle,anchor=west,draw=\colorAspectI,text=\colorAspectI] (legendAspectI) at ([xshift=\legendxspacing] legend) {Aspect 1};
+        \node[rectangle,anchor=west,draw=\colorAspectII,text=\colorAspectII] (legendAspectII) at ([xshift=\legendxspacing] legendAspectI.east) {Aspect 2};
+        \node[rectangle,anchor=west,draw=\colorAspectsCombinedI,text=\colorAspectsCombinedI] (legendAspectsCombinedI) at ([xshift=\legendxspacing] legendAspectII.east) {Combined Aspects};
+        \node[rectangle,anchor=west,draw=\colorAspectsCombinedII,text=\colorAspectsCombinedII] (legendAspectsCombinedII) at ([xshift=\legendxspacing] legendAspectsCombinedI.east) {Final Comparison};
       }
     \end{tikzpicture}
   \end{center}
