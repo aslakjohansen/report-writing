@@ -13,7 +13,7 @@ mrproper: clean
 	rm    *~ *.aux *.bbl *.bcf *.blg *.run.xml *.log *.out *.toc *.idx *.ilg *.ind *.pyg
 
 
-report-writing.pdf: report-writing.tex
+report-writing.pdf: report-writing.tex references.bib
 	pdflatex -shell-escape report-writing.tex
 	makeindex report-writing.idx
 	biber report-writing.bcf
