@@ -62,6 +62,19 @@
 \newcommand{\descitem}[1]{\item \textdesc{#1}}
 \newcommand{\quoted}[1]{\textsl{\say{#1}}}
 
+\newenvironment{inspiration}[1]
+{
+    \begin{center}
+    \newcommand{\saveme}{#1}
+    \begin{minipage}{0.9\textwidth}
+}
+{
+    
+    \raggedleft{--- \textsl{\saveme}}
+    \end{minipage}
+    \end{center}
+}
+
 % https://en.wikibooks.org/wiki/LaTeX/Indexing
 \newcommand{\idx}[1]{\index{#1}\marginpar{\raggedright \tiny #1}}
 \newcommand{\idxx}[2]{\index{#1}\marginpar{\raggedright \tiny #2}}
@@ -767,7 +780,7 @@ Often, you will see reports having a \quoted{Report Structure}\idx{Report struct
 \section{Stakeholder Interviews}
 
 % deeper understanding of the actual problem, to properly describe the structure of the problem and how different aspect affect different parts of the organization (both for qualifying problem structure, and for understanding underlying tradeoffs), cover as many aspects as possible (argued through stakeholder roles)
-To get a deeper understanding of the actual problem we often perform stakeholder interviews\idx{Stakeholder interview}. The goal is to properly describe the structure of the problem, and highlight how various aspects of the problem affects different parts of the organization. This allows us to qualify structural elements of the problem and understand underlying tradeoffs. To accomplish this, we should go for coverage of as many aspects as possible. That coverage can be argued through interviews of of people from a wide list of stakeholder roles.
+To get a deeper understanding of the actual problem we often perform stakeholder interviews\idx{Stakeholder interview}. The goal is to properly describe the structure of the problem, and highlight how various aspects of the problem affects different parts of the organization. This allows us to qualify structural elements of the problem and understand underlying tradeoffs\idx{Tradeoff}. To accomplish this, we should go for coverage of as many aspects as possible. That coverage can be argued through interviews of of people from a wide list of stakeholder roles.
 
 % questions: questions need to be prepared, should cover all relevant aspects
 Before the interviews you must have prepared a framework\idxx{Stakeholder interview!Framework}{Framework} for the interview, and a list of questions. Do you interview stakeholders individually, or do you pit opposing roles against each other? You have a limited amount of time. Which questions will give you the most value within the allotted time? And how much time should you ask of your interviewees?
@@ -934,6 +947,14 @@ Sometimes this kind of problematic requirement can be \quoted{leveled up}. In th
 \chapter{Analysis}
 
 \section{Tradeoffs}
+
+\begin{inspiration}{Xander Harris\cite{buffy_s7e4}}
+  Figuring out how to control your magic seems a lot like hammering a nail. At the end of the hammer, you have the power, but no control. It takes, like, two strokes to hit the nail in, or you could hit your thumb.
+
+  \ldots
+
+  So you choke up. Control, but no power. It could take like ten strokes to knock the nail in. Power, control. It's a tradeoff.
+\end{inspiration}
 
 % absolute scalability example: unbounded goals eat all others in tradeoofs
 
