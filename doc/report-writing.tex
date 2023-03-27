@@ -560,6 +560,27 @@ Writing requires directed effort that considers what comes later in addition to 
         draw=\colorAspectsCombinedII,
       ]
       
+      \tikzstyle{chosenAspectI}=[
+        pattern=north east lines,
+        pattern color=\colorAspectI!60,
+        even odd rule,
+      ]
+      \tikzstyle{chosenAspectII}=[
+        pattern=north east lines,
+        pattern color=\colorAspectII!60,
+        even odd rule,
+      ]
+      \tikzstyle{chosenAspectsCombinedI}=[
+        pattern=north east lines,
+        pattern color=\colorAspectsCombinedI!60,
+        even odd rule,
+      ]
+      \tikzstyle{chosenAspectsCombinedII}=[
+        pattern=north east lines,
+        pattern color=\colorAspectsCombinedII!60,
+        even odd rule,
+      ]
+      
       % https://tex.stackexchange.com/questions/141378/path-following-color-gradient-in-tikz
       \tikzset{gradient/.style n args={3}{
         postaction={
@@ -584,12 +605,12 @@ Writing requires directed effort that considers what comes later in addition to 
       % nodes and edges
       {
         {
-          \node[nodeAspectI] (n1) at (0,0) {};
+          \node[nodeAspectI,chosenAspectI] (n1) at (0,0) {};
           
           \node[nodeAspectI,fill=\colorAspectIdead] (n11) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n1) {};
           \node[nodeAspectI,fill=\colorAspectIdead] (n12) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n1) {};
           \node[nodeAspectI,fill=\colorAspectIdead] (n13) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n1) {};
-          \node[nodeAspectI] (n14) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n1) {};
+          \node[nodeAspectI,chosenAspectI] (n14) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n1) {};
           \draw[edgeAspectI] (n1) to [out=0,in=180] (n11);
           \draw[edgeAspectI] (n1) to [out=0,in=180] (n12);
           \draw[edgeAspectI] (n1) to [out=0,in=180] (n13);
@@ -598,7 +619,7 @@ Writing requires directed effort that considers what comes later in addition to 
           \node[nodeAspectI] (n141) at ([yshift= 1.5*\yspacing, xshift=\xspacing] n14) {};
           \node[nodeAspectI,fill=\colorAspectIdead] (n142) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n14) {};
           \node[nodeAspectI,fill=\colorAspectIdead] (n143) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n14) {};
-          \node[nodeAspectI] (n144) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n14) {};
+          \node[nodeAspectI,chosenAspectI] (n144) at ([yshift=-1.5*\yspacing, xshift=\xspacing] n14) {};
           \draw[edgeAspectI] (n14) to [out=0,in=180] (n141);
           \draw[edgeAspectI] (n14) to [out=0,in=180] (n142);
           \draw[edgeAspectI] (n14) to [out=0,in=180] (n143);
@@ -607,7 +628,7 @@ Writing requires directed effort that considers what comes later in addition to 
           \node[nodeAspectI] (n1411) at ([yshift= 1*\yspacing, xshift=\xspacing] n141) {};
           \node[nodeAspectI,fill=\colorAspectIdead] (n1412) at ([yshift= 0*\yspacing, xshift=\xspacing] n141) {};
           \node[nodeAspectI,fill=\colorAspectIdead] (n1413) at ([yshift=-1*\yspacing, xshift=\xspacing] n141) {};
-          \node[nodeAspectI] (n1441) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n144) {};
+          \node[nodeAspectI,chosenAspectI] (n1441) at ([yshift= 0.5*\yspacing, xshift=\xspacing] n144) {};
           \node[nodeAspectI,fill=\colorAspectIdead] (n1442) at ([yshift=-0.5*\yspacing, xshift=\xspacing] n144) {};
           \draw[edgeAspectI] (n141) to [out=0,in=180] (n1411);
           \draw[edgeAspectI] (n141) to [out=0,in=180] (n1412);
@@ -617,16 +638,16 @@ Writing requires directed effort that considers what comes later in addition to 
         }
         
         {
-          \node[nodeAspectII] (n221) at ([yshift=-2.5*\yspacing, xshift=0] n1442) {};
+          \node[nodeAspectII,chosenAspectII] (n221) at ([yshift=-2.5*\yspacing, xshift=0] n1442) {};
           \node[nodeAspectII] (n222) at ([yshift=-3.5*\yspacing, xshift=0] n1442) {};
           
-          \node[nodeAspectII] (n22) at ([yshift=-0.5*\yspacing, xshift=-\xspacing] n221) {};
+          \node[nodeAspectII,chosenAspectII] (n22) at ([yshift=-0.5*\yspacing, xshift=-\xspacing] n221) {};
           \node[nodeAspectII,fill=\colorAspectIIdead] (n21) at ([yshift= 1*\yspacing, xshift=0] n22) {};
           \node[nodeAspectII,fill=\colorAspectIIdead] (n23) at ([yshift=-1*\yspacing, xshift=0] n22) {};
           \draw[edgeAspectII] (n22) to [out=0,in=180] (n221);
           \draw[edgeAspectII] (n22) to [out=0,in=180] (n222);
           
-          \node[nodeAspectII] (n2) at ([yshift=0, xshift=-\xspacing] n22) {};
+          \node[nodeAspectII,chosenAspectII] (n2) at ([yshift=0, xshift=-\xspacing] n22) {};
           \draw[edgeAspectII] (n2) to [out=0,in=180] (n21);
           \draw[edgeAspectII] (n2) to [out=0,in=180] (n22);
           \draw[edgeAspectII] (n2) to [out=0,in=180] (n23);
@@ -639,7 +660,7 @@ Writing requires directed effort that considers what comes later in addition to 
           
           \node[nodeAspectsCombinedI] (m1n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m1) {};
           \node[nodeAspectsCombinedI,fill=\colorAspectsCombinedIdead] (m1n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m1) {};
-          \node[nodeAspectsCombinedI] (m2n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m2) {};
+          \node[nodeAspectsCombinedI,chosenAspectsCombinedI] (m2n1) at ([yshift= 1*\yspacing, xshift=\xspacing] m2) {};
           \node[nodeAspectsCombinedI] (m2n2) at ([yshift=-1*\yspacing, xshift=\xspacing] m2) {};
           \draw[edge] (n1411) to [out=0,in=160] (m1n1);
           \draw[edge] (n1411) to [out=0,in=135] (m1n2);
@@ -656,7 +677,7 @@ Writing requires directed effort that considers what comes later in addition to 
           \draw[edgeAspectsCombinedI] (m1n1) to [out=0,in=180] (m1n12);
           
           \node[nodeAspectsCombinedI,fill=\colorAspectsCombinedIdead] (m2n11) at ([yshift= 0.5*\yspacing, xshift=\xspacing] m2n1) {};
-          \node[nodeAspectsCombinedI] (m2n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n1) {};
+          \node[nodeAspectsCombinedI,chosenAspectsCombinedI] (m2n12) at ([yshift=-0.5*\yspacing, xshift=\xspacing] m2n1) {};
           \draw[edgeAspectsCombinedI] (m2n1) to [out=0,in=180] (m2n11);
           \draw[edgeAspectsCombinedI] (m2n1) to [out=0,in=180] (m2n12);
           
@@ -668,7 +689,7 @@ Writing requires directed effort that considers what comes later in addition to 
         
         {
           \coordinate (l1) at ($(m1n12)!0.5!(m2n12)$);
-          \node[nodeAspectsCombinedII] (l1n1) at ([yshift=0, xshift=\xspacing] l1) {};
+          \node[nodeAspectsCombinedII,chosenAspectsCombinedII] (l1n1) at ([yshift=0, xshift=\xspacing] l1) {};
           \draw[edge] (m1n12) to [out=0,in=135] (l1n1);
           \draw[edge] (m2n12) to [out=0,in=225] (l1n1);
         }
