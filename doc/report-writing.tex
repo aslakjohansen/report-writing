@@ -515,10 +515,7 @@ Writing requires directed effort that considers what comes later in addition to 
 \section{Coverage}
 
 % intro: when does this apply?
-
-% approach: go through figure (aspect 1, 1/4 viable options, 2/4 viable options, aspect 2, 1/3 viable options, 2/2 viable options, 3/4 combinations viable, from these we end up with two viable options that are then compared)
-
-% serialize to text
+When we have several -- potentially interdependent -- decisions to make we say that there is a \textsl{decision space}\idx{Decision space} to cover. It is critical that it is obvious to the reader that the entire decision space is being covered. We say that we are \textsl{going for coverage}\idx{Coverage}. To do that, whenever we are faced with a choice, we need to consider all the options, and dive into those that cannot be ruled out. This way we prune\idxx{Search tree!Pruning}{Pruning} the search tree\idx{Search tree}. If two parts (e.g., aspects) of the decision space interact, then we need to treat them as equals and consider their interactions.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -715,6 +712,12 @@ Writing requires directed effort that considers what comes later in addition to 
   \caption[Pruning the coverage DAG]{Pruning the coverage DAG. Filled nodes represent dead ends, and nodes with a pattern fill represents the chosen path.}
   \label{fig:writing:coverage}
 \end{figure}
+
+% approach: go through figure (aspect 1, 1/4 viable options, 2/4 viable options, aspect 2, 1/3 viable options, 2/2 viable options, 3/4 combinations viable, from these we end up with two viable options that are then compared)
+Figure \ref{fig:writing:coverage} visually illustrates an approach for making sure that everything gets covered. In this particular scenario, there are two aspects to consider. For the first aspect a number of choices has to be made. The first can be split into four different options. By evaluating these we find that only the last one could be viable. There is no need to consider the dead ends, but given the last option, another choice appears, of which the first and the last option could be viable. We need to follow both of these. Each of them are associated with a new choice with multiple potential options. We end up with two potential paths through this decision tree. Likewise, the second aspect ends up with two potential paths. We now need to combine these. We do by considering every combination of these. Of the for combinations one turns out to be a dead end. For each of the remaining three potential paths there is a last choice, and that leaves two potentially viable paths. A final comparison is made and a winning path is chosen. This path represent the set of choices that went into best path through the entire space, and these are the choices we continue with.
+
+% serialize to text
+This example contains a significant amount of complexity\idx{Complexity}. Visually, it is easy to get an overview of, but the text may end up taking 10+ pages. And then it can be hard to keep track. To help the reader you should consider how this should be serialized\idx{Serialization} and mapped to sections, subsections, paragraphs and even sentences. You may even wish to add something like figure \ref{fig:writing:coverage} as an index. If you have space for it, consider expanding each node to include a headline.
 
 \section{Pieces}
 
