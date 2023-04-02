@@ -873,6 +873,56 @@ At times, a figure may be too complex to be readable in normal (i.e., portrait\i
 
 \subsection{Inline Enumerations}
 
+\begin{figure}
+    \centering
+      \scalebox{0.7}{
+        \begin{tikzpicture}[x=1cm, y=-1cm, node distance=0 cm,outer sep = 0pt]
+          \newcommand{\textminheight}{5mm}
+          \newcommand{\defminwidth}{14mm}
+          \newcommand{\defxoffset}{-10mm}
+          \newcommand{\spacing}{8mm}
+          \newcommand{\loopheight}{6mm}
+          
+          \tikzstyle{nodet}=[
+            draw,
+            rectangle,
+            rounded corners=2pt,
+            minimum height=\textminheight,
+            minimum width=1.5cm,
+            fill=white!10,
+            anchor=west,
+            thick
+          ]
+          \tikzstyle{def}=[
+            draw=none,
+            minimum height=\textminheight,
+            minimum width=\defminwidth,
+            anchor=east,
+          ]
+          \tikzstyle{line} = [thick, rounded corners, draw=black]
+          \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+          
+          \coordinate (origo) at (1,1);
+          
+          % front page
+          \node[nodet] (first) at ([xshift=\spacing] origo) {(\textsl{\$num})};
+          \node[nodet] (ftext) at ([xshift=\spacing] first.east) {\textsl{\$text}};
+          \node[nodet] (last) at ([xshift=\spacing*1.5] ftext.east) {, and (\textsl{\$num})};
+          \node[nodet] (ltext) at ([xshift=\spacing] last.east) {\textsl{\$text}};
+          
+          \node[nodet,anchor=north] (comma) at ([xshift=\spacing/2, yshift=-\loopheight] first.south east) {,};
+          
+          \draw[arrow] (first) -- (ftext);
+          \draw[arrow] (ftext) -- (last);
+          \draw[arrow] (last) -- (ltext);
+          \draw[arrow, rounded corners] (ftext.east) -- ++(\spacing/2,0em) |- ++(0em,-\loopheight) |- (comma.east);
+          \draw[arrow, rounded corners] (comma.west) -| ([xshift=-\spacing/2] first.west) -- (first.west);
+          
+        ﻿﻿\end{tikzpicture}
+      }
+  \caption{\label{fig:art:pieces:inlineenum:bnf} Railroad BNF of an inline enumeration.}
+\end{figure}
+
 \subsection{Citations}
 
 \section{Questions}
