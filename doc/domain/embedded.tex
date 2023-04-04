@@ -1,0 +1,24 @@
+\section{Embedded Systems}
+
+\subsection{Programming Frameworks}
+
+\begin{itemize}
+  \descitem{FreeRTOS\idx{FreeRTOS}\footnote{\url{https://www.freertos.org}}} Framework for structuring C code on microcontroller-based embedded devices (e.g., Arduino\idxx{Arduino!Framework}{Arduino}). It support tasks, cyclic buffers, and callback-driven operation.
+  \item Zephyr\idx{Zephyr}\footnote{\url{https://zephyrproject.org}}
+  \descitem{Tock\idx{Tock}\footnote{\url{https://www.tockos.org}}} Stanfords attempt at a Rust-based "operating system" for embedded devices. Runs on various hardware (e.g., ESP32).
+  \descitem{Mbed\idx{Mbed}\footnote{\url{https://os.mbed.com}}}ARMs\idx{ARM} framework for working with microcontrollers. It supports pretty much any board with a modern ARM microcontroller.
+  \descitem{TinyGO\idx{TinyGO}\footnote{\url{https://tinygo.org}}} This is Go for \quoted{small places} (e.g., ESP32 and WebAssembly\idx{WebAssembly}). It has some support for GPIO and I$^2$C.
+  \descitem{AtomVM\idx{AtomVM}\footnote{\url{https://github.com/bettio/AtomVM}}} An attempt at implementing a BEAM-compatible virtual machine on microcontrollers (e.g., ESP32). It has partial Erlang\idx{Erlang} and \idx{Elixir} support.
+  \descitem{Nerves\idx{Nerves}\footnote{\url{https://www.nerves-project.org}}} A runtime (BEAM on top of a minimal Linux kernel), and a fleet management system. It targets non-microcontroller hardware (e.g., Raspberry Pi), and supports both Elixir\idx{Elixir} and Erlang\idx{Erlang}.
+  \descitem{TinyOS\idx{TinyOS}\footnote{\url{https://github.com/tinyos}}} A highly modular and framework for programming low-power battery-operated devices with a microcontroller, a radio, and a flash chip (so-called mote class hardware). It is now defunct, but many of the concepts were ahead of its time.
+\end{itemize}
+
+\subsection{Radio Technologies}
+
+\begin{itemize}
+  \item BLE\idx{BLE}
+  \item LoRa\idx{LoRa} and friends
+  \item Thread\idx{Thread}\footnote{\url{https://www.threadgroup.org/What-is-Thread/Thread-Benefits}}
+  \item Matter\idx{Matter}
+\end{itemize}
+
