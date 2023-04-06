@@ -918,12 +918,12 @@ At times, a figure may be too complex to be readable in normal (i.e., portrait\i
           \coordinate (origo) at (1,1);
           
           % front page
-          \node[nodet] (first) at ([xshift=\spacing] origo) {(\textsl{\$num})};
-          \node[nodet] (ftext) at ([xshift=\spacing] first.east) {\textsl{\$text}};
-          \node[nodet] (last) at ([xshift=\spacing*1.5] ftext.east) {, and (\textsl{\$num})};
-          \node[nodet] (ltext) at ([xshift=\spacing] last.east) {\textsl{\$text}};
+          \node[nodet] (first) at ([xshift=\spacing] origo) {\strut(\textsl{\$num})};
+          \node[nodet] (ftext) at ([xshift=\spacing] first.east) {\strut\textsl{\$text}};
+          \node[nodet] (last) at ([xshift=\spacing*1.5] ftext.east) {\strut, and (\textsl{\$num})};
+          \node[nodet] (ltext) at ([xshift=\spacing] last.east) {\strut\textsl{\$text}};
           
-          \node[nodet,anchor=north] (comma) at ([xshift=\spacing/2, yshift=-\loopheight] first.south east) {,};
+          \node[nodet,anchor=north] (comma) at ([xshift=\spacing/2, yshift=-\loopheight] first.south east) {\strut,};
           
           \draw[arrow] (first) -- (ftext);
           \draw[arrow] (ftext) -- (last);
