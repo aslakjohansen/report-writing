@@ -26,6 +26,12 @@
 \usetikzlibrary{tikzmark}
 \usetikzlibrary{decorations.markings}
 
+% load fonts to cover a wider part of unicode
+%\usepackage{fontspec}
+\usepackage{CJKutf8}
+\usepackage[T1]{fontenc}
+\newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+
 % configure index: https://en.wikibooks.org/wiki/LaTeX/Indexing
 \usepackage{imakeidx}
 \indexsetup{othercode=\small}
@@ -361,6 +367,13 @@ A rejection in any of these steps means that you will have to reupload.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% First Steps
 \chapter{First Steps}
+
+
+\begin{inspiration}{Lao Tzu (\zh{老子})\cite{TaoTeChing400BC}}
+  ``
+    \textsl{The journey of a thousand miles begins with a single step.}
+  ''
+\end{inspiration}
 
 \section{Tools}
 
