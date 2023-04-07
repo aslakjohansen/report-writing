@@ -886,6 +886,15 @@ At times, a figure may be too complex to be readable in normal (i.e., portrait\i
 
 \subsection{Inline Enumerations}
 
+When presenting a choice, we may want to list the consequences of that choice. Similarly, when reasoning about something, we may want to list a number of premises that all hold. We could use bullet points, but that breaks up the paragraph, and thus the flow. Figure \ref{fig:art:pieces:inlineenum:bnf} formalizes an inline enumeration construct that preserves the flow of the text. Here, \textsl{\$text} should be replaced by some text, and \textsl{\$num} by increasing numbers (I prefer lowercase roman numerals). The following is a concrete example of its use.
+
+% example
+\begin{center}
+  \begin{minipage}{0.9\textwidth}
+    \quoted{For the service to stay available we need (i) robust access to the DBMS, (ii) support for hot updates, and (iii) enough processing power to handle requests from both this service and the periodic backup service.}
+  \end{minipage}
+\end{center}
+
 \begin{figure}
     \centering
       \scalebox{0.7}{
