@@ -944,6 +944,23 @@ At times, a figure may be too complex to be readable in normal (i.e., portrait\i
 Every statement must be mapped to an owner. If a statement is not explicitly mapped to someone else, then you are the owner and it is your responsibility to argue for its correctness. If the owner is someone else, then credit need to be given. This is where we use citations. It is, however, still your responsibility to consider the credibility of the source, and to make sure that the full context of the source material is applicable in the situation where you cite it.
 
 % how we cite
+There are a number of ways to cite:
+\begin{enumerate}
+  \item Adding a reference to a concept (e.g., an abbreviation). It is rarely done, and is often better accomplished through a footnote (e.g., with a link). This is done by adding the reference just after the mention of the concept:
+    \\
+    \mintinline{latex}{The ACM\cite{acm} publishes many articles.}
+  \item \label{enum:writing:citations:support} Adding a reference in support of a statement. This is done by adding the reference at the end of the statement (before the period):
+    \\
+    \mintinline{latex}{The Earth is flat\cite{source}.}
+  \item  \label{enum:writing:citations:natural} Natural references. This is done by putting the reference in place of a person:
+    \\
+    \mintinline{latex}{According to \cite{source} the Earth is flat.}
+\end{enumerate}
+I usually prefer \ref{enum:writing:citations:support} over \ref{enum:writing:citations:natural} due to its compactness and the separation between message and documentation. It allows me -- as a reader -- to not pay attention to the references, and yet they are still around should I need them. Multiple references can also be given:
+\begin{minted}{latex}
+A number of the surveyed papers conclude that the Earth is
+flat\cite{paper1,paper13,paper16}.
+\end{minted}
 
 % what can be cited
 Anything can be cited, but all citations are not equally useful. A citation is a reference. It allows the reader to look up the source of the information, verify that it says what you say it says, and evaluate how trustworthy it is. For this to work, it needs to be available to you. Ideally it should be published and without any form of access restriction. But you may have to refer to things that simply don't have that property. Many research papers are paywalled\idx{Paywall}. That is a step down. Maybe some document is published internally in some organization, but still necessary for documenting the decisions you have made. That is worse, but some people can still follow it. It could also be an insight that you received through a private\idx{Private correspondence} correspondence. That is pretty bad, but it can still be verified if you write who was at the other end of that correspondence. And if this insight way key to your project, then you need a way to refer to it.
