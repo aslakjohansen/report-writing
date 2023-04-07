@@ -27,9 +27,7 @@
 \usetikzlibrary{decorations.markings}
 
 % load fonts to cover a wider part of unicode
-\usepackage{CJKutf8}
-\usepackage[T1]{fontenc}
-\newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+\usepackage{xeCJK}
 
 % configure index: https://en.wikibooks.org/wiki/LaTeX/Indexing
 \usepackage{imakeidx}
@@ -368,7 +366,7 @@ A rejection in any of these steps means that you will have to reupload.
 \chapter{First Steps}
 
 
-\begin{inspiration}{Lao Tzu (\zh{老子})\cite{TaoTeChing400BC}}
+\begin{inspiration}{Lao Tzu (老子)\cite{TaoTeChing400BC}}
   ``
     \textsl{The journey of a thousand miles begins with a single step.}
   ''

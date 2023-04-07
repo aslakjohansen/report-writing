@@ -14,9 +14,9 @@ mrproper: clean
 
 
 report-writing.pdf: report-writing.tex references.bib */*.tex
-	pdflatex -shell-escape report-writing.tex
+	xelatex -shell-escape report-writing.tex
 	makeindex report-writing.idx
 	biber report-writing.bcf
-	pdflatex -shell-escape report-writing.tex
-	pdflatex -shell-escape report-writing.tex
+	xelatex -shell-escape report-writing.tex
+	xelatex -shell-escape report-writing.tex
 
