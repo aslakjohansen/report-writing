@@ -65,11 +65,11 @@
 \newcommand{\descitem}[1]{\item \textdesc{#1}}
 \newcommand{\quoted}[1]{\textsl{\say{#1}}}
 
-\newenvironment{inspiration}[1]
+\newenvironment{inspiration}[2][0.9]
 {
     \begin{center}
-    \newcommand{\saveme}{#1}
-    \begin{minipage}{0.9\textwidth}
+    \newcommand{\saveme}{#2}
+    \begin{minipage}{#1\textwidth}
 }
 {
     
@@ -628,6 +628,11 @@ Writing requires directed effort that considers what comes later in addition to 
     However long you think it is going to take, it is going to take longer. In part because things are going to go wrong, and you might realize that your design needs to change. For that to even be a possibility, you need to start experimental work early. A good rule of thumb is to take the time you expect it to take, and multiply it by $\pi$.
   \descitem{Respect your Audience} \idx{Audience}
     You are writing a report because you expect someone to read it. Knowing who that someone is is key to understanding what is necessary in order to convey your subject. You can expect your reader to have an IT-related background and at least an MSc. Also, you should expect the reader to print your report on A4 paper. A consequence of this is that you cannot rely on the reader zooming in to read certain parts of a figure.
+    \begin{inspiration}[0.82]{Rupert Giles\cite{buffy_s1e8}}
+  ``
+    \textsl{Smell is the most powerful trigger to the memory there is. A certain flower or a whiff of smoke can bring up experiences long forgotten. Books smell musty and rich. The knowledge gained from a computer is \ldots\ it has no texture, no context. It’s there and then it's gone. If it's to last, then the getting of knowledge should be tangible. It should be, um, smelly.}
+  ''
+\end{inspiration}
   \descitem{One sentence One message}
     Rarely is anything achieved by having a single sentence deliver more than a single message. Often, readability is affected negatively. A sequence of short messages, each progressing the narrative towards a point is a simple way of ensuring a concise and readable language. It takes considerable effort to shoehorn multiple messages into a single sentence without negatively affecting readability.
   \descitem{A Text Should Be Self-Contained}
