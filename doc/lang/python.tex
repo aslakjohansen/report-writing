@@ -2,6 +2,8 @@
 
 \idx{Python}Script\idx{Script Language} language which wont bite too much. It won't do concurrency\footnote{Unless you \textsl{\textbf{really}} know what you are doing, and 95\% of those who think they do don't.}, syntax errors are produced at runtime, and it is numerically pretty slow. If you can accept this (e.g., if you are doing script work) it's a pretty good language.
 
+\subsection{Versions}
+
 \subsection{Embedding}
 
 \idxx{Python!Embedded}{Embedded}As a stop-the-world\idxx{Garbage collection!Stop-the-world}{Stop-the-world Garbage collection} garbage collected language, Python is inherently problematic for embedded applications. To ensure successful communication with peripheral devices (e.g., radios, flash chips and digital sensors) that employ time-critical communication protocols\idxx{Communication!Time critical}{Time-critical communicaiton}, one is likely to have to either disable garbage collection during such operations or force it just before. This will pollute the codebase, introduce potential and hard-to-find bugs, and result in an efficiency penalty.
