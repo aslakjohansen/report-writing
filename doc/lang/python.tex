@@ -4,6 +4,10 @@
 
 \subsection{Embedding}
 
+\idxx{Python!Embedded}{Embedded}As a stop-the-world\idxx{Garbage collection!Stop-the-world}{Stop-the-world Garbage collection} garbage collected language, Python is inherently problematic for embedded applications. To ensure successful communication with peripheral devices (e.g., radios, flash chips and digital sensors) that employ time-critical communication protocols\idxx{Communication!Time critical}{Time-critical communicaiton}, one is likely to have to either disable garbage collection during such operations or force it just before. This will pollute the codebase, introduce potential and hard-to-find bugs, and result in an efficiency penalty.
+
+MicroPython\idx{MicroPython}\footnote{\url{https://micropython.org}} is an implementation of Python 3 with microcontrollers in mind. It is efficient for quick and dirty prototyping, but shouldn't be used for production purposes.
+
 \subsection{Symbolic Mathematics}
 
 \idx{SymPy}\url{https://www.sympy.org}
