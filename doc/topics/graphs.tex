@@ -6,8 +6,11 @@ A graph\idx{Graph} is a structure that can be used to model how things relate to
 \end{eqnarray*}
 Here, $N$ is the set of nodes and $E$ is the set of edges. We often choose to illustrate nodes as circles or boxes, and edges as lines.
 
-% edges: directionality, weight
-
+% edges: directionality
+Edges can have a more complex role in graphs. The most common complexity is for the edges to be directed\idxx{Edge!Directed}{Directed edge}. That is, the edge is has a \textsl{source}\idx{Source node} node, and a \textsl{destination}\idx{Destination node} node. Depending on the graph type, these may be the same node. Graphs with directed edges are called \textsl{directed}\idxx{Graph!Directed}{Directed graph}. Formally, we have:
+\begin{eqnarray*}
+  E \subseteq \{ (s,d) \mid (s,d) \in N^2 \}
+\end{eqnarray*}
 
 \begin{figure}[tbp]
   \begin{center}
