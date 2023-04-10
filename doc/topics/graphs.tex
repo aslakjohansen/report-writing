@@ -58,6 +58,8 @@ Another common complexity is to associate edges with \textsl{weights}\idxx{Edge!
 
 \subsection{Paths}
 
+A \textsl{path}\idx{Path} is a sequence of edges that goes from one node (the source) to another (the destination). Any node on the path (except the source node) will be the destination of exactly one edge on the path, and any node on the path (except the destination node) will be the source of exactly one edge on the path. If the path contains $n$ edges it will contain $n+1$ nodes. An example of a path can be seen in figure \ref{fig:topics:graphs:example:path}.
+
 \begin{figure}[tbp]
   \begin{center}
     \begin{tikzpicture}[remember picture]
