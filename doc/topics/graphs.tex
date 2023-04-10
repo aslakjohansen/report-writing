@@ -134,13 +134,85 @@ Here, $N$ is the set of nodes and $E$ is the set of edges. We often choose to il
     \end{tikzpicture}
   \end{center}
   \caption[Example of a cycle in a directed graph.]{Example of a cycle in a directed graph. It goes through nodes $n_9$, $n_8$, $n_5$, and $n_6$.}
-  
   \label{fig:topics:graphs:example:cycle}
 \end{figure}
 
 \subsection{Directed Acyclic Graphs}
 
 \subsection{Trees}
+
+% basics
+A tree\idx{Tree} is a graph where any pair of nodes are connected by exactly one path. Technically, trees, are undirected graphs. However, most real-world examples are directed graphs where a \textsl{root}\idxx{Tree!Root node}{Root node} node is anchoring the tree. From this node a single path leads to each of the other nodes. These are either called \textsl{leaf}\idxx{Tree!Leaf node}{Leaf node} nodes -- if they have no outgoing edges -- or \textsl{branch}\idxx{Tree!Branch node}{Branch node} nodes. These are typically drawn with the root at the top and leaves at the bottom. That is, growing downwards as shown in figure \ref{fig:topics:graphs:example:tree}. But sometimes, for practical reasons, they are drawn growing towards the right.
+
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}[remember picture]
+      \newcommand{\unit}[0]{8mm}
+      
+      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+      \tikzstyle{node}=[
+        overlay,
+        circle,
+        thick,
+        anchor=center,
+        minimum size=1,
+      ]
+      \tikzstyle{root}=[
+        node,
+        draw=blue
+      ]
+      \tikzstyle{branch}=[
+        node,
+        draw=purple
+      ]
+      \tikzstyle{leaf}=[
+        node,
+        draw=teal
+      ]
+      
+      \node[leaf]   (n1111) at (0,0) {};
+      \node[leaf]   (n1112) at ([xshift=\unit] n1111) {};
+      \node[leaf]   (n1131) at ([xshift=2.5*\unit] n1111) {};
+      \node[leaf]   (n1321) at ([xshift=4.5*\unit] n1111) {};
+      \node[leaf]   (n1322) at ([xshift=5.5*\unit] n1111) {};
+      
+      \node[branch] (n111) at ([yshift=\unit] $(n1111)!0.5!(n1112)$) {};
+      \node[branch] (n113) at ([yshift=\unit] n1131) {};
+      \node[leaf]   (n112) at ($(n111)!0.5!(n113)$) {};
+      \node[leaf]   (n131) at ([xshift=-\unit, yshift=\unit] n1321) {};
+      \node[branch] (n132) at ([yshift=\unit] $(n1321)!0.5!(n1322)$) {};
+      
+      \node[branch] (n11) at ([yshift=\unit] $(n111)!0.5!(n113)$) {};
+      \node[branch] (n13) at ([yshift=\unit] $(n131)!0.5!(n132)$) {};
+      \node[leaf]   (n12) at ($(n11)!0.5!(n13)$) {};
+      
+      \node[root]   (n1) at ([yshift=\unit] $(n11)!0.5!(n13)$) {};
+      
+      \draw[dedge] (n1)--(n11);
+      \draw[dedge] (n1)--(n12);
+      \draw[dedge] (n1)--(n13);
+      
+      \draw[dedge] (n11)--(n111);
+      \draw[dedge] (n11)--(n112);
+      \draw[dedge] (n11)--(n113);
+      \draw[dedge] (n13)--(n131);
+      \draw[dedge] (n13)--(n132);
+      
+      \draw[dedge] (n111)--(n1111);
+      \draw[dedge] (n111)--(n1112);
+      \draw[dedge] (n113)--(n1131);
+      \draw[dedge] (n132)--(n1321);
+      \draw[dedge] (n132)--(n1322);
+    \end{tikzpicture}
+  \end{center}
+  \caption[Example of a tree.]{Example of a tree, with a blue node for the root, a brown node for the branch nodes and green nodes for the leaf nodes.}
+  \label{fig:topics:graphs:example:tree}
+\end{figure}
+
+% properties: balanced, red-black, binary, B-trees, B+-trees
+
+% forests
+Some graphs are simply a number of disconnected tree structures. These are referred to as forests\idx{Forest}.
 
 \subsection{Connectedness}
 
@@ -167,5 +239,6 @@ Graphs can be stored in many formats, but one of the more common ones is the DOT
   \descitem{HTML/XML}
   \descitem{Route Planning}
   \descitem{Code Optimization}
+  \descitem{Searching}
 \end{itemize}
 
