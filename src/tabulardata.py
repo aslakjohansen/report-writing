@@ -3,6 +3,7 @@
 import json
 from sys import argv
 
+# read input
 with open(argv[1]) as fo:
   data = json.load(fo)
 
@@ -19,8 +20,10 @@ valuemapper = lambda v: int((float(v)-mn)/(mx-mn)*100)
 ykeys = sorted(data.keys())
 xkeys = list(sorted(data[list(data.keys())[0]].keys()))
 xs = len(xkeys)
-yheading = "\multirow{%i}{*}{\\rotatebox{90}{\\centering Parameter B}}" % len(ykeys)
+ys = len(ykeys)
 
+# produce result
+yheading = "\multirow{%i}{*}{\\rotatebox{90}{\\centering Parameter B}}" % ys
 lines = []
 lines.append("\\begin{tabular}{rl%s}" % ("c"*xs))
 lines.append("  & & \multicolumn{%i}{c}{Parameter A} \\\\" % xs)
@@ -33,7 +36,6 @@ for y in ykeys:
   lines.append(line+" \\\\")
 lines.append("\\end{tabular}")
 
+# write output
 with open(argv[2], "w") as fo:
   fo.writelines("".join(map(lambda line: line+"\n", lines)))
-
-print(data)
