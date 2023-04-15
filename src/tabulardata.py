@@ -21,6 +21,7 @@ xs = len(xkeys)
 
 lines = []
 lines.append("\\begin{tabular}{l%s}" % ("c"*xs))
+lines.append("  & \multicolumn{%i}{c}{Parameter A} \\\\" % xs)
 lines.append(" "+("".join(map(lambda key: " & "+key, xkeys)))+" \\\\")
 for y in sorted(data.keys()):
   line = "  %s" % y
