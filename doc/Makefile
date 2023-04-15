@@ -1,6 +1,9 @@
 TARGETS = \
 	report-writing.pdf
 
+DEPS = \
+	generated/tabulardata.tex \
+
 
 all: ${TARGETS}
 
@@ -13,7 +16,11 @@ mrproper: clean
 	rm    *~ *.aux *.bbl *.bcf *.blg *.run.xml *.log *.out *.toc *.idx *.ilg *.ind *.pyg
 
 
-report-writing.pdf: report-writing.tex references.bib */*.tex
+generated/tabulardata.tex: ../src/tabulardata.py ../var/tabulardata.json
+	../src/tabulardata.py ../var/tabulardata.json generated/tabulardata.tex
+
+
+report-writing.pdf: report-writing.tex references.bib */*.tex ${DEPS}
 	xelatex -shell-escape report-writing.tex
 	makeindex report-writing.idx
 	biber report-writing.bcf
