@@ -1,5 +1,24 @@
 \chapter{Programming Languages}
 
+Projects for learning a new language:
+\begin{itemize}
+  \item John\idxx{Conway, John}{John Conway} Conway's Game of Life\idx{Game of Life}.
+    \begin{itemize}
+      \item Initialization by either random, or file loading.
+      \item Flexibility allowing for alternative rule-set.
+      \item Hex-tiling as an alternative to the classic grid layout.
+      \item Visualizations?
+    \end{itemize}
+  \item HTTP/FTP/MQTT server on top of sockets.
+  \item Sudoku
+    \begin{itemize}
+      \descitem{Generator} Generate puzzles under consideration of difficulty, symmetry and ensuring a single solution.
+      \descitem{Persistence} Marshall\idx{Marshalling} the datastructure and store it to a file. Then read and unmarchall it again.
+      \descitem{Pretty-Printing} Code that can \textsl{pretty-print}\idx{Pretty-printing} either using ASCII art or to PDF.
+      \descitem{Solver}\idx{Solver} Code that can solve a puzzle.
+    \end{itemize}
+\end{itemize}
+
 \input{lang/make.tex}
 \input{lang/c.tex}
 \input{lang/elixir.tex}
