@@ -16,15 +16,17 @@ for y in data:
 
 valuemapper = lambda v: int((float(v)-mn)/(mx-mn)*100)
 
+ykeys = sorted(data.keys())
 xkeys = list(sorted(data[list(data.keys())[0]].keys()))
 xs = len(xkeys)
+yheading = "\multirow{%i}{*}{\\rotatebox{90}{\\centering Parameter B}}" % len(ykeys)
 
 lines = []
-lines.append("\\begin{tabular}{l%s}" % ("c"*xs))
-lines.append("  & \multicolumn{%i}{c}{Parameter A} \\\\" % xs)
-lines.append(" "+("".join(map(lambda key: " & "+key, xkeys)))+" \\\\")
-for y in sorted(data.keys()):
-  line = "  %s" % y
+lines.append("\\begin{tabular}{rl%s}" % ("c"*xs))
+lines.append("  & & \multicolumn{%i}{c}{Parameter A} \\\\" % xs)
+lines.append("  & "+("".join(map(lambda key: " & "+key, xkeys)))+" \\\\")
+for y in ykeys:
+  line = "  %s & %s" % (yheading if y==ykeys[0] else "", y)
   for x in sorted(data[y].keys()):
     value = int(data[y][x])
     line += " &\cellcolor{green!%i!red}%i" % (valuemapper(value), value)
