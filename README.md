@@ -9,3 +9,9 @@ For building you will need:
 - make
 - python 3
 
+## Building
+
+```shell
+cd doc ; make
+```
+
