@@ -7,4 +7,5 @@ The is a guide to Software Engineering and Software Technology students starting
 For building you will need:
 - xelatex
 - make
+- python 3
 
