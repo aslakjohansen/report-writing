@@ -1622,10 +1622,8 @@ Go through the requirements; one at a time. Determine the best way of evaluating
 
 \subsection{Tabular Data}
 
-% intro: experiment with two factors, what (some quantity that depends on two parameters, numbers that can be placed in a grid)
-Tabular data fits neatly into a table of two dimensions. That is, some quantity (usually a result) depends on two parameters. This could be the result of an experiment with two factors. The resulting data would fit neatly into a CSV file, but could also be stored as JSON like that in figure \ref{fig:eval:collection:tabular:json}.
-
-% proposed process
+% intro: experiment with two factors, what (some quantity that depends on two parameters, numbers that can be placed in a grid), problem
+Tabular data fits neatly into a table of two dimensions. That is, some quantity (usually a result) depends on two parameters. This could be the result of an experiment with two factors. The resulting data would fit neatly into a CSV\idx{CSV} file, but could also be stored as JSON\idx{JSON} like that in figure \ref{fig:eval:collection:tabular:json}. This, however, is a very small example. There could be hundreds of cells. How do we document those results in a report? We could perform hundreds of copy-paste operations, but it will take time and the likelihood of us messing it up is quite high. And our motivation\idx{Motivation} will suffer the moment we realize that we have to redo the experiment.
 
 \begin{figure}[tbp]
   \centering
@@ -1633,6 +1631,9 @@ Tabular data fits neatly into a table of two dimensions. That is, some quantity 
   \caption{Tabular experimental output in JSON form.}
   \label{fig:eval:collection:tabular:json}
 \end{figure}
+
+% proposed process
+
 
 \begin{figure}[tbp]
   \centering
