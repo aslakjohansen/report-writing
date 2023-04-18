@@ -134,6 +134,7 @@
 \textbf{Note:} This covers the final BSc and MSc projects in what is being referred to as the \quoted{software educations} at SDU. These are software technology and software engineering, but not computer science.
 
 \section{Source}
+\label{sec:source}
 
 You can get your hands on the latest versions of this document by checking out the repository at \url{https://github.com/aslakjohansen/report-writing} and compiled from \LaTeX\ source.
 
@@ -1633,20 +1634,20 @@ Tabular data fits neatly into a table of two dimensions. That is, some quantity 
 \end{figure}
 
 % proposed process
-
-
-\begin{figure}[tbp]
-  \centering
-  \input{generated/tabulardata.tex}
-  \caption{Tabular presentation of experimental output.}
-  \label{fig:eval:collection:tabular:tex}
-\end{figure}
+So, we need to remove the human from the loop. Luckily, with a bit of scripting skill, this is quite easy to automate. We just have to open the file, unmarshall the JSON structure, iterate through the cells, one row at a time, produce the \LaTeX code to represent it, store that code to a file, and then include that file. And in the process, while we have access to the data, we might as well enrich the representation a bit. In figure \ref{fig:eval:collection:tabular:py} you will find a full Python script that does this. It finds the minimum and the maximum cell value, and uses this to produce a heatmap effect by coloring the background of the individual cell. The resulting figure can be seen in figure \ref{fig:eval:collection:tabular:tex}. The code -- and build process -- for producing this result can be found in the GIT repository of this document (see section \ref{sec:source}).
 
 \begin{figure}[tbp]
   \centering
   \inputminted[fontsize=\normalsize]{python}{../src/tabulardata.py}
   \caption{Script for processing tabular experimental data.}
   \label{fig:eval:collection:tabular:py}
+\end{figure}
+
+\begin{figure}[tbp]
+  \centering
+  \input{generated/tabulardata.tex}
+  \caption{Tabular presentation of experimental output.}
+  \label{fig:eval:collection:tabular:tex}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
