@@ -1,5 +1,22 @@
 \section{Filesystems}
 
+There are many types of filesystems\idx{Filesystem}:
+\begin{itemize}
+  \descitem{Log Filesystem}
+  \descitem{Object Store}
+  \descitem{General-purpose filesystem}
+\end{itemize}
+
+% clarification
+In this section we are going to cover general-purpose filesystems. This is what most people thing about when they hear the term filesystem, and it is perfectly fair to use the term filesystem as equivant to this.
+
+Such a filesystem \textsl{organizes} files. The forms of supported organization varies from flat filesystems, over hierarchical filesystems to what is essentially graph filesystems. The organization type refers to the underlying data structure:
+\begin{itemize}
+  \descitem{Flat Filesystem}\idxx{Filesystem!Flat}{Flat filesystem} A file can be named through an ID without a context.
+  \descitem{Hierarchical Filesystem}\idxx{Filesystem!Hierarchical}{Hierarchical filesystem} A file can be named through an ID given a context that represents a position in a tree structure.
+  \descitem{Graph-Organized Filesystem}\idxx{Filesystem!Graph-organized}{Graph-organized filesystem} This is a hierarchical filesystem with links (that violate the tree property). Accordingly, you may encounter cycles in such filesystems.
+\end{itemize}
+
 \subsection{Structure}
 
 \subsection{Mountpoints}
