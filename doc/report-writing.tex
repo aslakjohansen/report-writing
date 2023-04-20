@@ -1620,7 +1620,7 @@ Go through the requirements; one at a time. Determine the best way of evaluating
 \subsection{Long-Running Experiments}
 
 % problem
-Some experiments take a long time to run. Whether that is measured in days or weeks, a lot is riding on it. If something were to go wrong, what would the consequences look like? Depending on what went wrong, either either the test harness\idx{Test harness} stopped functioning, or it experienced a period of time where it did not function. As a consequence, every result that were attempted to be produced within this timeframe is either flawed or never came to be in the first case. When this happens we can either repeat the whole thing (wasting time and repeating risk), or -- if we have been continuously storing experimental results to disk -- we can make some adjustments to only repeat those experiments that we are missing results from.
+Some experiments take a long time to run. Whether that is measured in days or weeks, a lot is riding on it. If something were to go wrong, what would the consequences look like? Depending on what went wrong, either the test harness\idx{Test harness} stopped functioning, or it experienced an intermittent period of time where it did not function. As a consequence, every result that were attempted to be produced within this timeframe is either flawed or never came to be in the first case. When this happens we can either repeat the whole thing (wasting time and repeating risk), or -- if we have been continuously storing experimental results to disk -- we can make some adjustments to only repeat those experiments that we are missing viable results from.
 
 % choosing CSV over JSON
 
