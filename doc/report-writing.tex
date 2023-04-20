@@ -1625,7 +1625,7 @@ Some experiments take a long time to run. Whether that is measured in days or we
 % choosing CSV over JSON
 However, to even have this ability we need to construct our test harness in a way that continuously writes the data to disk. This cannot be done with a single big JSON\idx{JSON} file. It could be done if you store a single JSON file per test. That, however, could end up resulting in a large number of files that are inconvenient to work with. A better approach is to open a file in \textsl{append\idx{Append mode} mode} and simply append encode all relevant results of a test into a single line. This could be as a JSON object, but that would mean that you would be spending time parsing every single line to get anything out of it. For most cases, CSV\idx{CSV} is flexible enough, faster to work with, and is trivial to parse without tool support.
 
-% flushing to disk: the different levels involved
+% flushing to disk: writing to disk is an async operation, buffers at the different levels
 
 % figure: the buffers involved in writing to disk
 
