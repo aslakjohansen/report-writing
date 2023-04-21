@@ -1638,7 +1638,14 @@ Over the course of the project, you should expect your experimental framework\id
 In a data structure unmarshalled from JSON\idx{JSON} you refer to fields by human recognizable names, but that is not the case for CSV\idx{CSV} files. Here, you refer to fields by index, and that is very easy to mess up if you remove a column. One solution is to introduce a \textsl{header}\idx{Header} as a comment on the first line. While CSV in and of itself does not have a notion of a comment, many software packages for working on them does. Usually using the \quoted{\texttt{\#}} character. In that comment, you place a comma-separated list of strings that can be used to translate from filed names to columns.
 
 % changes in append mode: if appending to the file then the row format can change simply by adding a new header, most recent header defines the format
-This approach translates well into a setup where experiment data across multiple runs are appended to a file. Simply add a new header before each experiment, and make sure you process the header comments as you go through the file. Then the most recent header will always be used to translate the file.
+This approach translates well into a setup where experiment data across multiple runs are appended to a file. Simply add a new header before each experiment, and make sure you process the header comments as you go through the file. Then the most recent header will always be used to translate the file. An example of how this could be accomplished can be found in figure \ref{fig:eval:collection:future:header:py}. This could trivially be extended to parse cell values into integers and floats.
+
+\begin{figure}[tbp]
+  \centering
+  \inputminted[fontsize=\normalsize,firstline=7,lastline=37]{python}{../src/csvheader.py}
+  \caption{Example code for parsing CSV files with multiple headers.}
+  \label{fig:eval:collection:future:header:py}
+\end{figure}
 
 \section{Presentation}
 
