@@ -15,13 +15,11 @@ def parse_file (filename, sep=","):
       line = lines[linei]
       
       if len(line)>0 and line[0]=="#":
-        print("header")
         header = []
         cols = list(map(str.strip, line[1:].split(sep)))
         for i in range(len(cols)):
           header.append(cols[i])
       else:
-        print("data header=%s" % str(header))
         entry = {}
         cols = list(map(str.strip, line.split(sep)))
         for i in range(len(cols)):
