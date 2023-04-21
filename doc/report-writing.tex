@@ -1621,6 +1621,7 @@ One solution is to cache the logs in memory until the completion of the experime
 Another solution is to offload the storage of the logs by streaming them over a network. That, however, shifts the load to the network. If the experiment is independent on the network, then this may be the right solution.
 
 % postscript: which resources can be traded, and how do you ensure the best results?
+There is no universally superior solution. There are resources with complex relationships, and each solution incurs a penalty that negatively affects a subset of them. In other words; resources are traded\idx{Tradeoff}, and it is up to you to figure out which solution provides you with the results that best reflects how the system would perform without instrumentation.
 
 \subsection{Long-Running Experiments}
 \label{sec:eval:collection:longrunning}
