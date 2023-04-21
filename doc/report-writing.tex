@@ -1631,9 +1631,13 @@ However, to even have this ability we need to construct our test harness in a wa
 
 \subsection{Future Proofing}
 
-% headers in csv files: evolving experimental framework, evolution across two dimensions (code, and experiments), fields of collected data may change over time, need for the ability to treat different versions of the same file format in the same way.
+% intro: evolving experimental framework, evolution across two dimensions (code, and experiments), fields of collected data may change over time, need for the ability to treat different versions of the same file format in the same way.
+Over the course of the project, you should expect your experimental framework\idxx{Experimental framework!Evolution of}{Evolution of experimental framework} to evolves, just as your main codebase. Accordingly, the fields collected during an early experiment may not be the same as those being collected in a later experiment. Typically, the set of fields grow over time, but you might realize that you are trading too much and stop collecting certain fields. In order to compare early runs with new runs you will thus need the ability to treat different versions of the same file format in the same way.
 
-% solutions: json, csv (comments in "header"), if appending to the file then the row format can change simply by adding a new header, most recent header defines the format
+% solutions: json, csv (comments in "header")
+In a data structure unmarshalled from JSON you refer to fields by human recognizable names, but that is not the case for CSV files. Here, you refer to fields by index, and that is very easy to mess up if you remove a column. One solution is to introduce a \textsl{header}\idx{Header} as a comment on the first line. While CSV in and of itself does not have a notion of a comment, many software packages for working on them does. Usually using the \quoted{\texttt{\#}} character. In that comment, you place a comma-separated list of strings that can be used to translate from filed names to columns.
+
+% changes in append mode: if appending to the file then the row format can change simply by adding a new header, most recent header defines the format
 
 \section{Presentation}
 
