@@ -95,5 +95,5 @@ In a generic client-server setup, the server might employ a statemachine like th
 Presenting the state machine visually allows us to visually spot problems. It is also a way of documenting the protocol. For instance, it implicitly answers arbitrary questions of the form: Which state does the session need to be in in order to issue this command, and how can it get there?
 
 % checks: when high-level behavior is expressed as a graph we can run graph operations on it, we can -- for instance -- verify that it is impossible to get from node A to node B without performing operation C
-
+When high-level behavior is expressed as a graph, we can run graph operations on it. We can, for instance, verify that it is impossible to transition from node $n_a$ to node $n_b$ without performing operation $e_c$ by making sure that all paths from node $n_a$ to node $n_b$ has a $e_c$ edge.
 
