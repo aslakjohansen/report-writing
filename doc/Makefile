@@ -12,8 +12,8 @@ clean:
 	rm    ${TARGETS}
 
 mrproper: clean
-	touch d~ d.aux d.bbl d.bcf d.blg d.run.xml d.log d.out d.toc d.idx d.ilg d.ind d.pyg
-	rm    *~ *.aux *.bbl *.bcf *.blg *.run.xml *.log *.out *.toc *.idx *.ilg *.ind *.pyg
+	touch d~ d.aux d.bbl d.bcf d.blg d.run.xml d.lof d.log d.out d.toc d.idx d.ilg d.ind d.pyg
+	rm    *~ *.aux *.bbl *.bcf *.blg *.run.xml *.lof *.log *.out *.toc *.idx *.ilg *.ind *.pyg
 
 
 generated/tabulardata.tex: ../src/tabulardata.py ../var/tabulardata.json
