@@ -9,7 +9,7 @@
 \subsection{Protocols}
 
 % intro: case intro, Starting node, events and transitions
-In a generic client-server setup, the server might employ a statemachine like that from figure \ref{fig:topics:sm:proto} to keep track of individual clients. A client session starts its life in the \quoted{Disconnected} State. Once the \funcname{accept} function returns a concrete session is spawned and this transitions the state to \quoted{Connected}. At this point a successful authorization attempt will transition to \quoted{Authorized}. Once in this state, a number of services can be initiated. Each of these could be modelled as a nested state machine that ends up back at the \quoted{Authorized} state. Should a nonce fail to verify, the session transitions to the \quoted{Connected} state. If the client connection is lost the session will transition to the \quoted{Disconnected} state.
+\idx{Protocol}In a generic client-server setup, the server might employ a statemachine like that from figure \ref{fig:topics:sm:proto} to keep track of individual clients. A client session\idx{Session} starts its life in the \quoted{Disconnected} State. Once the \funcname{accept} function returns a concrete session is spawned and this transitions the state to \quoted{Connected}. At this point a successful authorization attempt will transition to \quoted{Authorized}. Once in this state, a number of services can be initiated. Each of these could be modelled as a nested state machine that ends up back at the \quoted{Authorized} state. Should a nonce fail to verify, the session transitions to the \quoted{Connected} state. If the client connection is lost the session will transition to the \quoted{Disconnected} state.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -92,7 +92,7 @@ In a generic client-server setup, the server might employ a statemachine like th
 \end{figure}
 
 %  visually spotting problems, documenting protocol commands ("I need to transition to this state before I can issue this command")
-Presenting the state machine visually allows us to visually spot problems. It is also a way of documenting the protocol. For instance, it implicitly answers arbitrary questions of the form: Which state does the session need to be in in order to issue this command, and how can it get there?
+Presenting the state machine visually allows us to visually spot problems. It is also a way of documenting\idxx{Protocol!Documentation}{Protocol documentation} the protocol. For instance, it implicitly answers arbitrary questions of the form: Which state does the session need to be in in order to issue this command, and how can it get there?
 
 % checks: when high-level behavior is expressed as a graph we can run graph operations on it, we can -- for instance -- verify that it is impossible to get from node A to node B without performing operation C
 When high-level behavior is expressed as a graph, we can run graph operations on it. We can, for instance, verify that it is impossible to transition from node $n_a$ to node $n_b$ without performing operation $e_c$ by making sure that all paths from node $n_a$ to node $n_b$ has a $e_c$ edge.
