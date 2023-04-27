@@ -8,3 +8,80 @@
 
 \subsection{Protocols}
 
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}[remember picture]
+      \newcommand{\unit}[0]{24mm}
+      \newcommand{\edgeangle}[0]{30}
+      \newcommand{\loopiness}[0]{4}
+      \newcommand{\startangle}[0]{-1.75}
+      \newcommand{\trans}[1]{\scalebox{0.7}{\textsl{\textcolor{purple}{#1}}}}
+      
+      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+      \tikzstyle{node}=[
+        overlay,
+        draw=black,
+        circle, %ellipse,
+        thick,
+        anchor=center,
+        minimum width=24mm,
+      ]
+      
+      % nodes
+      \node[node] (disconnected) at (0,0) {Disconnected};
+      \node[node] (connected) at ([xshift=\unit] disconnected.east) {Connected};
+      \node[node] (authorized) at ([xshift=\unit] connected.east) {Authorized};
+      
+      % main transitions
+      \draw[dedge] (disconnected) to [
+        out=\edgeangle, in=180-\edgeangle,
+        edge node={node [above] {\trans{accept}}}
+      ] (connected);
+      \draw[dedge] (connected)    to [
+        out=\edgeangle, in=180-\edgeangle,
+        edge node={node [above] {\trans{authorize}}}
+      ] (authorized);
+      \draw[dedge] (authorized)   to [
+        out=180+1*\edgeangle, in=-1*\edgeangle,
+        edge node={node [below] {\trans{nonce failure}}}
+      ] (connected);
+      \draw[dedge] (connected)    to [
+        out=180+1*\edgeangle, in=-1*\edgeangle,
+        edge node={node [below] {\trans{disconnect}}}
+      ] (disconnected);
+      \draw[dedge] (authorized)   to [
+        out=180+1.8*\edgeangle, in=-1.8*\edgeangle,
+        edge node={node [below] {\trans{disconnect}}}
+      ] (disconnected);
+      
+      % loop transitions
+      \draw[dedge] (authorized) to [
+        out=\startangle*\edgeangle+0.5*\edgeangle,
+        in=\startangle*\edgeangle+0.0*\edgeangle,
+        looseness=\loopiness,
+        edge node={node [right] {\trans{service 4}}}
+      ] (authorized);
+      \draw[dedge] (authorized) to [
+        out=\startangle*\edgeangle+1.5*\edgeangle,
+        in=\startangle*\edgeangle+1.0*\edgeangle,
+        looseness=\loopiness,
+        edge node={node [right] {\trans{service 3}}}
+      ] (authorized);
+      \draw[dedge] (authorized) to [
+        out=\startangle*\edgeangle+2.5*\edgeangle,
+        in=\startangle*\edgeangle+2.0*\edgeangle,
+        looseness=\loopiness,
+        edge node={node [right] {\trans{service 2}}}
+      ] (authorized);
+      \draw[dedge] (authorized) to [
+        out=\startangle*\edgeangle+3.5*\edgeangle,
+        in=\startangle*\edgeangle+3.0*\edgeangle,
+        looseness=\loopiness,
+        edge node={node [right] {\trans{service 1}}}
+      ] (authorized);
+    \end{tikzpicture}
+  \end{center}
+  \caption{State machine of unnamed protocol.}
+  \label{fig:topics:sm:proto}
+\end{figure}
+
