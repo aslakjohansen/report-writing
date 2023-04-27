@@ -32,6 +32,9 @@
       \node[node] (connected) at ([xshift=\unit] disconnected.east) {Connected};
       \node[node] (authorized) at ([xshift=\unit] connected.east) {Authorized};
       
+      % start edge
+      \draw[dedge] ([xshift=-\unit/4] disconnected.west) to (disconnected);
+      
       % main transitions
       \draw[dedge] (disconnected) to [
         out=\edgeangle, in=180-\edgeangle,
