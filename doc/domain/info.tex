@@ -1,3 +1,6 @@
+
+
+
 \section{Information Models}
 
 \idx{Information model}Structuring or modeling of information is ways that allows for flexible and efficient queries.
@@ -9,6 +12,77 @@
 % text
 
 % fig: two match sites, context and information nodes, unit, stream-id
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}[remember picture]
+      \newcommand{\pointsize}[0]{12mm}
+      \newcommand{\datadist}[0]{10mm}
+      
+      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+      \tikzstyle{node}=[
+        overlay,
+        circle,
+        thick,
+        anchor=center,
+      ]
+      \tikzstyle{point}=[
+        node,
+        draw=blue,
+        minimum height=\pointsize,
+        minimum width=\pointsize,
+      ]
+      \tikzstyle{room}=[
+        node,
+        draw=blue,
+        minimum height=\pointsize,
+        minimum width=\pointsize,
+      ]
+      \tikzstyle{unit}=[
+        node,
+        draw=purple,
+        anchor=north west,
+      ]
+      \tikzstyle{data}=[
+        node,
+        draw=teal,
+        anchor=north east,
+      ]
+      \tikzstyle{field}=[
+        data,
+        rectangle,
+        anchor=center,
+      ]
+      
+      \newcommand{\data}[4]{
+        \node[data] (#1) at (#2) {data};
+        \node[field] (hist) at ([xshift=-\datadist, yshift=-\datadist] #1.center) {#3};
+        \node[field] (live) at ([xshift=\datadist, yshift=-\datadist] #1.center) {#4};
+        \draw[dedge] (#1) -- (hist) node[midway,left,yshift=2mm] {hist};
+        \draw[dedge] (#1) -- (live) node[midway,right,yshift=2mm] {live};
+      }
+      \renewcommand{\unit}[3]{
+        \node[unit] (#1) at (#2) {\si{#3}};
+      }
+      \newcommand{\point}[5]{
+        \node[point] (point) at (#1) {#2};
+        \data{data}{[yshift=-4mm, xshift=-4mm-\pointsize/2] point.south}{#4}{#5};
+        \unit{unit}{[yshift=-4mm, xshift=4mm+\pointsize/2] point.south}{#3};
+        \draw[dedge] (point) -- (unit) node[midway,right,yshift=2mm] {unit};
+        \draw[dedge] (point) -- (data) node[midway,left,yshift=2mm] {data};
+      }
+      
+      \point{0,0}{Temp}{\degreeCelsius}{12}{17c5ae15}
+      \point{5,0}{Hum}{\percent}{13}{65d0be73}
+      \point{0,4}{PIR}{}{24}{5a3573c3}
+      
+      \node[room] (room1) at (5,4) {Room};
+      \node[field] (room1area) at ([yshift=\datadist+4mm] room1.center) {17 \si{\square\meter}};
+      \draw[dedge] (room1) -- (room1area) node[midway,right,yshift=-0.5mm] {area};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Example of an abstrat information model.}
+  \label{fig:topics:info:model}
+\end{figure}
 
 \subsection{Patterns}
 
