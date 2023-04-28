@@ -20,7 +20,8 @@
       \newcommand{\fieldtext}[1]{\scalebox{0.5}{#1}}
       \newcommand{\edgetext}[1]{\scalebox{0.5}{\textit{#1}}}
       \newcommand{\pointsize}[0]{8mm}
-      \newcommand{\datadist}[0]{10mm}
+      \newcommand{\datadist}[0]{8mm}
+      \newcommand{\pointdist}[0]{(\pointsize/2+3mm)}
       \newcommand{\sqrttwo}[0]{1.41421356237}
       \newcommand{\diagside}[0]{0.70710678119}
       
@@ -65,8 +66,8 @@
       
       \newcommand{\data}[4]{
         \node[data] (#1) at (#2) {\nodetext{data}};
-        \node[field] (hist) at ([xshift=-\datadist, yshift=-\datadist] #1.center) {\fieldtext{#3}};
-        \node[field] (live) at ([xshift=\datadist, yshift=-\datadist] #1.center) {\fieldtext{#4}};
+        \node[field] (hist) at ([yshift=-\datadist,xshift=-\datadist] #1.center) {\fieldtext{#3}};
+        \node[field] (live) at ([yshift=-\datadist,xshift= \datadist] #1.center) {\fieldtext{#4}};
         \draw[dedge] (#1) -- (hist) node[midway,sloped,above] {\edgetext{hist}};
         \draw[dedge] (#1) -- (live) node[midway,sloped,above] {\edgetext{live}};
       }
@@ -75,8 +76,8 @@
       }
       \newcommand{\point}[6]{
         \node[point] (#1 point) at (#2) {\nodetext{#3}};
-        \data{data}{[yshift=-4mm, xshift=-4mm-\pointsize/2] #1 point.south}{#5}{#6};
-        \unit{unit}{[yshift=-4mm, xshift=4mm+\pointsize/2] #1 point.south}{#4};
+        \data{data}{[yshift=-\pointdist,xshift=-\pointdist] #1 point.center}{#5}{#6};
+        \unit{unit}{[yshift=-\pointdist,xshift= \pointdist] #1 point.center}{#4};
         \draw[dedge] (#1 point) -- (unit) node[midway,sloped,above] {\edgetext{unit}};
         \draw[dedge] (#1 point) -- (data) node[midway,sloped,above] {\edgetext{data}};
       }
