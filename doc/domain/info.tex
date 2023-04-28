@@ -15,6 +15,7 @@
 \begin{figure}[tbp]
   \begin{center}
     \begin{tikzpicture}[remember picture]
+      \newcommand{\edgetext}[1]{\scalebox{0.6}{\textit{#1}}}
       \newcommand{\pointsize}[0]{12mm}
       \newcommand{\datadist}[0]{10mm}
       
@@ -61,8 +62,8 @@
         \node[data] (#1) at (#2) {data};
         \node[field] (hist) at ([xshift=-\datadist, yshift=-\datadist] #1.center) {#3};
         \node[field] (live) at ([xshift=\datadist, yshift=-\datadist] #1.center) {#4};
-        \draw[dedge] (#1) -- (hist) node[midway,left,yshift=2mm] {hist};
-        \draw[dedge] (#1) -- (live) node[midway,right,yshift=2mm] {live};
+        \draw[dedge] (#1) -- (hist) node[midway,left,yshift=2mm] {\edgetext{hist}};
+        \draw[dedge] (#1) -- (live) node[midway,right,yshift=2mm] {\edgetext{live}};
       }
       \renewcommand{\unit}[3]{
         \node[unit] (#1) at (#2) {\si{#3}};
@@ -71,16 +72,9 @@
         \node[point] (#1 point) at (#2) {#3};
         \data{data}{[yshift=-4mm, xshift=-4mm-\pointsize/2] #1 point.south}{#5}{#6};
         \unit{unit}{[yshift=-4mm, xshift=4mm+\pointsize/2] #1 point.south}{#4};
-        \draw[dedge] (#1 point) -- (unit) node[midway,right,yshift=2mm] {unit};
-        \draw[dedge] (#1 point) -- (data) node[midway,left,yshift=2mm] {data};
+        \draw[dedge] (#1 point) -- (unit) node[midway,right,yshift=2mm] {\edgetext{unit}};
+        \draw[dedge] (#1 point) -- (data) node[midway,left,yshift=2mm] {\edgetext{data}};
       }
-%      \newcommand{\point}[6]{
-%        \node[point] ({#1}point) at (#2) {#3};
-%        \data{data}{[yshift=-4mm, xshift=-4mm-\pointsize/2] {#1}point.south}{#5}{#6};
-%        \unit{unit}{[yshift=-4mm, xshift=4mm+\pointsize/2] {#1}point.south}{#4};
-%        \draw[dedge] ({#1}point) -- (unit) node[midway,right,yshift=2mm] {unit};
-%        \draw[dedge] ({#1}point) -- (data) node[midway,left,yshift=2mm] {data};
-%      }
       
       \point{room1t}{0,0}{Temp}{\degreeCelsius}{12}{17c5ae15}
       \point{room1h}{5,0}{Hum}{\percent}{13}{65d0be73}
@@ -88,19 +82,19 @@
       
       \node[room] (room1) at (5,4) {Room};
       \node[field] (room1area) at ([yshift=\datadist+4mm] room1.center) {17 \si{\square\meter}};
-      \draw[dedge] (room1) -- (room1area) node[midway,right,yshift=-0.5mm] {area};
+      \draw[dedge] (room1) -- (room1area) node[midway,right,yshift=-0.5mm] {\edgetext{area}};
       
       \node[modality] (room1tempModality) at (2.5, 2) {\tiny{temperature}};
-      \draw[dedge] (room1) -- (room1tempModality) node[midway,right,yshift=-0.5mm] {modality};
-      \draw[dedge] (room1t point) -- (room1tempModality) node[midway,right,yshift=-0.5mm] {provides};
+      \draw[dedge] (room1) -- (room1tempModality) node[midway,right,yshift=-0.5mm] {\edgetext{modality}};
+      \draw[dedge] (room1t point) -- (room1tempModality) node[midway,right,yshift=-0.5mm] {\edgetext{provides}};
       
       \node[modality] (room1humModality) at (5, 2) {\tiny{humidity}};
-      \draw[dedge] (room1) -- (room1humModality) node[midway,right,yshift=-0.5mm] {modality};
-      \draw[dedge] (room1h point) -- (room1humModality) node[midway,right,yshift=-0.5mm] {provides};
+      \draw[dedge] (room1) -- (room1humModality) node[midway,right,yshift=-0.5mm] {\edgetext{modality}};
+      \draw[dedge] (room1h point) -- (room1humModality) node[midway,right,yshift=-0.5mm] {\edgetext{provides}};
       
       \node[modality] (room1occModality) at (2.5, 4) {\tiny{occupancy}};
-      \draw[dedge] (room1) -- (room1occModality) node[midway,right,yshift=-0.5mm] {modality};
-      \draw[dedge] (room1p point) -- (room1occModality) node[midway,right,yshift=-0.5mm] {provides};
+      \draw[dedge] (room1) -- (room1occModality) node[midway,above,yshift=-0.5mm] {\edgetext{modality}};
+      \draw[dedge] (room1p point) -- (room1occModality) node[midway,above,yshift=-0.5mm] {\edgetext{provides}};
     \end{tikzpicture}
   \end{center}
   \caption{Example of an abstrat information model.}
