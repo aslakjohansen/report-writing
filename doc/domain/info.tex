@@ -10,6 +10,7 @@
 \subsection{Models}
 
 % text
+The model itself is what describes that concrete domain instance. Continuing in the spirit of the building domain, figure \ref{fig:topics:info:model} illustrates what a partial model of a building could look like. This particular model contaings two rooms on the 3rd floor of some building. Each room is annotated with an area as well as three sensors covering the modalities of temperateure, relative humidity and occupancy. A PIR sensor measures the occupancy, and a humidity sensor measures the relative humidity. In one room a thermistor is measuring the temperature and in the other a thermocouple does the same. Each sensor is associated with a unit as well as a pair of data references; one for retreaving historical data (using a timeseries ID) and one for retreaving live data (using a stream ID).
 
 % fig: two match sites, context and information nodes, unit, stream-id
 \begin{figure}[tbp]
@@ -91,7 +92,7 @@
         \node[field] (room1area) at ([yshift=\datadist+4mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
         \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
         
-        \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{Temp}{\degreeCelsius}{12}{17c5ae15}
+        \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{thermocouple}{\degreeCelsius}{12}{17c5ae15}
         \point{room1h}{[xshift=0,yshift=-\roomdist] room1}{Hum}{\percent}{13}{65d0be73}
         \point{room1o}{[xshift=-\roomdist,yshift=0] room1}{PIR}{}{24}{5a3573c3}
         
@@ -99,7 +100,7 @@
         \draw[dedge] (room1) -- (room1tempModality) node[midway,sloped,above] {\edgetext{modality}};
         \draw[dedge] (room1t point) -- (room1tempModality) node[midway,sloped,above] {\edgetext{provides}};
         
-        \node[modality] (room1humModality) at ($(room1)!0.5!(room1h point)$) {\modalitytext{humidity}};
+        \node[modality] (room1humModality) at ($(room1)!0.5!(room1h point)$) {\modalitytext{relative humidity}};
         \draw[dedge] (room1) -- (room1humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
         \draw[dedge] (room1h point) -- (room1humModality) node[midway,sloped,above] {\edgetext{provides}};
         
@@ -114,7 +115,7 @@
         \node[field] (room2area) at ([yshift=\datadist+4mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
         \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
         
-        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{Temp}{\degreeCelsius}{16}{3b83ce7c}
+        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{thermistor}{\degreeCelsius}{16}{3b83ce7c}
         \point[-1]{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}
         \point[-1]{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}
         
@@ -122,7 +123,7 @@
         \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
         \draw[dedge] (room2t point) -- (room2tempModality) node[midway,sloped,above] {\edgetext{provides}};
         
-        \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{humidity}};
+        \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative humidity}};
         \draw[dedge] (room2) -- (room2humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
         \draw[dedge] (room2h point) -- (room2humModality) node[midway,sloped,above] {\edgetext{provides}};
         
