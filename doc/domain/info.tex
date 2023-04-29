@@ -153,9 +153,80 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
 
 \subsection{Query Patterns}
 
-% text
+% text: what is matched? what is captured?
 
 % fig: pattern covering [room, room area, occupancy provider, temperature provider, relhum provider]
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}[remember picture]
+      \newcommand{\nodetext}[1]{\scalebox{0.7}{#1}}
+      \newcommand{\modalitytext}[1]{\scalebox{0.65}{#1}}
+      \newcommand{\fieldtext}[1]{\scalebox{0.7}{#1}}
+      \newcommand{\edgetext}[1]{\scalebox{0.7}{\textit{#1}}}
+      
+      \newcommand{\pointsize}[0]{(8mm)}
+      \newcommand{\dist}[0]{(24mm)}
+      
+      \tikzstyle{dedge} = [->,>=stealth,draw=black]
+      \tikzstyle{dbedge} = [<->,>=stealth,draw=black]
+      \tikzstyle{node}=[
+        overlay,
+        circle,
+        align=center,
+        anchor=center,
+      ]
+      \tikzstyle{point}=[
+        node,
+        draw=blue,
+        minimum height=\pointsize,
+        minimum width=\pointsize,
+      ]
+      \tikzstyle{room}=[
+        node,
+        draw=blue,
+        minimum height=\pointsize,
+        minimum width=\pointsize,
+      ]
+      \tikzstyle{modality}=[
+        node,
+        draw=purple,
+      ]
+      \tikzstyle{unit}=[
+        node,
+        draw=teal,
+        anchor=center,
+      ]
+      \tikzstyle{data}=[
+        node,
+        draw=teal,
+        anchor=center,
+      ]
+      \tikzstyle{field}=[
+        data,
+        rectangle,
+        anchor=center,
+      ]
+      
+      \node[room] (room) at (0,0) {Room};
+      \node[room] (floor) at ([xshift=30mm] room.center) {Floor};
+      \node[data] (floorname) at ([xshift=22mm] floor.center) {?};
+      \draw[dedge] (floor) -- (room) node[midway,sloped,above] {contains};
+      \draw[dedge] (floor) -- (floorname) node[midway,sloped,above] {name};
+      
+      \node[modality] (tmodality) at ([xshift=-26mm, yshift=-26mm] room.center) {temperature};
+      \node[modality] (hmodality) at ([xshift=-26mm, yshift= 26mm] room.center) {relative\\humidity};
+      \node[room] (tsensor) at ([xshift=-32mm] tmodality.center) {?};
+      \node[room] (hsensor) at ([xshift=-32mm] hmodality.center) {?};
+      \draw[dedge] (room) -- (tmodality) node[midway,sloped,above] {modality};
+      \draw[dedge] (room) -- (hmodality) node[midway,sloped,above] {modality};
+      \draw[dedge] (tsensor) -- (tmodality) node[midway,sloped,above] {provides};
+      \draw[dedge] (hsensor) -- (hmodality) node[midway,sloped,above] {provides};
+    \end{tikzpicture}
+  \end{center}
+  \vspace{8mm}
+  \caption[Example of the pattern of an abstract model query]{Example of the pattern of an abstract model query. It matches combinations of temperature and relative humidity sensors that are associated with a specific room, along with the floor name associated with the floor of that room.}
+  \label{fig:topics:info:model}
+\end{figure}
 
 \subsection{Match Sites}
 
