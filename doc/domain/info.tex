@@ -90,7 +90,7 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
       % room 1
       {
         \node[room] (room1) at (-\centerspacing, 0) {\nodetext{Room}};
-        \node[field] (room1area) at ([yshift=\datadist+4mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
+        \node[field] (room1area) at ([yshift=\datadist+5mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
         \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
         
         \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{TC}{\degreeCelsius}{12}{17c5ae15}
@@ -113,7 +113,7 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
       % room 2
       {
         \node[room] (room2) at (\centerspacing, 0) {\nodetext{Room}};
-        \node[field] (room2area) at ([yshift=\datadist+4mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
+        \node[field] (room2area) at ([yshift=\datadist+5mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
         \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
         
         \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TM}{\degreeCelsius}{16}{3b83ce7c}
@@ -141,7 +141,7 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
         \draw[dedge] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
         \draw[dedge] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
         
-        \node[field] (floorName) at ([yshift=\datadist+4mm] floor.center) {\fieldtext{3rd}};
+        \node[field] (floorName) at ([yshift=\datadist+6mm] floor.center) {\fieldtext{3rd}};
         \draw[dedge] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
       }
     \end{tikzpicture}
