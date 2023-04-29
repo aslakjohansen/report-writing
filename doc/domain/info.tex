@@ -93,7 +93,7 @@ The model itself is what describes that concrete domain instance. Continuing in 
         \node[field] (room1area) at ([yshift=\datadist+4mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
         \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
         
-        \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{thermocouple}{\degreeCelsius}{12}{17c5ae15}
+        \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{TC}{\degreeCelsius}{12}{17c5ae15}
         \point{room1h}{[xshift=0,yshift=-\roomdist] room1}{Hum}{\percent}{13}{65d0be73}
         \point{room1o}{[xshift=-\roomdist,yshift=0] room1}{PIR}{}{24}{5a3573c3}
         
@@ -116,7 +116,7 @@ The model itself is what describes that concrete domain instance. Continuing in 
         \node[field] (room2area) at ([yshift=\datadist+4mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
         \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
         
-        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{thermistor}{\degreeCelsius}{16}{3b83ce7c}
+        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TM}{\degreeCelsius}{16}{3b83ce7c}
         \point[-1]{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}
         \point[-1]{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}
         
@@ -147,7 +147,7 @@ The model itself is what describes that concrete domain instance. Continuing in 
     \end{tikzpicture}
   }
   \end{center}
-  \caption{Example of an abstrat information model.}
+  \caption[Example of an abstract information model]{Example of an abstract information model. TM is an abbreviation for thermistor, and TC for thermocouple}
   \label{fig:topics:info:model}
 \end{figure}
 
