@@ -34,6 +34,7 @@ The model itself is what describes that concrete domain instance. Continuing in 
       \tikzstyle{node}=[
         overlay,
         circle,
+        align=center,
         anchor=center,
       ]
       \tikzstyle{point}=[
@@ -100,7 +101,7 @@ The model itself is what describes that concrete domain instance. Continuing in 
         \draw[dedge] (room1) -- (room1tempModality) node[midway,sloped,above] {\edgetext{modality}};
         \draw[dedge] (room1t point) -- (room1tempModality) node[midway,sloped,above] {\edgetext{provides}};
         
-        \node[modality] (room1humModality) at ($(room1)!0.5!(room1h point)$) {\modalitytext{relative humidity}};
+        \node[modality] (room1humModality) at ($(room1)!0.5!(room1h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
         \draw[dedge] (room1) -- (room1humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
         \draw[dedge] (room1h point) -- (room1humModality) node[midway,sloped,above] {\edgetext{provides}};
         
@@ -123,7 +124,7 @@ The model itself is what describes that concrete domain instance. Continuing in 
         \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
         \draw[dedge] (room2t point) -- (room2tempModality) node[midway,sloped,above] {\edgetext{provides}};
         
-        \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative humidity}};
+        \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
         \draw[dedge] (room2) -- (room2humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
         \draw[dedge] (room2h point) -- (room2humModality) node[midway,sloped,above] {\edgetext{provides}};
         
