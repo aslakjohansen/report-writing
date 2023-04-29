@@ -14,14 +14,15 @@
 % fig: two match sites, context and information nodes, unit, stream-id
 \begin{figure}[tbp]
   \begin{center}
+  \rotatebox{90}{
     \begin{tikzpicture}[remember picture]
       \newcommand{\nodetext}[1]{\scalebox{0.5}{#1}}
-      \newcommand{\modalitytext}[1]{\nodetext{#1}}
+      \newcommand{\modalitytext}[1]{\scalebox{0.45}{#1}}
       \newcommand{\fieldtext}[1]{\scalebox{0.5}{#1}}
       \newcommand{\edgetext}[1]{\scalebox{0.5}{\textit{#1}}}
       \newcommand{\pointsize}[0]{(8mm)}
-      \newcommand{\datadist}[0]{(8mm)}
-      \newcommand{\pointdist}[0]{(\pointsize/2+5mm)}
+      \newcommand{\datadist}[0]{(10mm)}
+      \newcommand{\pointdist}[0]{(\pointsize/2+7mm)}
       \newcommand{\roomdist}[0]{(40mm)}
       \newcommand{\sqrttwo}[0]{(1.41421356237)}
       \newcommand{\diagside}[0]{(0.70710678119)}
@@ -85,7 +86,7 @@
       
       % room 1
       {
-        \node[room] (room1) at (-1.5, 0) {\nodetext{Room}};
+        \node[room] (room1) at (-1.7, 0) {\nodetext{Room}};
         \node[field] (room1area) at ([yshift=\datadist+4mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
         \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
         
@@ -108,7 +109,7 @@
       
       % room 2
       {
-        \node[room] (room2) at (1.5, 0) {\nodetext{Room}};
+        \node[room] (room2) at (1.7, 0) {\nodetext{Room}};
         \node[field] (room2area) at ([yshift=\datadist+4mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
         \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
         
@@ -141,6 +142,7 @@
         \draw[dedge] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
       }
     \end{tikzpicture}
+  }
   \end{center}
   \caption{Example of an abstrat information model.}
   \label{fig:topics:info:model}
