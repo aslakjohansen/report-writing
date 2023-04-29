@@ -16,14 +16,14 @@
   \begin{center}
   \rotatebox{90}{
     \begin{tikzpicture}[remember picture]
-      \newcommand{\nodetext}[1]{\scalebox{0.5}{#1}}
-      \newcommand{\modalitytext}[1]{\scalebox{0.45}{#1}}
-      \newcommand{\fieldtext}[1]{\scalebox{0.5}{#1}}
-      \newcommand{\edgetext}[1]{\scalebox{0.5}{\textit{#1}}}
+      \newcommand{\nodetext}[1]{\scalebox{0.7}{#1}}
+      \newcommand{\modalitytext}[1]{\scalebox{0.65}{#1}}
+      \newcommand{\fieldtext}[1]{\scalebox{0.7}{#1}}
+      \newcommand{\edgetext}[1]{\scalebox{0.7}{\textit{#1}}}
       \newcommand{\pointsize}[0]{(8mm)}
-      \newcommand{\datadist}[0]{(10mm)}
-      \newcommand{\pointdist}[0]{(\pointsize/2+7mm)}
-      \newcommand{\roomdist}[0]{(40mm)}
+      \newcommand{\datadist}[0]{(11mm)}
+      \newcommand{\pointdist}[0]{(\pointsize/2+9mm)}
+      \newcommand{\roomdist}[0]{(49mm)}
       \newcommand{\sqrttwo}[0]{(1.41421356237)}
       \newcommand{\diagside}[0]{(0.70710678119)}
       
@@ -86,7 +86,7 @@
       
       % room 1
       {
-        \node[room] (room1) at (-1.7, 0) {\nodetext{Room}};
+        \node[room] (room1) at (-2.0, 0) {\nodetext{Room}};
         \node[field] (room1area) at ([yshift=\datadist+4mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
         \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
         
@@ -109,7 +109,7 @@
       
       % room 2
       {
-        \node[room] (room2) at (1.7, 0) {\nodetext{Room}};
+        \node[room] (room2) at (2.0, 0) {\nodetext{Room}};
         \node[field] (room2area) at ([yshift=\datadist+4mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
         \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
         
@@ -134,7 +134,7 @@
       {
         \draw[dbedge] (room1) -- (room2) node[midway,sloped,above] {\edgetext{adjacent}};
         
-        \node[room] (floor) at ([yshift=10mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
+        \node[room] (floor) at ([yshift=14mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
         \draw[dedge] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
         \draw[dedge] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
         
