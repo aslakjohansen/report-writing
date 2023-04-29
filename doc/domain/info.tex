@@ -19,12 +19,12 @@
       \newcommand{\modalitytext}[1]{\nodetext{#1}}
       \newcommand{\fieldtext}[1]{\scalebox{0.5}{#1}}
       \newcommand{\edgetext}[1]{\scalebox{0.5}{\textit{#1}}}
-      \newcommand{\pointsize}[0]{8mm}
-      \newcommand{\datadist}[0]{8mm}
-      \newcommand{\pointdist}[0]{(\pointsize/2+3mm)}
-      \newcommand{\roomdist}[0]{40mm}
-      \newcommand{\sqrttwo}[0]{1.41421356237}
-      \newcommand{\diagside}[0]{0.70710678119}
+      \newcommand{\pointsize}[0]{(8mm)}
+      \newcommand{\datadist}[0]{(8mm)}
+      \newcommand{\pointdist}[0]{(\pointsize/2+5mm)}
+      \newcommand{\roomdist}[0]{(40mm)}
+      \newcommand{\sqrttwo}[0]{(1.41421356237)}
+      \newcommand{\diagside}[0]{(0.70710678119)}
       
       \tikzstyle{dedge} = [->,>=stealth,draw=black]
       \tikzstyle{dbedge} = [<->,>=stealth,draw=black]
@@ -52,12 +52,12 @@
       \tikzstyle{unit}=[
         node,
         draw=purple,
-        anchor=north west,
+        anchor=center,
       ]
       \tikzstyle{data}=[
         node,
         draw=teal,
-        anchor=north east,
+        anchor=center,
       ]
       \tikzstyle{field}=[
         data,
@@ -65,22 +65,22 @@
         anchor=center,
       ]
       
-      \newcommand{\data}[4]{
-        \node[data] (#1) at (#2) {\nodetext{data}};
-        \node[field] (hist) at ([yshift=-\datadist,xshift=-\datadist] #1.center) {\fieldtext{#3}};
-        \node[field] (live) at ([yshift=-\datadist,xshift= \datadist] #1.center) {\fieldtext{#4}};
-        \draw[dedge] (#1) -- (hist) node[midway,sloped,above] {\edgetext{hist}};
-        \draw[dedge] (#1) -- (live) node[midway,sloped,above] {\edgetext{live}};
+      \newcommand{\data}[5]{
+        \node[data] (#2) at (#3) {\nodetext{data}};
+        \node[field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\fieldtext{#4}};
+        \node[field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\fieldtext{#5}};
+        \draw[dedge] (#2) -- (hist) node[midway,sloped,above] {\edgetext{hist}};
+        \draw[dedge] (#2) -- (live) node[midway,sloped,above] {\edgetext{live}};
       }
       \renewcommand{\unit}[3]{
         \node[unit] (#1) at (#2) {\nodetext{\si{#3}}};
       }
-      \newcommand{\point}[6]{
-        \node[point] (#1 point) at (#2) {\nodetext{#3}};
-        \data{data}{[yshift=-\pointdist,xshift=-\pointdist] #1 point.center}{#5}{#6};
-        \unit{unit}{[yshift=-\pointdist,xshift= \pointdist] #1 point.center}{#4};
-        \draw[dedge] (#1 point) -- (unit) node[midway,sloped,above] {\edgetext{unit}};
-        \draw[dedge] (#1 point) -- (data) node[midway,sloped,above] {\edgetext{data}};
+      \newcommand{\point}[7][1]{
+        \node[point] (#2 point) at (#3) {\nodetext{#4}};
+        \data{#1}{data}{[yshift=-\pointdist,xshift=-1*#1*\pointdist] #2 point.center}{#6}{#7};
+        \unit{unit}{    [yshift=-\pointdist,xshift=   #1*\pointdist] #2 point.center}{#5};
+        \draw[dedge] (#2 point) -- (unit) node[midway,sloped,above] {\edgetext{unit}};
+        \draw[dedge] (#2 point) -- (data) node[midway,sloped,above] {\edgetext{data}};
       }
       
       % room 1
@@ -112,9 +112,9 @@
         \node[field] (room2area) at ([yshift=\datadist+4mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
         \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
         
-        \point{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{Temp}{\degreeCelsius}{16}{3b83ce7c}
-        \point{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}
-        \point{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}
+        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{Temp}{\degreeCelsius}{16}{3b83ce7c}
+        \point[-1]{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}
+        \point[-1]{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}
         
         \node[modality] (room2tempModality) at ($(room2)!0.5!(room2t point)$) {\modalitytext{temperature}};
         \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
