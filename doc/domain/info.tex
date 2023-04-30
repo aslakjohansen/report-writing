@@ -110,6 +110,75 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
 % text
 
 % fig: scale vbox of [match site 1, match site 2, all unit matches, all data matches]
+\begin{figure}[tbp]
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \rotatebox{90}{
+      \scalebox{0.5}{
+        \begin{tikzpicture}[remember picture]
+          \input{include/info_model.tex}
+          
+          \genRoomI{-\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genRoomII{\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genFloor
+        \end{tikzpicture}
+      }
+    }
+    \caption{Match sites of absolute humidity query.}
+    \label{fig:topics:info:match:absolute}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+    \rotatebox{90}{
+      \scalebox{0.5}{
+        \begin{tikzpicture}[remember picture]
+          \input{include/info_model.tex}
+          
+          \genRoomI{-\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genRoomII{\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genFloor
+        \end{tikzpicture}
+      }
+    }
+    \caption{Match sites of occupancy query.}
+    \label{fig:topics:info:match:occupancy}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[b]{0.3\textwidth}
+    \rotatebox{90}{
+      \scalebox{0.5}{
+        \begin{tikzpicture}[remember picture]
+          \input{include/info_model.tex}
+          
+          \genRoomI{-\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genRoomII{\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genFloor
+        \end{tikzpicture}
+      }
+    }
+    \caption{Match sites of unit query.}
+    \label{fig:topics:info:match:unit}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+    \rotatebox{90}{
+      \scalebox{0.5}{
+        \begin{tikzpicture}[remember picture]
+          \input{include/info_model.tex}
+          
+          \genRoomI{-\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genRoomII{\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+          \genFloor
+        \end{tikzpicture}
+      }
+    }
+    \caption{Match sites of data query.}
+    \label{fig:topics:info:match:data}
+  \end{subfigure}
+  
+  \caption[Example of match sites in an abstract information model]{Example of match sites in an abstract information model.}
+  \label{fig:topics:info:match}
+\end{figure}
 
 \subsection{Result Sets}
 
