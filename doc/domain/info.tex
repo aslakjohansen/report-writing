@@ -21,6 +21,7 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
       \newcommand{\modalitytext}[1]{\scalebox{0.65}{#1}}
       \newcommand{\fieldtext}[1]{\scalebox{0.7}{#1}}
       \newcommand{\edgetext}[1]{\scalebox{0.7}{\textit{#1}}}
+      \newcommand{\hledgetext}[1]{\edgetext{\textbf{#1}}}
       \newcommand{\centerspacing}[0]{2.0}
       \newcommand{\pointsize}[0]{(8mm)}
       \newcommand{\datadist}[0]{(11mm)}
@@ -68,20 +69,65 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
         rectangle,
         anchor=center,
       ]
+      \tikzstyle{highlight}=[
+        very thick,
+      ]
+      \tikzstyle{highlighted-point}=[
+        point,
+        highlight,
+        fill=blue!10,
+      ]
+      \tikzstyle{highlighted-room}=[
+        room,
+        highlight,
+        fill=blue!10,
+      ]
+      \tikzstyle{highlighted-modality}=[
+        modality,
+        highlight,
+        fill=purple!10,
+      ]
+      \tikzstyle{highlighted-unit}=[
+        unit,
+        highlight,
+        fill=teal!10,
+      ]
+      \tikzstyle{highlighted-data}=[
+        data,
+        highlight,
+        fill=teal!10,
+      ]
+      \tikzstyle{highlighted-field}=[
+        field,
+        highlight,
+        fill=teal!10,
+      ]
       
-      \newcommand{\data}[5]{
-        \node[data] (#2) at (#3) {\nodetext{data}};
-        \node[field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\fieldtext{#4}};
-        \node[field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\fieldtext{#5}};
-        \draw[dedge] (#2) -- (hist) node[midway,sloped,above] {\edgetext{hist}};
-        \draw[dedge] (#2) -- (live) node[midway,sloped,above] {\edgetext{live}};
+      \newcommand{\data}[6]{
+        \IfSubStr{#6}{highlight:data}{
+          \node[highlighted-data] (#2) at (#3) {\nodetext{data}};
+          \node[highlighted-field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\fieldtext{#4}};
+          \node[highlighted-field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\fieldtext{#5}};
+          \draw[dedge,highlight] (#2) -- (hist) node[midway,sloped,above] {\hledgetext{hist}};
+          \draw[dedge,highlight] (#2) -- (live) node[midway,sloped,above] {\hledgetext{live}};
+        }{
+          \node[data] (#2) at (#3) {\nodetext{data}};
+          \node[field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\fieldtext{#4}};
+          \node[field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\fieldtext{#5}};
+          \draw[dedge] (#2) -- (hist) node[midway,sloped,above] {\edgetext{hist}};
+          \draw[dedge] (#2) -- (live) node[midway,sloped,above] {\edgetext{live}};
+        }
       }
       \renewcommand{\unit}[3]{
         \node[unit] (#1) at (#2) {\nodetext{\si{#3}}};
       }
-      \newcommand{\point}[7][1]{
-        \node[point] (#2 point) at (#3) {\nodetext{#4}};
-        \data{#1}{data}{[yshift=-\pointdist,xshift=-1*#1*\pointdist] #2 point.center}{#6}{#7};
+      \newcommand{\point}[8][1]{
+        \IfSubStr{#8}{highlight:point}{
+          \node[highlighted-point] (#2 point) at (#3) {\nodetext{#4}};
+        }{
+          \node[point] (#2 point) at (#3) {\nodetext{#4}};
+        }
+        \data{#1}{data}{[yshift=-\pointdist,xshift=-1*#1*\pointdist] #2 point.center}{#6}{#7}{#8};
         \unit{unit}{    [yshift=-\pointdist,xshift=   #1*\pointdist] #2 point.center}{#5};
         \draw[dedge] (#2 point) -- (unit) node[midway,sloped,above] {\edgetext{unit}};
         \draw[dedge] (#2 point) -- (data) node[midway,sloped,above] {\edgetext{data}};
@@ -93,9 +139,9 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
         \node[field] (room1area) at ([yshift=\datadist+5mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
         \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
         
-        \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{TC}{\degreeCelsius}{12}{17c5ae15}
-        \point{room1h}{[xshift=0,yshift=-\roomdist] room1}{Hum}{\percent}{13}{65d0be73}
-        \point{room1o}{[xshift=-\roomdist,yshift=0] room1}{PIR}{}{24}{5a3573c3}
+        \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{TC}{\degreeCelsius}{12}{17c5ae15}{highlight:point,highlight:data}
+        \point{room1h}{[xshift=0,yshift=-\roomdist] room1}{Hum}{\percent}{13}{65d0be73}{}
+        \point{room1o}{[xshift=-\roomdist,yshift=0] room1}{PIR}{}{24}{5a3573c3}{}
         
         \node[modality] (room1tempModality) at ($(room1)!0.5!(room1t point)$) {\modalitytext{temperature}};
         \draw[dedge] (room1) -- (room1tempModality) node[midway,sloped,above] {\edgetext{modality}};
@@ -116,9 +162,9 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
         \node[field] (room2area) at ([yshift=\datadist+5mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
         \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
         
-        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TM}{\degreeCelsius}{16}{3b83ce7c}
-        \point[-1]{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}
-        \point[-1]{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}
+        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TM}{\degreeCelsius}{16}{3b83ce7c}{}
+        \point[-1]{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}{}
+        \point[-1]{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}{}
         
         \node[modality] (room2tempModality) at ($(room2)!0.5!(room2t point)$) {\modalitytext{temperature}};
         \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
