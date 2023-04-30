@@ -16,63 +16,9 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
     \begin{tikzpicture}[remember picture]
       \input{include/info_model.tex}
       
-      % room 1
-      {
-        \node[room] (room1) at (-\centerspacing, 0) {\nodetext{Room}};
-        \node[field] (room1area) at ([yshift=\datadist+5mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
-        \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
-        
-        \point{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{TC}{\degreeCelsius}{12}{17c5ae15}{highlight:point,highlight:data,highlight:unit}
-        \point{room1h}{[xshift=0,yshift=-\roomdist] room1}{Hum}{\percent}{13}{65d0be73}{}
-        \point{room1o}{[xshift=-\roomdist,yshift=0] room1}{PIR}{}{24}{5a3573c3}{}
-        
-        \node[modality] (room1tempModality) at ($(room1)!0.5!(room1t point)$) {\modalitytext{temperature}};
-        \draw[dedge] (room1) -- (room1tempModality) node[midway,sloped,above] {\edgetext{modality}};
-        \draw[dedge] (room1t point) -- (room1tempModality) node[midway,sloped,above] {\edgetext{provides}};
-        
-        \node[modality] (room1humModality) at ($(room1)!0.5!(room1h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
-        \draw[dedge] (room1) -- (room1humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
-        \draw[dedge] (room1h point) -- (room1humModality) node[midway,sloped,above] {\edgetext{provides}};
-        
-        \node[modality] (room1occModality) at ($(room1)!0.5!(room1o point)$) {\modalitytext{occupancy}};
-        \draw[dedge] (room1) -- (room1occModality) node[midway,sloped,above] {\edgetext{modality}};
-        \draw[dedge] (room1o point) -- (room1occModality) node[midway,sloped,above] {\edgetext{provides}};
-      }
-      
-      % room 2
-      {
-        \node[room] (room2) at (\centerspacing, 0) {\nodetext{Room}};
-        \node[field] (room2area) at ([yshift=\datadist+5mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
-        \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
-        
-        \point[-1]{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TM}{\degreeCelsius}{16}{3b83ce7c}{}
-        \point[-1]{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}{}
-        \point[-1]{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}{}
-        
-        \node[modality] (room2tempModality) at ($(room2)!0.5!(room2t point)$) {\modalitytext{temperature}};
-        \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
-        \draw[dedge] (room2t point) -- (room2tempModality) node[midway,sloped,above] {\edgetext{provides}};
-        
-        \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
-        \draw[dedge] (room2) -- (room2humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
-        \draw[dedge] (room2h point) -- (room2humModality) node[midway,sloped,above] {\edgetext{provides}};
-        
-        \node[modality] (room2occModality) at ($(room2)!0.5!(room2o point)$) {\modalitytext{occupancy}};
-        \draw[dedge] (room2) -- (room2occModality) node[midway,sloped,above] {\edgetext{modality}};
-        \draw[dedge] (room2o point) -- (room2occModality) node[midway,sloped,above] {\edgetext{provides}};
-      }
-      
-      % middle
-      {
-        \draw[dbedge] (room1) -- (room2) node[midway,sloped,above] {\edgetext{adjacent}};
-        
-        \node[room] (floor) at ([yshift=14mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
-        \draw[dedge] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
-        \draw[dedge] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
-        
-        \node[field] (floorName) at ([yshift=\datadist+6mm] floor.center) {\fieldtext{3rd}};
-        \draw[dedge] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
-      }
+      \genRoomI{-\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+      \genRoomII{\centerspacing}{0}{highlight:point,highlight:data,highlight:unit}
+      \genFloor
     \end{tikzpicture}
   }
   \end{center}
