@@ -1,6 +1,3 @@
-
-
-
 \section{Information Models}
 
 \idx{Information model}Structuring or modeling of information is ways that allows for flexible and efficient queries.
@@ -17,94 +14,7 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
   \begin{center}
   \rotatebox{90}{
     \begin{tikzpicture}[remember picture]
-      \newcommand{\nodetext}[1]{\scalebox{0.7}{#1}}
-      \newcommand{\hlnodetext}[1]{\nodetext{\textbf{#1}}}
-      \newcommand{\modalitytext}[1]{\scalebox{0.65}{#1}}
-      \newcommand{\hlmodalitytext}[1]{\modalitytext{\textbf{#1}}}
-      \newcommand{\fieldtext}[1]{\scalebox{0.7}{#1}}
-      \newcommand{\hlfieldtext}[1]{\fieldtext{\textbf{#1}}}
-      \newcommand{\edgetext}[1]{\scalebox{0.7}{\textit{#1}}}
-      \newcommand{\hledgetext}[1]{\edgetext{\textbf{#1}}}
-      \newcommand{\centerspacing}[0]{2.0}
-      \newcommand{\pointsize}[0]{(8mm)}
-      \newcommand{\datadist}[0]{(11mm)}
-      \newcommand{\pointdist}[0]{(\pointsize/2+9mm)}
-      \newcommand{\roomdist}[0]{(49mm)}
-      \newcommand{\sqrttwo}[0]{(1.41421356237)}
-      \newcommand{\diagside}[0]{(0.70710678119)}
-      
-      \tikzstyle{dedge} = [->,>=stealth,draw=black]
-      \tikzstyle{dbedge} = [<->,>=stealth,draw=black]
-      \tikzstyle{node}=[
-        overlay,
-        circle,
-        align=center,
-        anchor=center,
-      ]
-      \tikzstyle{point}=[
-        node,
-        draw=blue,
-        minimum height=\pointsize,
-        minimum width=\pointsize,
-      ]
-      \tikzstyle{room}=[
-        node,
-        draw=blue,
-        minimum height=\pointsize,
-        minimum width=\pointsize,
-      ]
-      \tikzstyle{modality}=[
-        node,
-        draw=purple,
-      ]
-      \tikzstyle{unit}=[
-        node,
-        draw=teal,
-        anchor=center,
-      ]
-      \tikzstyle{data}=[
-        node,
-        draw=teal,
-        anchor=center,
-      ]
-      \tikzstyle{field}=[
-        data,
-        rectangle,
-        anchor=center,
-      ]
-      \tikzstyle{highlight}=[
-        very thick,
-      ]
-      \tikzstyle{highlighted-point}=[
-        point,
-        highlight,
-        fill=blue!10,
-      ]
-      \tikzstyle{highlighted-room}=[
-        room,
-        highlight,
-        fill=blue!10,
-      ]
-      \tikzstyle{highlighted-modality}=[
-        modality,
-        highlight,
-        fill=purple!10,
-      ]
-      \tikzstyle{highlighted-unit}=[
-        unit,
-        highlight,
-        fill=teal!10,
-      ]
-      \tikzstyle{highlighted-data}=[
-        data,
-        highlight,
-        fill=teal!10,
-      ]
-      \tikzstyle{highlighted-field}=[
-        field,
-        highlight,
-        fill=teal!10,
-      ]
+      \input{include/info_model.tex}
       
       \newcommand{\data}[6]{
         \IfSubStr{#6}{highlight:data}{
