@@ -1720,7 +1720,7 @@ Over the course of the project, you should expect your experimental framework\id
 In a data structure unmarshalled from JSON\idx{JSON} you refer to fields by human recognizable names, but that is not the case for CSV\idx{CSV} files. Here, you refer to fields by index, and that is very easy to mess up if you remove a column. One solution is to introduce a \textsl{header}\idx{Header} as a comment on the first line. While CSV in and of itself does not have a notion of a comment, many software packages for working on them does. Usually using the \quoted{\texttt{\#}} character. In that comment, you place a comma-separated list of strings that can be used to translate from filed names to columns.
 
 % changes in append mode: if appending to the file then the row format can change simply by adding a new header, most recent header defines the format
-This approach translates well into a setup where experiment data across multiple runs are appended to a file. Simply add a new header before each experiment (as in figure \ref{fig:eval:collection:future:header:csv}), and make sure you process the header comments as you go through the file. Then the most recent header will always be used to translate the file. An example of how this could be accomplished can be found in figure \ref{fig:eval:collection:future:header:py}. This could trivially be extended to parse cell values into integers and floats.
+This approach translates well into a setup where experiment data across multiple runs are appended to a file. Simply add a new header before each experiment (as in figure \ref{fig:eval:collection:future:header:csv}), and make sure you process the header comments as you go through the file. Then the most recent header will always be used to translate the file. An example of how this could be accomplished can be found in appendix \ref{a:eval:collection:future:header:py}. This could trivially be extended to parse cell values into integers and floats.
 
 \begin{figure}[tbp]
   \centering
@@ -1729,12 +1729,12 @@ This approach translates well into a setup where experiment data across multiple
   \label{fig:eval:collection:future:header:csv}
 \end{figure}
 
-\begin{figure}[tbp]
-  \centering
-  \inputminted[fontsize=\normalsize,firstline=7,lastline=35]{python}{../src/csvheader.py}
-  \caption{Example code for parsing CSV files with multiple headers.}
-  \label{fig:eval:collection:future:header:py}
-\end{figure}
+%\begin{figure}[tbp]
+%  \centering
+%  \inputminted[fontsize=\normalsize,firstline=7,lastline=35]{python}{../src/csvheader.py}
+%  \caption{Example code for parsing CSV files with multiple headers.}
+%  \label{a:eval:collection:future:header:py}
+%\end{figure}
 
 \section{Presentation}
 
@@ -1751,14 +1751,14 @@ Tabular data fits neatly into a table of two dimensions. That is, some quantity 
 \end{figure}
 
 % proposed process
-So, we need to remove the human from the loop. Luckily, with a bit of scripting skill, this is quite easy to automate. We just have to (i) open the file, (ii) unmarshall the JSON structure, (iii) iterate through the cells one row at a time, (iv) produce the \LaTeX\idxx{LaTeX@\LaTeX}{\LaTeX}\ code to represent it, (v) store that code to a file, and (vi) then include that file. And in the process, while we have access to the data, we might as well enrich the representation a bit. In figure \ref{fig:eval:collection:tabular:py} you will find a full Python\idx{Python} script that does this. It finds the minimum and the maximum cell value, and uses this to produce a heatmap\idx{Heatmap} effect by coloring the background of the individual cell. The resulting figure can be seen in figure \ref{fig:eval:collection:tabular:tex}. The code -- and build process -- for producing this result can be found in the GIT repository of this document (see section \ref{sec:source}).
+So, we need to remove the human from the loop. Luckily, with a bit of scripting skill, this is quite easy to automate. We just have to (i) open the file, (ii) unmarshall the JSON structure, (iii) iterate through the cells one row at a time, (iv) produce the \LaTeX\idxx{LaTeX@\LaTeX}{\LaTeX}\ code to represent it, (v) store that code to a file, and (vi) then include that file. And in the process, while we have access to the data, we might as well enrich the representation a bit. In appendix \ref{a:eval:collection:tabular:py} you will find a full Python\idx{Python} script that does this. It finds the minimum and the maximum cell value, and uses this to produce a heatmap\idx{Heatmap} effect by coloring the background of the individual cell. The resulting figure can be seen in figure \ref{fig:eval:collection:tabular:tex}. The code -- and build process -- for producing this result can be found in the GIT repository of this document (see section \ref{sec:source}).
 
-\begin{figure}[tbp]
-  \centering
-  \inputminted[fontsize=\normalsize]{python}{../src/tabulardata.py}
-  \caption{Script for processing tabular experimental data.}
-  \label{fig:eval:collection:tabular:py}
-\end{figure}
+%\begin{figure}[tbp]
+%  \centering
+%  \inputminted[fontsize=\normalsize]{python}{../src/tabulardata.py}
+%  \caption{Script for processing tabular experimental data.}
+%  \label{a:eval:collection:tabular:py}
+%\end{figure}
 
 \begin{figure}[tbp]
   \centering
@@ -1944,6 +1944,16 @@ There are two models for doing PhD's at SDU:
 \input{lang/main.tex}
 \input{topics/main.tex}
 \input{domain/main.tex}
+
+\chapter{Code}
+
+\section{Parsing CSV Files with Multiple Headers}
+\label{a:eval:collection:future:header:py}
+\inputminted[fontsize=\normalsize,firstline=7,lastline=35]{python}{../src/csvheader.py}
+
+\section{Processing Tabular Experimental Data}
+\label{a:eval:collection:tabular:py}
+\inputminted[fontsize=\normalsize]{python}{../src/tabulardata.py}
 
 \printbibliography
 
