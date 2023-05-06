@@ -1729,13 +1729,6 @@ This approach translates well into a setup where experiment data across multiple
   \label{fig:eval:collection:future:header:csv}
 \end{figure}
 
-%\begin{figure}[tbp]
-%  \centering
-%  \inputminted[fontsize=\normalsize,firstline=7,lastline=35]{python}{../src/csvheader.py}
-%  \caption{Example code for parsing CSV files with multiple headers.}
-%  \label{a:eval:collection:future:header:py}
-%\end{figure}
-
 \section{Presentation}
 
 \subsection{Tabular Data}
@@ -1752,13 +1745,6 @@ Tabular data fits neatly into a table of two dimensions. That is, some quantity 
 
 % proposed process
 So, we need to remove the human from the loop. Luckily, with a bit of scripting skill, this is quite easy to automate. We just have to (i) open the file, (ii) unmarshall the JSON structure, (iii) iterate through the cells one row at a time, (iv) produce the \LaTeX\idxx{LaTeX@\LaTeX}{\LaTeX}\ code to represent it, (v) store that code to a file, and (vi) then include that file. And in the process, while we have access to the data, we might as well enrich the representation a bit. In appendix \ref{a:eval:collection:tabular:py} you will find a full Python\idx{Python} script that does this. It finds the minimum and the maximum cell value, and uses this to produce a heatmap\idx{Heatmap} effect by coloring the background of the individual cell. The resulting figure can be seen in figure \ref{fig:eval:collection:tabular:tex}. The code -- and build process -- for producing this result can be found in the GIT repository of this document (see section \ref{sec:source}).
-
-%\begin{figure}[tbp]
-%  \centering
-%  \inputminted[fontsize=\normalsize]{python}{../src/tabulardata.py}
-%  \caption{Script for processing tabular experimental data.}
-%  \label{a:eval:collection:tabular:py}
-%\end{figure}
 
 \begin{figure}[tbp]
   \centering
