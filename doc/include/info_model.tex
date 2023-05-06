@@ -102,6 +102,26 @@
     \draw[dedge] (#2) -- (live) node[midway,sloped,above] {\edgetext{live}};
   }
 }
+%\IgnoreSpacesOn
+%\prgNewFunction \data { mmmmmm } {
+%  \prgPrint{
+%    \IfSubStr{#6}{highlight:data}{
+%      \node[highlighted-data] (#2) at (#3) {\hlnodetext{data}};
+%      \node[highlighted-field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\hlfieldtext{#4}};
+%      \node[highlighted-field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\hlfieldtext{#5}};
+%      \draw[dedge,highlight] (#2) -- (hist) node[midway,sloped,above] {\hledgetext{hist}};
+%      \draw[dedge,highlight] (#2) -- (live) node[midway,sloped,above] {\hledgetext{live}};
+%    }{
+%      \node[data] (#2) at (#3) {\nodetext{data}};
+%      \node[field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\fieldtext{#4}};
+%      \node[field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\fieldtext{#5}};
+%      \draw[dedge] (#2) -- (hist) node[midway,sloped,above] {\edgetext{hist}};
+%      \draw[dedge] (#2) -- (live) node[midway,sloped,above] {\edgetext{live}};
+%    }
+%  }
+%}
+%\IgnoreSpacesOff
+
 \renewcommand{\unit}[4]{
   \IfSubStr{#4}{highlight:unit}{
     \node[highlighted-unit] (#1) at (#2) {\hlnodetext{\si{#3}}};
