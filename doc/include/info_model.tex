@@ -87,21 +87,6 @@
   fill=teal!10,
 ]
 
-%\newcommand{\data}[6]{
-%  \IfSubStr{#6}{highlight:data}{
-%    \node[highlighted-data] (#2) at (#3) {\hlnodetext{data}};
-%    \node[highlighted-field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\hlfieldtext{#4}};
-%    \node[highlighted-field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\hlfieldtext{#5}};
-%    \draw[dedge,highlight] (#2) -- (hist) node[midway,sloped,above] {\hledgetext{hist}};
-%    \draw[dedge,highlight] (#2) -- (live) node[midway,sloped,above] {\hledgetext{live}};
-%  }{
-%    \node[data] (#2) at (#3) {\nodetext{data}};
-%    \node[field] (hist) at ([yshift=-\datadist,xshift=-1*#1*\datadist] #2.center) {\fieldtext{#4}};
-%    \node[field] (live) at ([yshift=-\datadist,xshift= 1*#1*\datadist] #2.center) {\fieldtext{#5}};
-%    \draw[dedge] (#2) -- (hist) node[midway,sloped,above] {\edgetext{hist}};
-%    \draw[dedge] (#2) -- (live) node[midway,sloped,above] {\edgetext{live}};
-%  }
-%}
 \IgnoreSpacesOn
 \prgNewFunction \data { mmmmmm } {
   \prgPrint{
@@ -122,13 +107,6 @@
 }
 \IgnoreSpacesOff
 
-%\renewcommand{\unit}[4]{
-%  \IfSubStr{#4}{highlight:unit}{
-%    \node[highlighted-unit] (#1) at (#2) {\hlnodetext{\si{#3}}};
-%  }{
-%    \node[unit] (#1) at (#2) {\nodetext{\si{#3}}};
-%  }
-%}
 \prgNewFunction \figunit { mmmm } {
   \prgPrint{
     \IfSubStr{#4}{highlight:unit}{
@@ -139,28 +117,6 @@
   }
 }
 
-%% 2b rewritten
-%\newcommand{\point}[8][1]{
-%  \IfSubStr{#8}{highlight:point}{
-%    \node[highlighted-point] (#2 point) at (#3) {\hlnodetext{#4}};
-%  }{
-%    \node[point] (#2 point) at (#3) {\nodetext{#4}};
-%  }
-%  \data{#1}{data}{[yshift=-\pointdist,xshift=-1*#1*\pointdist] #2 point.center}{#6}{#7}{#8};
-%  \figunit{unit}{    [yshift=-\pointdist,xshift=   #1*\pointdist] #2 point.center}{#5}{#8};
-%  \IfSubStr{#8}{highlight:unit}{
-%    \draw[dedge,highlight] (#2 point) -- (unit) node[midway,sloped,above] {\hledgetext{unit}};
-%  }{
-%    \draw[dedge] (#2 point) -- (unit) node[midway,sloped,above] {\edgetext{unit}};
-%  }
-%  \IfSubStr{#8}{highlight:data}{
-%    \draw[dedge,highlight] (#2 point) -- (data) node[midway,sloped,above] {\hledgetext{data}};
-%  }{
-%    \draw[dedge] (#2 point) -- (data) node[midway,sloped,above] {\edgetext{data}};
-%  }
-%}
-
-%\IgnoreSpacesOn
 \prgNewFunction \point { mmmmmmmm } {
   \prgPrint{
     \IfSubStr{#8}{highlight:point}{
@@ -182,7 +138,6 @@
     }
   }
 }
-%\IgnoreSpacesOff
 
 \newcommand{\genRoomI}[3]{
   \node[room] (room1) at (#1, #2) {\nodetext{Room}};
