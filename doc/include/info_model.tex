@@ -210,36 +210,36 @@
     }
     
     \IfSubStr{#3}{highlight:temp}{
-      \point{-1}{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TC}{\degreeCelsius}{12}{17c5ae15}{#3,highlight:point}
+      \point{-1}{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TC}{\kelvin}{37}{b0bc97af}{#3,highlight:point}
       \node[highlighted-modality] (room2tempModality) at ($(room2)!0.5!(room2t point)$) {\modalitytext{temperature}};
       \draw[dedge,highlight] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
       \draw[dedge,highlight] (room2t point) -- (room2tempModality) node[midway,sloped,above] {\edgetext{provides}};
     }{
-      \point{-1}{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TC}{\degreeCelsius}{12}{17c5ae15}{#3}
+      \point{-1}{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TC}{\degreeCelsius}{37}{b0bc97af}{#3}
       \node[modality] (room2tempModality) at ($(room2)!0.5!(room2t point)$) {\modalitytext{temperature}};
       \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
       \draw[dedge] (room2t point) -- (room2tempModality) node[midway,sloped,above] {\edgetext{provides}};
     }
     
     \IfSubStr{#3}{highlight:hum}{
-      \point{-1}{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{13}{65d0be73}{#3,highlight:point}
+      \point{-1}{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{22}{06ef2490}{#3,highlight:point}
       \node[highlighted-modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
       \draw[dedge,highlight] (room2) -- (room2humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
       \draw[dedge,highlight] (room2h point) -- (room2humModality) node[midway,sloped,above] {\edgetext{provides}};
     }{
-      \point{-1}{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{13}{65d0be73}{#3}
+      \point{-1}{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{22}{06ef2490}{#3}
       \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
       \draw[dedge] (room2) -- (room2humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
       \draw[dedge] (room2h point) -- (room2humModality) node[midway,sloped,above] {\edgetext{provides}};
     }
     
     \IfSubStr{#3}{highlight:occ}{
-      \point{-1}{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{24}{5a3573c3}{#3,highlight:point}
+      \point{-1}{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{28}{92d17015}{#3,highlight:point}
       \node[highlighted-modality] (room2occModality) at ($(room2)!0.5!(room2o point)$) {\modalitytext{occupancy}};
       \draw[dedge,highlight] (room2) -- (room2occModality) node[midway,sloped,above] {\edgetext{modality}};
       \draw[dedge,highlight] (room2o point) -- (room2occModality) node[midway,sloped,above] {\edgetext{provides}};
     }{
-      \point{-1}{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{24}{5a3573c3}{#3}
+      \point{-1}{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{28}{92d17015}{#3}
       \node[modality] (room2occModality) at ($(room2)!0.5!(room2o point)$) {\modalitytext{occupancy}};
       \draw[dedge] (room2) -- (room2occModality) node[midway,sloped,above] {\edgetext{modality}};
       \draw[dedge] (room2o point) -- (room2occModality) node[midway,sloped,above] {\edgetext{provides}};
