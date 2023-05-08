@@ -219,13 +219,36 @@
 
 \prgNewFunction \genFloor { m } {
   \prgPrint{
-    \draw[dbedge] (room1) -- (room2) node[midway,sloped,above] {\edgetext{adjacent}};
+    \IfSubStr{#1}{highlight:adjacency}{
+      \draw[dbedge,highlight] (room1) -- (room2) node[midway,sloped,above] {\edgetext{adjacent}};
+    }{
+      \draw[dbedge] (room1) -- (room2) node[midway,sloped,above] {\edgetext{adjacent}};
+    }
     
-    \node[room] (floor) at ([yshift=14mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
-    \draw[dedge] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
-    \draw[dedge] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
+    \IfSubStr{#1}{highlight:floor}{
+      \node[highlighted-room] (floor) at ([yshift=14mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
+    }{
+      \node[room] (floor) at ([yshift=14mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
+    }
     
-    \node[field] (floorName) at ([yshift=\datadist+6mm] floor.center) {\fieldtext{3rd}};
-    \draw[dedge] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
+    \IfSubStr{#1}{highlight:room1}{
+      \draw[dedge,highlight] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
+    }{
+      \draw[dedge] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
+    }
+    
+    \IfSubStr{#1}{highlight:room2}{
+      \draw[dedge,highlight] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
+    }{
+      \draw[dedge] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
+    }
+    
+    \IfSubStr{#1}{highlight:name}{
+      \node[highlighted-field] (floorName) at ([yshift=\datadist+6mm] floor.center) {\fieldtext{3rd}};
+      \draw[dedge,highlight] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
+    }{
+      \node[field] (floorName) at ([yshift=\datadist+6mm] floor.center) {\fieldtext{3rd}};
+      \draw[dedge] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
+    }
   }
 }
