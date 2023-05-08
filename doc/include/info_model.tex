@@ -193,37 +193,40 @@
   }
 }
 
-
-\newcommand{\genRoomII}[3]{
-  \node[room] (room2) at (#1, #2) {\nodetext{Room}};
-  \node[field] (room2area) at ([yshift=\datadist+5mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
-  \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
-  
-  \point{-1}{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TM}{\degreeCelsius}{16}{3b83ce7c}{}
-  \point{-1}{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}{}
-  \point{-1}{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}{}
-  
-  \node[modality] (room2tempModality) at ($(room2)!0.5!(room2t point)$) {\modalitytext{temperature}};
-  \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
-  \draw[dedge] (room2t point) -- (room2tempModality) node[midway,sloped,above] {\edgetext{provides}};
-  
-  \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
-  \draw[dedge] (room2) -- (room2humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
-  \draw[dedge] (room2h point) -- (room2humModality) node[midway,sloped,above] {\edgetext{provides}};
-  
-  \node[modality] (room2occModality) at ($(room2)!0.5!(room2o point)$) {\modalitytext{occupancy}};
-  \draw[dedge] (room2) -- (room2occModality) node[midway,sloped,above] {\edgetext{modality}};
-  \draw[dedge] (room2o point) -- (room2occModality) node[midway,sloped,above] {\edgetext{provides}};
+\prgNewFunction \genRoomII { mmm } {
+  \prgPrint{
+    \node[room] (room2) at (#1, #2) {\nodetext{Room}};
+    \node[field] (room2area) at ([yshift=\datadist+5mm] room2.center) {\fieldtext{23 \si{\square\meter}}};
+    \draw[dedge] (room2) -- (room2area) node[midway,sloped,above] {\edgetext{area}};
+    
+    \point{-1}{room2t}{[xshift=\roomdist*\diagside,yshift=-\roomdist*\diagside] room2}{TM}{\degreeCelsius}{16}{3b83ce7c}{}
+    \point{-1}{room2h}{[xshift=0,yshift=-\roomdist] room2}{Hum}{\percent}{53}{91729592}{}
+    \point{-1}{room2o}{[xshift=\roomdist,yshift=0] room2}{PIR}{}{27}{b4ae871d}{}
+    
+    \node[modality] (room2tempModality) at ($(room2)!0.5!(room2t point)$) {\modalitytext{temperature}};
+    \draw[dedge] (room2) -- (room2tempModality) node[midway,sloped,above] {\edgetext{modality}};
+    \draw[dedge] (room2t point) -- (room2tempModality) node[midway,sloped,above] {\edgetext{provides}};
+    
+    \node[modality] (room2humModality) at ($(room2)!0.5!(room2h point)$) {\modalitytext{relative}\\\modalitytext{humidity}};
+    \draw[dedge] (room2) -- (room2humModality) node[midway,sloped,above,rotate=180] {\edgetext{modality}};
+    \draw[dedge] (room2h point) -- (room2humModality) node[midway,sloped,above] {\edgetext{provides}};
+    
+    \node[modality] (room2occModality) at ($(room2)!0.5!(room2o point)$) {\modalitytext{occupancy}};
+    \draw[dedge] (room2) -- (room2occModality) node[midway,sloped,above] {\edgetext{modality}};
+    \draw[dedge] (room2o point) -- (room2occModality) node[midway,sloped,above] {\edgetext{provides}};
+  }
 }
 
-\newcommand{\genFloor}[0]{
-  \draw[dbedge] (room1) -- (room2) node[midway,sloped,above] {\edgetext{adjacent}};
-  
-  \node[room] (floor) at ([yshift=14mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
-  \draw[dedge] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
-  \draw[dedge] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
-  
-  \node[field] (floorName) at ([yshift=\datadist+6mm] floor.center) {\fieldtext{3rd}};
-  \draw[dedge] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
+\prgNewFunction \genFloor { m } {
+  \prgPrint{
+%  \newcommand{\genFloor}[0]{
+    \draw[dbedge] (room1) -- (room2) node[midway,sloped,above] {\edgetext{adjacent}};
+    
+    \node[room] (floor) at ([yshift=14mm] $(room1)!0.5!(room2)$) {\nodetext{Floor}};
+    \draw[dedge] (floor) -- (room1) node[midway,sloped,above] {\edgetext{contains}};
+    \draw[dedge] (floor) -- (room2) node[midway,sloped,above] {\edgetext{contains}};
+    
+    \node[field] (floorName) at ([yshift=\datadist+6mm] floor.center) {\fieldtext{3rd}};
+    \draw[dedge] (floor) -- (floorName) node[midway,sloped,above] {\edgetext{name}};
+  }
 }
-
