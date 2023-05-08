@@ -164,9 +164,18 @@
 
 \prgNewFunction \genRoomI { mmm } {
   \prgPrint{
-    \node[room] (room1) at (#1, #2) {\nodetext{Room}};
-    \node[field] (room1area) at ([yshift=\datadist+5mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
-    \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
+    \IfSubStr{#3}{highlight:room}{
+      \node[highlighted-room] (room1) at (#1, #2) {\nodetext{Room}};
+    }{
+      \node[room] (room1) at (#1, #2) {\nodetext{Room}};
+    }
+    \IfSubStr{#3}{highlight:area}{
+      \node[highlighted-field] (room1area) at ([yshift=\datadist+5mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
+      \draw[dedge,highlight] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
+    }{
+      \node[field] (room1area) at ([yshift=\datadist+5mm] room1.center) {\fieldtext{17 \si{\square\meter}}};
+      \draw[dedge] (room1) -- (room1area) node[midway,sloped,above] {\edgetext{area}};
+    }
     
 %    \point{1}{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{TC}{\degreeCelsius}{12}{17c5ae15}{#3}
 %    \point{1}{room1t}{[xshift=-\roomdist*\diagside,yshift=-\roomdist*\diagside] room1}{TC}{\degreeCelsius}{12}{17c5ae15}{\IfSubStr{#3}{highlight:temp}{#3}{}}
