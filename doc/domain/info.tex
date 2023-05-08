@@ -34,7 +34,8 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
 
 \subsection{Query Patterns}
 
-% problem: extracting information from a model, example application (want to list the absolute humidity of all room organized by floor), what we need (temp data, rel hum data, floor name)
+% problem: example application (want to list the absolute humidity of all room organized by floor), what we need (temp data, rel hum data, floor name), extracting information from a model
+\idx{Query patterns}Lets imagine that we have a build, a model of that building following the schema from the previous section, and a need for an \textsl{application} that lists the absolute humidity of all rooms organized by floor. As we can see in the model, we don't have any absolute humidity data. However, given a temperature and a relative humidity, it is trivial to calculate the corresponding absolute humidity. While we don't have these data \textsl{in} the model, we do have the IDs necessary for retrieving them. We even have the option of working on historical or live data. In addition to this we also need the floor name, and that is available directly in the model. So, we need to extract the IDs for matching temperature and relative humidity data, and associate these with the floor name.
 
 % solution: query execution engine, traversing enitre model for sites where the pattern matches, what is matched? what is captured?
 
