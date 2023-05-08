@@ -35,9 +35,10 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
 \subsection{Query Patterns}
 
 % problem: example application (want to list the absolute humidity of all room organized by floor), what we need (temp data, rel hum data, floor name), extracting information from a model
-\idx{Query patterns}Lets imagine that we have a build, a model of that building following the schema from the previous section, and a need for an \textsl{application} that lists the absolute humidity of all rooms organized by floor. As we can see in the model, we don't have any absolute humidity data. However, given a temperature and a relative humidity, it is trivial to calculate the corresponding absolute humidity. While we don't have these data \textsl{in} the model, we do have the IDs necessary for retrieving them. We even have the option of working on historical or live data. In addition to this we also need the floor name, and that is available directly in the model. So, we need to extract the IDs for matching temperature and relative humidity data, and associate these with the floor name.
+\idx{Query patterns}Lets imagine that we have a build, a model of that building following the schema from the previous section, and a need for an \textsl{application} that lists the absolute humidity of all rooms organized by floor. As we can see in the model, we don't have any absolute humidity data. However, given a temperature and a relative humidity, it is trivial to calculate the corresponding absolute humidity. While we don't have these data \textsl{in} the model, we do have the IDs necessary for retrieving them. We even have the option of working on historical\idx{Historical data} or live\idx{Live data} data. In addition to this we also need the floor name, and that is available directly in the model. So, we need to extract the IDs for matching temperature and relative humidity data, and associate these with the floor name.
 
 % solution: query execution engine, traversing entire model for sites where the pattern matches, what is matched? what is captured?
+All of this can be expressed as a single query\idx{Query}. That is, a definition of a pattern that is expressed through a DSL. A query\idx{Query execution engine} execution engine, can evaluate it against a model. It does so by traversing that model in search for places (or \textsl{sites}) where the pattern match. Figure \ref{fig:topics:info:query:pattern} contains an abstract illustration of such a pattern. Parts of that query are fixed (and need an exact match) while others can take the will adapt to anything (and take the value of whatever they end up matching). The latter is indicated by a question mark. These will capture the matched information.
 
 % fig: pattern covering [room, room area, occupancy provider, temperature provider, relhum provider]
 \begin{figure}[tbp]
@@ -103,6 +104,8 @@ The model\idx{Model} itself is what describes that concrete domain instance. Con
   \caption[Example of the pattern of an abstract model query]{Example of the pattern of an abstract model query. It matches combinations of temperature and relative humidity sensors that are associated with a specific room, along with the floor name associated with the floor of that room.}
   \label{fig:topics:info:query:pattern}
 \end{figure}
+
+Note that this pattern can be reused on a different model (perhaps covering a different build) and is in no way restricted to a single floor with two rooms.
 
 \subsection{Match Sites}
 
