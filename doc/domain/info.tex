@@ -109,7 +109,8 @@ Note that this pattern can be reused on a different model (perhaps covering a di
 
 \subsection{Match Sites}
 
-% text
+% main query
+As the pattern may match multiple areas of the model and each match captures certain information we need a term to refer to the area of the match. This is called the \textsl{match\idx{Match site} site}. Evaluating a query against a model will result in a list of match sites. Running the previous query against the model of figure \ref{fig:topics:info:model} will result in the match sites from figures \ref{fig:topics:info:match:absI} and \ref{fig:topics:info:match:absII}. Notice how both the query captures the same floor name at both match sites, but different instances of providers of temperature and relative humidity.
 
 % fig: scale vbox of [match site 1, match site 2, all unit matches, all data matches]
 \begin{figure}[tbp]
@@ -146,20 +147,6 @@ Note that this pattern can be reused on a different model (perhaps covering a di
     \rotatebox{90}{
       \scalebox{0.5}{
         \begin{tikzpicture}[remember picture]
-          \genRoomI{-\centerspacing}{0}{highlight:point,highlight:unit}
-          \genRoomII{\centerspacing}{0}{highlight:point,highlight:unit}
-          \genFloor{}
-        \end{tikzpicture}
-      }
-    }
-    \caption{Match sites of unit query.}
-    \label{fig:topics:info:match:unit}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.48\textwidth}
-    \rotatebox{90}{
-      \scalebox{0.5}{
-        \begin{tikzpicture}[remember picture]
           \genRoomI{-\centerspacing}{0}{highlight:point,highlight:data}
           \genRoomII{\centerspacing}{0}{highlight:point,highlight:data}
           \genFloor{}
@@ -169,10 +156,30 @@ Note that this pattern can be reused on a different model (perhaps covering a di
     \caption{Match sites of data query.}
     \label{fig:topics:info:match:data}
   \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \rotatebox{90}{
+      \scalebox{0.5}{
+        \begin{tikzpicture}[remember picture]
+          \genRoomI{-\centerspacing}{0}{highlight:point,highlight:unit}
+          \genRoomII{\centerspacing}{0}{highlight:point,highlight:unit}
+          \genFloor{}
+        \end{tikzpicture}
+      }
+    }
+    \caption{Match sites of unit query.}
+    \label{fig:topics:info:match:unit}
+  \end{subfigure}
   
   \caption[Example of match sites in an abstract information model]{Example of match sites in an abstract information model.}
   \label{fig:topics:info:match}
 \end{figure}
+
+% data
+These providers are really only anchor points. We don't actually capture the IDs that we are looking after. This is a matter of choice though. While the query could easily be extended to match all the needed information, in this example it is excluded for brevity. Instead, imagine a separate query that captures the relationship between providers and IDs. It would match the sites highlighted in figure \ref{fig:topics:info:match:data}, and then it is a small matter of post-processing\idx{Post processing} to combine the results of the two queries.
+
+% units
+However, we might also be interested in the unit\idx{Unit} of the reported values. It might be that one temperature sensor is reporting in \si{\degreeCelsius} and another in \si{\kelvin}. For the purpose of our application we need to treat such readings different. Another query can be used to capture this as seen in figure \ref{fig:topics:info:match:unit}. Again, this can trivially be combined with the information captured by the first two queries. And a production query would likely combine all of them into one.
 
 \subsection{Result Sets}
 
