@@ -184,6 +184,7 @@ However, we might also be interested in the unit\idx{Unit} of the reported value
 \subsection{Result Sets}
 
 % text: result of the query is a set of matches, for each match we can get {the value of the nodes, the matched subgraph}, following the example and combining the results of queries covered can get the results from figure, Do not that this is all we need to run our "application", the live data IDs can be used to subscribe to live data, the historical data can be used to pull data from a timeseries DBMS, the units can be used to make sure that diverse inputs are converted to the same unit before processing
+\idx{Result set}The result of resolving the query is a set matches. For each match site we get a single set of fields. Depending on concrete model type these could cover captured values (matched by the question mark nodes in figure \ref{fig:topics:info:query:pattern}) and the subgraph of the match site. By evaluating the queries described earlier and combining the results we get the information listed in figure \ref{fig:topics:info:resultset}. Note that this contains all the information needed for the absolute humidity application. The live data IDs can be used to subscribe to live data and the historical data IDs can be used to pull data from a timeseries\idxx{DBMS!Timeseries}{Timeseries DBMS} DBMS. The units can be used to make sure that diverse inputs are converted to the same unit before processing
 
 % fig
 \begin{figure}[tbp]
@@ -194,6 +195,7 @@ However, we might also be interested in the unit\idx{Unit} of the reported value
     Temperature unit & \si{\degreeCelsius} & \si{\kelvin} \\
     Temperature live data & 17c5ae15 & b0bc97af \\
     Temperature historical data & 12 & 37 \\
+    Relative humidity unit & \si{\percent} & \si{\percent} \\
     Relative humidity live data & 65d0be73 & 06ef2490 \\
     Relative humidity historical data & 13 & 22 \\
   \end{tabular}
