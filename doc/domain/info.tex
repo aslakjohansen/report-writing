@@ -206,8 +206,19 @@ However, we might also be interested in the unit\idx{Unit} of the reported value
 \subsection{Model Reuse and Extension}
 
 % list of examples of extensions: polygons for rooms and floors, physical location of sensors, actuators, electrical distribution trees, who rents/occupies the rooms (and their climate preferences)
+So far the model has followed a very simple schema. However, this can be extended to include (among others):
+\begin{itemize}
+  \item Polygons outlining floors and rooms.
+  \item Physical locations of sensors and actuators.
+  \item Electrical distribution trees (and where sensors, actuators and fuses are logically attached to it).
+  \item List of who rents or occupies individual rooms along with their climate preferences.
+  \item References to schedules for meeting rooms.
+  \item Ducts for HVAC or district heating.
+  \item City-wide roadmap.
+\end{itemize}
 
 % note that the same model can be used for other applications, currently you could calculate the per-floor fractional occupancy, but the model could be extended
+As the queries are executed against the entire model, they can span all of these aspects. Most interesting information models supports queries over paths. That can, e.g., be used to refer to anything upstream from a certain component in a flow (e.g., district heating). The current incarnation of the model could be used to calculate the per-floor fractional occupancy. However, the more aspects are covered by the model, the wider a gamut of applications can be informed by it.
 
 \subsection{Building Abstractions}
 
