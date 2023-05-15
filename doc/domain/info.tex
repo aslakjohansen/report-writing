@@ -231,6 +231,14 @@ In the absolute humidity application we implemented a virtual\idxx{Sensor!Virtua
 % automatic unit conversion: query can easily match the unit and extract it, an abstraction could do this automatically and convert to a unit of your choice, this is surprisingly easy
 When sensors are being mixed and matched in a deployment, and perhaps even replaced throughout the lifecycle\idx{Deployment lifecycle} of the deployment, our overall system will likely end up streams with mixed units. Some temperature sensors may report in \si{\degreeCelsius} and another in \si{\degree F}. Valves are even worse; some report in a percentage (0-100), others in 8 bits (0-255), and others yet in degrees (0-360). The conversion between units is actually surprisingly easy (given knowledge of which units are used). However, doing so client side increases client\idxx{Complexity!Client}{Client complexity} complexity, and introduces a separate codebase that needs to be properly tested. By shifting this to the server-side these efforts can be combined and the bar for implementing clients lowered.
 
+\subsection{Architectural Positioning}
+
+% the information store
+
+% the information bridge
+
+% the one-stop portal
+
 \subsection{Ontologies}
 \subsubsection{RDF}
 
