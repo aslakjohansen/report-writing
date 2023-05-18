@@ -10,5 +10,16 @@
 
 % def
 
+% listing environment variables
+All general-purpose programming languages have an easily accessible interface to the environment of the process. In python it looks like this:
+\begin{minted}[breaklines]{python}
+from os import environ
+
+print("The environment concists of:")
+for key in environ:
+  print("- '%s' -> '%s'" % (key, environ[key]))
+\end{minted}
+
+
 % the path: search order (including aliases)
 
