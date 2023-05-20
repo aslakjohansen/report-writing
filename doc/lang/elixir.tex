@@ -15,6 +15,15 @@
 
 \subsection{Functions}
 
+\subsection{Modules}
+
+\inputminted[fontsize=\normalsize]{elixir}{../src/elixir/fibonacci.ex}
+
+\begin{minted}[breaklines]{iex}
+iex(1)> Enum.map(0..10, fn n -> Fibonacci.fib(n) end)
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+\end{minted}
+
 \subsection{Pattern Matching}
 
 \subsection{Pipe Operator}
