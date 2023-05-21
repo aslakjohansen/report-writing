@@ -10,6 +10,20 @@
 \subsection{Execution}
 \subsubsection{Compilation}
 \subsubsection{Interpretation}
+
+\begin{minted}[breaklines,fontsize=\tiny]{iex}
+$ iex
+Erlang/OTP 24 [erts-12.2.1] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [jit]
+
+Interactive Elixir (1.12.2) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> 1+1
+2
+iex(2)> incr = fn i -> i + 1 end
+#Function<44.65746770/1 in :erl_eval.expr/5>
+iex(3)> incr.(1)
+2
+\end{minted}
+
 \subsubsection{LiveBook}
 
 \idx{Livebook}
