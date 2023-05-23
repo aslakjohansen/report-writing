@@ -10,24 +10,24 @@
 \subsection{Virtual Machine}
 
 % beam
-Back in the 80's the only place where programmers created distributed systems were telephone exchanges. In this domain, a need arose for new platforms with properties of (i) distributon, (ii) soft real-time properties, and (iii) close to zero downtime, even across software updates and hardware faults. Ericsson -- backed by monopoly conditions and the IT hub of Kista -- developed a platform to meet these needs. It is -- by far -- the most battle tested platform in this space. The platform consists of:
+Back in the 80's the only place where programmers created distributed systems were telephone\idx{Telephone exchange system} exchanges. In this domain, a need arose for new platforms with properties of (i) distribution, (ii) soft real-time properties, and (iii) close to zero downtime, even across software updates and hardware faults. Ericsson\idx{Ericsson} -- backed by monopoly conditions and the IT hub of Kista -- developed a platform to meet these needs. It is -- by far -- the most battle tested platform in this space. The platform consists of:
 \begin{itemize}
-  \item The Erlang programming language.
-  \item The BEAM (distributed) virtual machine.
-  \item The Open Telecom Platform (OTP).
+  \item The Erlang\idx{Erlang} programming language.
+  \item The BEAM\idx{BEAM} (distributed) virtual machine.
+  \item The Open\idx{OTP} Telecom Platform (OTP).
 \end{itemize}
 
 % who uses beam
 A number of programming languages compile to BEAM code. Among those, Elixir. However, BEAM is not just a virtual machine for yet another group of small languages. BEAM (e.g., Erlang and Elixir) has a few users, including: 
 \begin{itemize}
-  \descitem{Discord} is using Elixir to scale to 5M concurrent users.
+  \descitem{Discord}\idx{Discord} is using Elixir to scale to 5M concurrent users.
 %        \\ \url{https://discord.com/blog/how-discord-scaled-elixir-to-5-000-000-concurrent-users}
-  \descitem{Facebook} uses Erlang to power its chat service serving 100M active users.
+  \descitem{Facebook}\idx{Facebook} uses Erlang to power its chat service serving 100M active users.
 %        \\ \url{https://kyan.com/news/an-introduction-to-the-elixir-programming-language}
-  \descitem{WhatsApp} uses Erlang to run messaging servers, each covering 2M users.
+  \descitem{WhatsApp}\idx{WhatsApp} uses Erlang to run messaging servers, each covering 2M users.
   \descitem{Ericsson} uses Erlang for its GPRS, 3G, 4G and 5G infrastructure, and has a market share of 40\%.
-  \item In 2018 \textbf{Cisco} shipped 2M devices running Erlang. At that point 90\% of all internet traffic went through Erlang based nodes.
-  \item 100+ NEPs (network equipment providers) -- including the top 8 -- use Erlang based components in their products. Same numbers for SPs (service providers).
+  \item In 2018 \textbf{Cisco}\idx{Cisco} shipped 2M devices running Erlang. At that point 90\% of all internet traffic went through Erlang based nodes.
+  \item 100+ NEPs\idx{NEP} (network equipment providers) -- including the top 8 -- use Erlang based components in their products. Same numbers for SPs\idx{Service provider} (service providers).
 %        \\ \url{https://codesync.global/media/https-youtu-be-077-xjv6plq/}
 \end{itemize}
 
