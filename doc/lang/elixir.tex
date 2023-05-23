@@ -10,9 +10,15 @@
 \subsection{Virtual Machine}
 
 % beam
+Back in the 80's the only place where programmers created distributed systems were telephone exchanges. In this domain, a need arose for new platforms with properties of (i) distributon, (ii) soft real-time properties, and (iii) close to zero downtime, even across software updates and hardware faults. Ericsson -- backed by monopoly conditions and the IT hub of Kista -- developed a platform to meet these needs. It is -- by far -- the most battle tested platform in this space. The platform consists of:
+\begin{itemize}
+  \item The Erlang programming language.
+  \item The BEAM (distributed) virtual machine.
+  \item The Open Telecom Platform (OTP).
+\end{itemize}
 
 % who uses beam
-BEAM is not just a virtual machine for yet another group of small languages. BEAM (e.g., Erlang and Elixir) has a few users, including: 
+A number of programming languages compile to BEAM code. Among those, Elixir. However, BEAM is not just a virtual machine for yet another group of small languages. BEAM (e.g., Erlang and Elixir) has a few users, including: 
 \begin{itemize}
   \descitem{Discord} is using Elixir to scale to 5M concurrent users.
 %        \\ \url{https://discord.com/blog/how-discord-scaled-elixir-to-5-000-000-concurrent-users}
