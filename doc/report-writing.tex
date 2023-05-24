@@ -88,6 +88,19 @@
     \end{center}
 }
 
+\newenvironment{latexdemo}[0]
+{
+  \begin{tabular}{|p{0.46\linewidth}|p{0.46\linewidth}|}
+    \hline
+    \textbf{Code:} & \textbf{Outcome:} \\
+    \hline
+}
+{
+    \\
+    \hline
+  \end{tabular}
+}
+
 % https://en.wikibooks.org/wiki/LaTeX/Indexing
 \newcommand{\idx}[1]{\index{#1}\marginpar{\raggedright \tiny #1}}
 \newcommand{\idxx}[2]{\index{#1}\marginpar{\raggedright \tiny #2}}
