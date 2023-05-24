@@ -20,7 +20,7 @@ generated/tabulardata.tex: ../src/tabulardata.py ../var/tabulardata.json
 	../src/tabulardata.py ../var/tabulardata.json generated/tabulardata.tex
 
 
-report-writing.pdf: report-writing.tex references.bib */*.tex ${DEPS}
+report-writing.pdf: report-writing.tex references.bib *.tex */*.tex ${DEPS}
 	xelatex -shell-escape report-writing.tex
 	makeindex report-writing.idx
 	biber report-writing.bcf
