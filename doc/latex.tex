@@ -36,7 +36,6 @@ Bulletpoints are coded using the \texttt{itemize} environment, and are usefull f
 
 \subsection{Enumerated Points}
 
-
 \begin{latexdemo}
   \begin{minted}[breaklines]{latex}
   \begin{enumerate}
@@ -83,4 +82,24 @@ Bulletpoints are coded using the \texttt{itemize} environment, and are usefull f
 \subsection{Color Themes}
 \subsection{Highlights}
 \subsection{Description Items}
+
+\begin{latexdemo}
+  \begin{minted}[breaklines,fontsize=\footnotesize]{latex}
+  \newcommand{\descitem}[1]{
+    \item \textdesc{#1}
+  }
+  
+  \begin{itemize}
+    \descitem{Bonobo} Clever ape.
+    \descitem{Gorilla} Strong ape.
+    \descitem{Gibbon} Agile ape.
+  \end{itemize}
+  \end{minted}
+  &
+  \begin{itemize}
+    \descitem{Bonobo} Clever ape.
+    \descitem{Gorilla} Strong ape.
+    \descitem{Gibbon} Agile ape.
+  \end{itemize}
+\end{latexdemo}
 
