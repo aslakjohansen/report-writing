@@ -113,6 +113,8 @@ Sources:
 \subsection{Highlights}
 \subsection{Description Items}
 
+I often want a heading for each \texttt{item} in an \texttt{itemize} environment. This is convenient for descriptions. So, for convenience I define a \texttt{\textbackslash descitem}\idxx{Descitem command@\texttt{\textbackslash descitem} command}{\texttt{\textbackslash descitem} command} (short for description item) command that calls \texttt{item} and highlights a text. To be able to refer to that text using the same highlight I also define a \texttt{\textbackslash textdesc}\idxx{Textdesc command@\texttt{\textbackslash textdesc} command}{\texttt{\textbackslash textdesc} command} command.
+
 \begin{latexdemo}
   \begin{minted}[breaklines,fontsize=\footnotesize]{latex}
   \newcommand{\textdesc}[1]{
