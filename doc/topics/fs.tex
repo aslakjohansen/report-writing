@@ -53,6 +53,21 @@ Such a filesystem \textsl{organizes} files. The forms of supported organization 
 
 % links
 
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}[remember picture]
+      \genCoordsSDF{}
+      \genFsI{}
+      \genFsII{}
+      \genMount{}
+      \genLinkI{}
+      \genLinkII{}
+    \end{tikzpicture}
+  \end{center}
+  \caption[Filesystem links]{Filesystem links. Note that one link goes backward, thereby creating a cycle in the graph, while the other does not.}
+  \label{fig:topics:fs:links}
+\end{figure}
+
 \subsection{Paths}
 
 \subsection{Devices}
