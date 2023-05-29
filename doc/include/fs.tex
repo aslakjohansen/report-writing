@@ -99,3 +99,42 @@
 }
 \IgnoreSpacesOff
 
+\IgnoreSpacesOn
+\prgNewFunction \genFsII { m } {
+  \prgPrint{
+    \node[dirhighlight, fill=purple!20] (guest1) at ([xshift=0cm, yshift=0cm] guestAnchor) {};
+    
+    \node[dir] (guest11) at ([xshift=1cm, yshift=0.4cm] guestAnchor) {};
+    \node[file] (guest12) at ([xshift=1cm, yshift=-0.4cm] guestAnchor) {};
+    
+    \node[dir] (guest111) at ([xshift=2cm, yshift=1.2cm] guestAnchor) {};
+    \node[file] (guest112) at ([xshift=2cm, yshift=0.4cm] guestAnchor) {};
+    \node[dir] (guest113) at ([xshift=2cm, yshift=-0.4cm] guestAnchor) {};
+    
+    \node[file] (guest1111) at ([xshift=3cm, yshift=1.6cm] guestAnchor) {};
+    \node[file] (guest1112) at ([xshift=3cm, yshift=0.8cm] guestAnchor) {};
+    \node[file] (guest1131) at ([xshift=3cm, yshift=0.0cm] guestAnchor) {};
+    \node[file] (guest1132) at ([xshift=3cm, yshift=-0.8cm] guestAnchor) {};
+    
+    \draw[dedge] (guest1)--(guest11);
+    \draw[dedge] (guest1)--(guest12);
+    
+    \draw[dedge] (guest11)--(guest111);
+    \draw[dedge] (guest11)--(guest112);
+    \draw[dedge] (guest11)--(guest113);
+    
+    \draw[dedge] (guest111)--(guest1111);
+    \draw[dedge] (guest111)--(guest1112);
+    \draw[dedge] (guest113)--(guest1131);
+    \draw[dedge] (guest113)--(guest1132);
+  }
+}
+\IgnoreSpacesOff
+
+\IgnoreSpacesOn
+\prgNewFunction \genMount { m } {
+  \prgPrint{
+    \draw[dedge, dashed, draw=blue] (root151)--(guest1) node[midway,sloped,below] {\scalebox{0.7}{\textsl{\textcolor{blue}{mount}}}};
+  }
+}
+\IgnoreSpacesOff
