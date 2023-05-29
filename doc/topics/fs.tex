@@ -1,3 +1,5 @@
+\input{include/fs.tex}
+
 \section{Filesystems}
 
 There are many types of filesystems\idx{Filesystem}:
@@ -22,6 +24,17 @@ Such a filesystem \textsl{organizes} files. The forms of supported organization 
 \subsection{Structure}
 
 % directories
+
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}[remember picture]
+      \genCoordsSDF{}
+      \genFsI{}
+    \end{tikzpicture}
+  \end{center}
+  \caption{Filesystem tree structure}
+  \label{fig:topics:fs:dir}
+\end{figure}
 
 % mountpoints
 
