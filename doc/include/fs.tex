@@ -1,6 +1,7 @@
 \newcommand{\weight}[1]{node[midway,sloped,above] {\scalebox{0.7}{\textsl{\textcolor{purple}{#1}}}}}
 \tikzstyle{edge}  = [thick,>=stealth,draw=black]
 \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+\tikzstyle{dedgehighlight} = [dedge,very thick]
 \tikzstyle{node}=[
   overlay,
   circle,
@@ -46,19 +47,31 @@
 \IgnoreSpacesOn
 \prgNewFunction \genFsI { m } {
   \prgPrint{
-    \node[dirhighlight,fill=purple!20] (root1) at ([xshift=0cm, yshift=0cm] rootAnchor) {};
+    \IfSubStr{#1}{highlight:abs}{
+      \node[fill=purple!20,dirhighlight] (root1) at ([xshift=0cm, yshift=0cm] rootAnchor) {};
+    }{
+      \node[dirhighlight,fill=purple!20] (root1) at ([xshift=0cm, yshift=0cm] rootAnchor) {};
+    }
     
     \node[dir] (root11) at ([xshift=1cm, yshift=2.0cm] rootAnchor) {};
     \node[dir] (root12) at ([xshift=1cm, yshift=0.8cm] rootAnchor) {};
     \node[dir] (root13) at ([xshift=1cm, yshift=0.0cm] rootAnchor) {};
     \node[file] (root14) at ([xshift=1cm, yshift=-0.8cm] rootAnchor) {};
-    \node[dir] (root15) at ([xshift=1cm, yshift=-1.6cm] rootAnchor) {};
+    \IfSubStr{#1}{highlight:abs}{
+      \node[dirhighlight] (root15) at ([xshift=1cm, yshift=-1.6cm] rootAnchor) {};
+    }{
+      \node[dir] (root15) at ([xshift=1cm, yshift=-1.6cm] rootAnchor) {};
+    }
     
     \node[file] (root111) at ([xshift=2cm, yshift=2.4cm] rootAnchor) {};
     \node[file] (root112) at ([xshift=2cm, yshift=1.6cm] rootAnchor) {};
     \node[dir] (root121) at ([xshift=2cm, yshift=0.8cm] rootAnchor) {};
     \node[file] (root131) at ([xshift=2cm, yshift=0.0cm] rootAnchor) {};
-    \node[dir] (root151) at ([xshift=2cm, yshift=-1.2cm] rootAnchor) {};
+    \IfSubStr{#1}{highlight:rel}{
+      \node[dirhighlight] (root151) at ([xshift=2cm, yshift=-1.2cm] rootAnchor) {};
+    }{
+      \node[dir] (root151) at ([xshift=2cm, yshift=-1.2cm] rootAnchor) {};
+    }
     \node[dir] (root152) at ([xshift=2cm, yshift=-2.0cm] rootAnchor) {};
     
     \node[dir] (root1211) at ([xshift=3cm, yshift=1.6cm] rootAnchor) {};
@@ -76,13 +89,21 @@
     \draw[dedge] (root1)--(root12);
     \draw[dedge] (root1)--(root13);
     \draw[dedge] (root1)--(root14);
-    \draw[dedge] (root1)--(root15);
+    \IfSubStr{#1}{highlight:abs}{
+      \draw[dedgehighlight] (root1)--(root15);
+    }{
+      \draw[dedge] (root1)--(root15);
+    }
     
     \draw[dedge] (root11)--(root111);
     \draw[dedge] (root11)--(root112);
     \draw[dedge] (root12)--(root121);
     \draw[dedge] (root13)--(root131);
-    \draw[dedge] (root15)--(root151);
+    \IfSubStr{#1}{highlight:rel}{
+      \draw[dedgehighlight] (root15)--(root151);
+    }{
+      \draw[dedge] (root15)--(root151);
+    }
     \draw[dedge] (root15)--(root152);
     
     \draw[dedge] (root121)--(root1211);
@@ -102,10 +123,18 @@
 \IgnoreSpacesOn
 \prgNewFunction \genFsII { m } {
   \prgPrint{
-    \node[dirhighlight, fill=purple!20] (guest1) at ([xshift=0cm, yshift=0cm] guestAnchor) {};
+    \IfSubStr{#1}{highlight}{
+      \node[fill=purple!20, dirhighlight] (guest1) at ([xshift=0cm, yshift=0cm] guestAnchor) {};
+    }{
+      \node[dirhighlight, fill=purple!20] (guest1) at ([xshift=0cm, yshift=0cm] guestAnchor) {};
+    }
     
     \node[dir] (guest11) at ([xshift=1cm, yshift=0.4cm] guestAnchor) {};
-    \node[file] (guest12) at ([xshift=1cm, yshift=-0.4cm] guestAnchor) {};
+    \IfSubStr{#1}{highlight}{
+      \node[filehighlight] (guest12) at ([xshift=1cm, yshift=-0.4cm] guestAnchor) {};
+    }{
+      \node[file] (guest12) at ([xshift=1cm, yshift=-0.4cm] guestAnchor) {};
+    }
     
     \node[dir] (guest111) at ([xshift=2cm, yshift=1.2cm] guestAnchor) {};
     \node[file] (guest112) at ([xshift=2cm, yshift=0.4cm] guestAnchor) {};
@@ -117,7 +146,11 @@
     \node[file] (guest1132) at ([xshift=3cm, yshift=-0.8cm] guestAnchor) {};
     
     \draw[dedge] (guest1)--(guest11);
-    \draw[dedge] (guest1)--(guest12);
+    \IfSubStr{#1}{highlight}{
+      \draw[dedgehighlight] (guest1)--(guest12);
+    }{
+      \draw[dedge] (guest1)--(guest12);
+    }
     
     \draw[dedge] (guest11)--(guest111);
     \draw[dedge] (guest11)--(guest112);
@@ -134,7 +167,11 @@
 \IgnoreSpacesOn
 \prgNewFunction \genMount { m } {
   \prgPrint{
-    \draw[dedge, dashed, draw=blue] (root151)--(guest1) node[midway,sloped,below] {\scalebox{0.7}{\textsl{\textcolor{blue}{mount}}}};
+    \IfSubStr{#1}{highlight}{
+      \draw[dedgehighlight, dashed, draw=blue] (root151)--(guest1) node[midway,sloped,below] {\scalebox{0.7}{\textsl{\textcolor{blue}{mount}}}};
+    }{
+      \draw[dedge, dashed, draw=blue] (root151)--(guest1) node[midway,sloped,below] {\scalebox{0.7}{\textsl{\textcolor{blue}{mount}}}};
+    }
   }
 }
 \IgnoreSpacesOff
