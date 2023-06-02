@@ -34,7 +34,8 @@ The notion of a file change a bit from filesystem to filesystem. However, it usu
     \end{itemize}
 \end{itemize}
 
-% operating on: pointer, read & write number of characters, end-of-file, seeking
+% operating on: pointer, read & write number of characters, seeking, end-of-file
+While APIs may vary, the general model of interacting with a file is that the contents is an array of bytes, and when you open that file you get a point to the first element. You can then read or write (up to) some number of bytes from this position onwards. The pointer automatically advances, but it is also possible to perform arbitrary adjustments to this point by performing a \textsl{seek}\idx{Seek operation} operation. Reading beyond the largest index allocated in the file will result in reading the EOF\idx{End of file} (end-of-file) character.
 
 % flushing
 
