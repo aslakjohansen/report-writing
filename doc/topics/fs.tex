@@ -56,6 +56,7 @@ Files are organized in \textsl{directories}\idx{Directory}; a special kind of fi
 \end{figure}
 
 % mountpoints: multiple filesystems (root filesystem, USB stick), mounting to allow us name it (make it reachable), the windows variant (hidden root covering the drive letters)
+So, lets imagine that we have a running computer with a root filesystem and a USB drive with its own filesystem. For that last filesystem to be accessible from the computer, it has to be attached to a part of the root filesystem. We say that we \textsl{Mount}\idx{Mounting} the filesystem, and the location within the existing filesystem where this operation attaches it to is called the \textsl{mount point}\idx{Mount point}. This location has to be a directory. Figure \ref{fig:topics:fs:mount} illustrates how one filesystem is mounted on another. On DOS-based\idx{DOS} systems (such as the Windows\idxx{Microsoft!Windows}{Windows} family of operating systems), each known filesystem is assigned a letter, and a (hidden) root directory refers to each of these.
 
 \begin{figure}[tbp]
   \begin{center}
