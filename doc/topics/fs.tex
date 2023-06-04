@@ -42,7 +42,7 @@ While APIs may vary, the general model of interacting with a file is that the co
 \subsection{Structure}
 
 % directories: a special kind of file, a collection of files with unique names, folder
-Files are organized in \textsl{directories}\idx{Directory}; a special kind of file that represents a collection of files with unique names. By acting as a context, a containing file can be looked up using its name. Directories can be \textsl{nested}\idx{Nesting}, meaning that any subset of the contained files may be directories. Figure \ref{fig:topics:fs:dir} illustrates this. When illustrated graphically, it is often called a \textsl{Folder}.
+Files are organized in \textsl{directories}\idx{Directory}; a special kind of file that represents a collection of files with unique names. By acting as a context, a containing file can be looked up using its name. Directories can be \textsl{nested}\idx{Nesting}, meaning that any subset of the contained files may be directories. The whole filesystem is a tree structure with a root. Figure \ref{fig:topics:fs:dir} illustrates this. As we will see later on, the reality is a bit more complicated though. When illustrated graphically, it is often called a \textsl{Folder}.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -55,7 +55,7 @@ Files are organized in \textsl{directories}\idx{Directory}; a special kind of fi
   \label{fig:topics:fs:dir}
 \end{figure}
 
-% mountpoints
+% mountpoints: multiple filesystems (root filesystem, USB stick), mounting to allow us name it (make it reachable), the windows variant (hidden root covering the drive letters)
 
 \begin{figure}[tbp]
   \begin{center}
