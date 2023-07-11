@@ -15,6 +15,7 @@ Actors, like any other construct of logic, can fail for reasons ranging from com
 This is part of the responsibility of a \textsl{supervisor}\idx{Supervisor} actor. A supervisor is a class of actors that is in charge of lifecycle\idx{Lifecycle management} management of other actors (called children). It knows how to start them, how to stop them (gracefully or otherwise), and it is aware of the dependencies between these supervised actors. When a crash of a \textsl{supervised} process happens, its supervisor will detect this, and act accordingly. This involves stopping depending actors, and starting the actors up again in the necessary order. In short, a supervisor is an actor, that supervises a number of other actors in order to make sure that the overall functionality will \textsl{heal}\idx{Self-healing} in case of a failure.
 
 % supervision tree
+As supervisors are just actors fulfilling a particular role, they too can crash and thus need supervision. This naturally leads to the construction of supervision trees, with the root representing the application. Each branch in this tree is a supervisor, and that supervisor employs a specific restart strategy. These strategies dictate what should happen when a child actor crashed and include (i) restart of crashed child, (ii) restart of all children, and (iii) restart of all children except those coming before the crashed child. This way, the whole application is \textsl{managed} with respect to crashes and complex restart mechanics can be constructed.
 
 % figure: supervisor tree
 
