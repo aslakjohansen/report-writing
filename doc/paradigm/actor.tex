@@ -9,6 +9,7 @@
 \subsection{Supervision Trees}
 
 % failures, sandbox, crashes, monitoring
+Actors, like any other construct of logic, can fail for reasons ranging from common (e.g., a bug) to exotic (e.g., random bitflips). To deal with this actors should operate within some sort of sandbox. Still, crashes will occur and, when that happens, a part of the logic will go away. This raises to need for monitoring actors, detecting their crashes and action on them by starting up a replacement actor.
 
 % supervisor role: what to do when there is a crash? need for a component to handle this event, lifecycle management (starting, stopping, dependency aware)
 
