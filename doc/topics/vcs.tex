@@ -2,6 +2,60 @@
 
 \subsection{Diffs}
 
+See figure \ref{topics:vcs:diff}.
+
+\begin{figure}[tbp]
+  \vspace{10mm}
+  \begin{tikzpicture}[remember picture, overlay]
+    % variables
+    \newcommand{\spacing}[0]{4mm}
+    
+    \coordinate (origo) at (40mm,0);
+    
+    % styles
+    \tikzstyle{file}  = [
+      rectangle,
+      draw,
+      anchor=west,
+      align=left,
+      scale=0.71,
+    ]
+    
+    
+    \node[file,rounded corners,draw=teal,fill=teal!20] (diff) at (origo) {
+        \texttt{3c3}\\
+        \texttt{< I hope you are doing wel.}\\
+        \texttt{---}\\
+        \texttt{> I hope you are doing well.}
+    };
+    \draw[draw=teal] (diff.south) -- ([yshift=-\spacing] diff.south);
+    \draw[->,>=stealth,draw=teal] ([xshift=-\spacing,yshift=-\spacing] diff.south west) -- ([xshift=\spacing,yshift=-\spacing] diff.south east);
+    
+    \node[file, anchor=east] (input) at ([xshift=-\spacing,yshift=-\spacing] diff.south west) {
+      \small
+      \texttt{Hello Mom,}\\
+      \texttt{}\\
+      \texttt{I hope you are doing wel.}\\
+      \texttt{}\\
+      \texttt{Best,}\\
+      \texttt{Billie}
+    };
+    \node[file, anchor=west] (output) at ([xshift=\spacing,yshift=-\spacing] diff.south east) {
+      \small
+      \texttt{Hello Mom,}\\
+      \texttt{}\\
+      \texttt{I hope you are doing well.}\\
+      \texttt{}\\
+      \texttt{Best,}\\
+      \texttt{Billie}
+    };
+  \end{tikzpicture}
+  \vspace{22mm}
+  
+  \caption{Coding of the difference between two revisions of the same file.}
+  \label{topics:vcs:diff}
+\end{figure}
+
 \subsection{Commit Logs}
 
 \subsection{Branches}
