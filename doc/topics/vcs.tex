@@ -63,6 +63,61 @@ See figure \ref{topics:vcs:diff}.
 
 \subsection{Commit Logs}
 
+\subsubsection{State Machine}
+
+\begin{figure}[tbp]
+  \begin{tikzpicture}[remember picture, overlay]
+    % variables
+    \newcommand{\spacing}[0]{20mm}
+    \newcommand{\statesize}[0]{25mm}
+    
+    \coordinate (origo) at (0mm,-\spacing-1.5*\statesize);
+    
+    % styles
+    \tikzstyle{state}  = [
+      circle,
+      draw,
+      anchor=west,
+      align=left,
+      minimum width=\statesize,
+      scale=1.0,
+    ]
+    \tikzstyle{group}  = [
+      rectangle,
+      draw=purple,
+      rounded corners,
+      fill=purple!10!white,
+      anchor=center,
+      minimum width=2*\spacing+2*\statesize,
+      minimum height=2*\spacing+2*\statesize,
+      scale=1.0,
+    ]
+    \tikzstyle{arrow}  = [
+      ->,
+      >=stealth,
+      draw,
+    ]
+    
+    \node[group, anchor=center] (group) at ([xshift=2.5*\spacing+2*\statesize] origo) {};
+    \node[state] (untracked) at (origo) {untracked};
+    \node[state, anchor=south west] (staged) at ([xshift=2*\spacing, yshift=\spacing/2] untracked.east) {staged};
+    \node[state, anchor=west] (comitted) at ([xshift=\spacing] staged.east) {comitted};
+    \node[state, anchor=north] (modified) at ([yshift=-\spacing] $(staged.south)!0.5!(comitted.south)$) {modified};
+    
+    \draw[arrow] (untracked) -- (staged) node[midway,sloped,above] {add};
+    \draw[arrow] (staged) -- (comitted) node[midway,sloped,above] {commit};
+    \draw[arrow] (comitted) -- (modified) node[midway,sloped,above] {edit};
+    \draw[arrow] (modified) -- (staged) node[midway,sloped,above] {stage};
+    \draw[arrow,draw=purple,text=purple] ([yshift=-\statesize] group.west) -- (untracked) node[midway,sloped,above] {remove};
+  \end{tikzpicture}
+  \vspace{110mm}
+  
+  \caption{File status lifecycle in GIT.}
+  \label{topics:vcs:file:status}
+\end{figure}
+
+\subsubsection{Status}
+
 \subsection{Branches}
 
 \subsection{Merging}
