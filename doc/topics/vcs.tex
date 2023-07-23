@@ -70,14 +70,16 @@ See figure \ref{topics:vcs:diff}.
     % variables
     \newcommand{\spacing}[0]{20mm}
     \newcommand{\statesize}[0]{25mm}
+    \newcommand{\radius}[0]{24mm}
+    \newcommand{\groupsize}[0]{(2*\radius+\statesize+\spacing/2)}
     
-    \coordinate (origo) at (0mm,-\spacing-1.5*\statesize);
+    \coordinate (origo) at (80mm,-\spacing-1.5*\statesize);
     
     % styles
     \tikzstyle{state}  = [
       circle,
       draw,
-      anchor=west,
+      anchor=center,
       align=left,
       minimum width=\statesize,
       scale=1.0,
@@ -88,8 +90,8 @@ See figure \ref{topics:vcs:diff}.
       rounded corners,
       fill=purple!10!white,
       anchor=center,
-      minimum width=2*\spacing+2*\statesize,
-      minimum height=2*\spacing+2*\statesize,
+      minimum width=\groupsize,
+      minimum height=\groupsize,
       scale=1.0,
     ]
     \tikzstyle{arrow}  = [
@@ -98,17 +100,19 @@ See figure \ref{topics:vcs:diff}.
       draw,
     ]
     
-    \node[group, anchor=center] (group) at ([xshift=2.5*\spacing+2*\statesize] origo) {};
-    \node[state] (untracked) at (origo) {untracked};
-    \node[state, anchor=south west] (staged) at ([xshift=2*\spacing, yshift=\spacing/2] untracked.east) {staged};
-    \node[state, anchor=west] (comitted) at ([xshift=\spacing] staged.east) {comitted};
-    \node[state, anchor=north] (modified) at ([yshift=-\spacing] $(staged.south)!0.5!(comitted.south)$) {modified};
+    \node[group] (group) at (origo) {};
+    \node[text=purple] (grouplabel) at ([yshift=-0.5*\spacing] group.north) {tracked};
+    
+    \node[state] (staged)    at ([xshift=-0.8660254037844387*\radius, yshift=0.49999999999999994*\radius] origo) {staged};
+    \node[state] (comitted)  at ([xshift=0.8660254037844387*\radius, yshift=0.49999999999999994*\radius] origo) {comitted};
+    \node[state] (modified)  at ([yshift=-\radius] origo) {modified};
+    \node[state, anchor=east] (untracked) at ([xshift=-1.5*\spacing] staged.west) {untracked};
     
     \draw[arrow] (untracked) -- (staged) node[midway,sloped,above] {add};
     \draw[arrow] (staged) -- (comitted) node[midway,sloped,above] {commit};
     \draw[arrow] (comitted) -- (modified) node[midway,sloped,above] {edit};
     \draw[arrow] (modified) -- (staged) node[midway,sloped,above] {stage};
-    \draw[arrow,draw=purple,text=purple] ([yshift=-\statesize] group.west) -- (untracked) node[midway,sloped,above] {remove};
+    \draw[arrow,draw=purple,text=purple] ([yshift=-1/6*\groupsize] group.west) -- (untracked) node[midway,sloped,above] {remove};
   \end{tikzpicture}
   \vspace{110mm}
   
