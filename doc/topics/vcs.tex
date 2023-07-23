@@ -66,10 +66,10 @@ See figure \ref{topics:vcs:diff}.
 \subsubsection{State Machine}
 
 \begin{figure}[tbp]
-  \begin{tikzpicture}[remember picture, overlay]
+  \begin{tikzpicture}[]
     % variables
     \newcommand{\spacing}[0]{20mm}
-    \newcommand{\statesize}[0]{25mm}
+    \newcommand{\statesize}[0]{20mm}
     \newcommand{\radius}[0]{24mm}
     \newcommand{\groupsize}[0]{(2*\radius+\statesize+\spacing/2)}
     
@@ -114,8 +114,6 @@ See figure \ref{topics:vcs:diff}.
     \draw[arrow] (modified) -- (staged) node[midway,sloped,above] {stage};
     \draw[arrow,draw=purple,text=purple] ([yshift=-1/6*\groupsize] group.west) -- (untracked) node[midway,sloped,above] {remove};
   \end{tikzpicture}
-  \vspace{110mm}
-  
   \caption{File status lifecycle in GIT.}
   \label{topics:vcs:file:status}
 \end{figure}
