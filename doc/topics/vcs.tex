@@ -118,6 +118,18 @@ See figure \ref{topics:vcs:diff}.
   \label{topics:vcs:file:status}
 \end{figure}
 
+% typical workflow
+A typical workflow for implementing a change involves:
+\begin{enumerate}
+  \descitem{Update} Modify committed files and add new (and thus untracked) files.
+  \descitem{Select} Select files whose changes represent a \quoted{unit} of change. This is usually all the updated files, but not always. Good qualities of a unit of change is that
+    \begin{itemize}
+      \item It can be described briefly and succinctly.
+      \item It represents a change that is easy to reasons about. It being easy to reason about means that you can easily think about the codebase both with and without the change (even if you have multiple later commits). This allows you to later remove that commit from the timeline of the codebase with confidence, should it turn out to have negative sideeffects.
+    \end{itemize}
+  \descitem{Commit} Commit the selected files.
+\end{enumerate}
+
 \subsubsection{Status}
 
 \subsection{Branches}
