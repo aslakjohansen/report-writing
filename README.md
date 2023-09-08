@@ -5,10 +5,13 @@ The is a guide to Software Engineering and Software Technology students starting
 ## Dependencies
 
 For building you will need:
-- xelatex
+- xelatex (with a number of fairly standard packages)
+- biber
 - the [functional](https://ctan.org/pkg/functional) latex package (just copy `functional.sty` to [doc](doc))
 - make
 - python 3
+
+On Debian, this includes (at least) the following packages: `biber`, `fonts-firacode`, `texlive-bibtex-extra`, `texlive-lang-cjk`, `texlive-science`, `python3`, `texlive-xetex`
 
 ## Building
 
