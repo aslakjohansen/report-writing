@@ -1,0 +1,20 @@
+\section{Julia}
+\label{lang:julia}
+
+Julia\footnote{\url{https://julialang.org}}\idx{Julia programming language} is a dynamically typed high-performance language that supports metaprogramming. It has both a compiled and an interactive mode, and it is also the \say{ju} in \say{jupyter}\idx{Jupyter}.
+
+\subsection{Units}
+
+\idxx{Unitful.jl package@\texttt{Unitful.jl} package}{\texttt{Unitful.jl} package}\url{https://painterqubits.github.io/Unitful.jl/stable/}
+
+Example:
+\begin{minted}[breaklines]{julia}
+julia> using Unitful; using Unitful: kg, g, min, km, hr, minute
+
+julia> 1u"kg" == 1000u"g"
+true
+
+julia> uconvert(km/hr, 5.03u"km"/22.7u"minute")
+13.295154185022028 km hr^-1
+\end{minted}
+
