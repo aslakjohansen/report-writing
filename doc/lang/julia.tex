@@ -18,3 +18,24 @@ julia> uconvert(km/hr, 5.03u"km"/22.7u"minute")
 13.295154185022028 km hr^-1
 \end{minted}
 
+\subsection{Uncertainty}
+
+\idxx{Measurements.jl package@\texttt{Measurements.jl} package}{\texttt{Measurements.jl} package}\url{https://juliaphysics.github.io/Measurements.jl/stable/}
+
+Example:
+\begin{minted}[breaklines]{julia}
+julia> using Measurements
+
+julia> a = 12±7
+12.0 ± 7.0
+
+julia> b = 3±1.2
+3.0 ± 1.2
+
+julia> c = 0.15±0.002
+0.15 ± 0.002
+
+julia> a+b*c
+12.4 ± 7.0
+\end{minted}
+
