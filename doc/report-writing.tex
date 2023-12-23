@@ -813,6 +813,253 @@ As you, throughout the project, encounter domain specific abbreviations, make su
 
 \section{Report Structure}
 
+\begin{figure}[tbp]
+  \begin{center}
+    \begin{tikzpicture}[remember picture]
+      \newcommand{\xoffset}[0]{-10mm}
+      \newcommand{\yoffset}[0]{0mm}
+      \newcommand{\yspacing}[0]{-9mm}
+      \newcommand{\xspacing}[0]{18mm}
+      \newcommand{\processsize}[0]{4mm}
+      
+      \tikzstyle{edge} = [thick,->,>=stealth,draw=black]
+      \tikzstyle{connect} = [thin,->,>=stealth,dotted,draw=black!80]
+      \tikzstyle{theme} = [very thick,-,draw=black]
+      \tikzstyle{response} = [thick,->,>=stealth,dotted,draw=black!60]
+      
+      \tikzstyle{process}=[
+        overlay,
+        circle,
+        draw=black,
+        anchor=center,
+        thick,
+        minimum size=\processsize,
+      ]
+      
+      \tikzset{
+        pics/file/.style args={#1,#2}{
+          code={
+            \newcommand{\fileh}[0]{1.0}
+            \newcommand{\filew}[0]{0.8}
+            \newcommand{\filehc}[0]{\fileh/2}
+            \newcommand{\filewc}[0]{\filew/2}
+            \draw[-,thick]
+              (-\filew *#1, \fileh *#1) to % north west
+              ( \filewc*#1, \fileh *#1) to % north east 1
+              ( \filew *#1, \filehc*#1) to % north east 2
+              ( \filew *#1,-\fileh *#1) to % south east
+              (-\filew *#1,-\fileh *#1) to % south west
+              (-\filew *#1, \fileh *#1)    % north west
+              ;
+            \draw[-,thick]
+              ( \filewc*#1, \fileh *#1) to
+              ( \filewc*#1, \filehc*#1) to
+              ( \filew *#1, \filehc*#1)
+              ;
+            \node[anchor=east] (_)
+              at (-1.0-4mm, 0)
+              {\rotatebox{0}{#2}};
+          }
+        },
+      }
+      
+      % left nodes
+      {
+        \node[process] (problem) at (\xoffset+\xspacing*0, \yoffset+\yspacing*0) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]problem) {\textsl{problem discovery}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*1) pic{file={0.3,Problem Description}};
+        \node[process] (process) at (\xoffset+\xspacing*0, \yoffset+\yspacing*2) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]process) {\textsl{process analysis}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*3) pic{file={0.3,Process}};
+        \node[process] (approach) at (\xoffset+\xspacing*0, \yoffset+\yspacing*4) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]approach) {\textsl{approach choice}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*5) pic{file={0.3,Approach}};
+        \node[process] (related) at (\xoffset+\xspacing*0, \yoffset+\yspacing*6) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]related) {\textsl{review litterature}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*7) pic{file={0.3,Related Work}};
+        \node[process] (analysis) at (\xoffset+\xspacing*0, \yoffset+\yspacing*8) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]analysis) {\textsl{analyze}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*9) pic{file={0.3,Analysis}};
+        \node[process] (design) at (\xoffset+\xspacing*0, \yoffset+\yspacing*10) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]design) {\textsl{derive design}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*11) pic{file={0.3,Design}};
+        \node[process] (impl) at (\xoffset+\xspacing*0, \yoffset+\yspacing*12) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]impl) {\textsl{implement}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*13) pic{file={0.3,Implementation}};
+        \node[process] (eval) at (\xoffset+\xspacing*0, \yoffset+\yspacing*14) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]eval) {\textsl{evaluate}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*15) pic{file={0.3,Evaluation Results}};
+        \node[process] (discuss) at (\xoffset+\xspacing*0, \yoffset+\yspacing*16) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]discuss) {\textsl{analyse results}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*17) pic{file={0.3,Discussion}};
+        \node[process] (future) at (\xoffset+\xspacing*0, \yoffset+\yspacing*18) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]future) {\textsl{plan}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*19) pic{file={0.3,Future Work}};
+        \node[process] (hindsight) at (\xoffset+\xspacing*0, \yoffset+\yspacing*20) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]hindsight) {\textsl{reflect}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*21) pic{file={0.3,Hindsight}};
+        \node[process] (conclusion) at (\xoffset+\xspacing*0, \yoffset+\yspacing*22) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]conclusion) {\textsl{conclude}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*23) pic{file={0.3,Conclusion}};
+      }
+      
+      % left edges
+      {
+        \draw[edge] (problem) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*1+3mm);
+        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*1-3mm) -- (process);
+        
+        \draw[edge] (process) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*3+3mm);
+        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*3-3mm) -- (approach);
+        
+        \draw[edge] (approach) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*5+3mm);
+        \draw[edge]               (\xoffset+\xspacing*0, \yoffset+\yspacing*5-3mm) -- (related);
+        
+        \draw[edge] (related) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*7+3mm);
+        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*7-3mm) -- (analysis);
+        
+        \draw[edge] (analysis) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*9+3mm);
+        \draw[edge]               (\xoffset+\xspacing*0, \yoffset+\yspacing*9-3mm) -- (design);
+        
+        \draw[edge] (design) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*11+3mm);
+        \draw[edge]             (\xoffset+\xspacing*0, \yoffset+\yspacing*11-3mm) -- (impl);
+        
+        \draw[edge] (impl) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*13+3mm);
+        \draw[edge]           (\xoffset+\xspacing*0, \yoffset+\yspacing*13-3mm) -- (eval);
+        
+        \draw[edge] (eval) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*15+3mm);
+        \draw[edge]           (\xoffset+\xspacing*0, \yoffset+\yspacing*15-3mm) -- (discuss);
+        
+        \draw[edge] (discuss) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*17+3mm);
+        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*17-3mm) -- (future);
+        
+        \draw[edge] (future) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*19+3mm);
+        \draw[edge]             (\xoffset+\xspacing*0, \yoffset+\yspacing*19-3mm) -- (hindsight);
+        
+        \draw[edge] (hindsight) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*21+3mm);
+        \draw[edge]                (\xoffset+\xspacing*0, \yoffset+\yspacing*21-3mm) -- (conclusion);
+        
+        \draw[edge] (conclusion) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*23+3mm);
+      }
+      
+      % themes
+      {
+        \draw[theme] ([xshift=\xspacing]                     problem.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]problem.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Problem} subsection of \textcolor{purple}{Introduction}}};
+        \draw[theme] ([xshift=\xspacing]                     process.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]process.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Process} subsection of \textcolor{purple}{Introduction}}};
+        \draw[theme] ([xshift=\xspacing]                     approach.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]approach.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Approach} subsection of \textcolor{purple}{Introduction}}};
+        \draw[theme] ([xshift=\xspacing]                     related.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]related.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Related Work} section}};
+        \draw[theme] ([xshift=\xspacing]                     analysis.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]analysis.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Analysis} section}};
+        \draw[theme] ([xshift=\xspacing]                     design.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]design.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Design} section}};
+        \draw[theme] ([xshift=\xspacing]                     impl.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]impl.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Implementation} section}};
+        \draw[theme] ([xshift=\xspacing]                     eval.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]eval.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Evaluation} section}};
+        \draw[theme] ([xshift=\xspacing]                     discuss.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]discuss.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Discussion} section}};
+        \draw[theme] ([xshift=\xspacing]                     future.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]future.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Future Work} section}};
+        \draw[theme] ([xshift=\xspacing]                     hindsight.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]hindsight.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Hindsight} section}};
+        \draw[theme] ([xshift=\xspacing]                     conclusion.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]conclusion.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Conclusion} section}};
+        
+      }
+      
+      % left connects
+      {
+        \draw[connect] ([xshift=2mm]problem.east)
+                    -- ([xshift=\xspacing-2mm]problem.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*1)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*1);
+        
+        \draw[connect] ([xshift=2mm]process.east)
+                    -- ([xshift=\xspacing-2mm]process.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*3)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*3);
+        
+        \draw[connect] ([xshift=2mm]approach.east)
+                    -- ([xshift=\xspacing-2mm]approach.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*5)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*5);
+        
+        \draw[connect] ([xshift=2mm]related.east)
+                    -- ([xshift=\xspacing-2mm]related.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*7)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*7);
+        
+        \draw[connect] ([xshift=2mm]analysis.east)
+                    -- ([xshift=\xspacing-2mm]analysis.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*9)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*9);
+        
+        \draw[connect] ([xshift=2mm]design.east)
+                    -- ([xshift=\xspacing-2mm]design.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*11)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*11);
+        
+        \draw[connect] ([xshift=2mm]impl.east)
+                    -- ([xshift=\xspacing-2mm]impl.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*13)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*13);
+        
+        \draw[connect] ([xshift=2mm]eval.east)
+                    -- ([xshift=\xspacing-2mm]eval.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*15)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*15);
+        
+        \draw[connect] ([xshift=2mm]discuss.east)
+                    -- ([xshift=\xspacing-2mm]discuss.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*17)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*17);
+        
+        \draw[connect] ([xshift=2mm]future.east)
+                    -- ([xshift=\xspacing-2mm]future.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*19)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*19);
+        
+        \draw[connect] ([xshift=2mm]hindsight.east)
+                    -- ([xshift=\xspacing-2mm]hindsight.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*21)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*21);
+        
+        \draw[connect] ([xshift=2mm]conclusion.east)
+                    -- ([xshift=\xspacing-2mm]conclusion.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*23)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*23);
+      }
+      
+      % responses
+      {
+        \draw[response] ([yshift=(-\processsize+\yspacing-3mm)/2+0.5mm,xshift=49mm]conclusion.north)
+                     --  ++(50mm,0em)
+                     |- ([yshift=(-\processsize+\yspacing-3mm)/2+0.5mm,xshift=74.5mm]problem.north);
+        \draw[response] ([yshift=(-\processsize+\yspacing-3mm)/2+0.5mm,xshift=49mm]eval.north)
+                     --  ++(40mm,0em)
+                     |- ([yshift=(-\processsize+\yspacing-3mm)/2+0.75mm,xshift=76mm]approach.north);
+      }
+    \end{tikzpicture}
+  \end{center}
+  \caption[Overview of project workprocesses and -products, and how they map to sections]{Overview of the work processes and work products of a project, and how they map to report sections. Specifically, the evaluation section evaluates the approach, and the conclusion section addresses the problem.}
+  \label{fig:first:overview}
+\end{figure}
+
 \idx{Report structure} The following is a good starting point for the structure of most reports. If you end up with \textsl{interesting} parts of your implementation then you can add an \textdesc{Implementation} section. However, we do -- especially at the MSc level -- expect you to be able to write code, and we generally don't care about you choosing a \keywordname{for} loop over a \keywordname{while} loop.
 
 \begin{enumerate}
