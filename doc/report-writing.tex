@@ -822,7 +822,7 @@ The following is a good starting point for the structure\idx{Report structure} o
     \begin{tikzpicture}[remember picture]
       \newcommand{\xoffset}[0]{-10mm}
       \newcommand{\yoffset}[0]{0mm}
-      \newcommand{\yspacing}[0]{-9mm}
+      \newcommand{\yspacing}[0]{-8mm}
       \newcommand{\xspacing}[0]{18mm}
       \newcommand{\processsize}[0]{4mm}
       
@@ -878,33 +878,36 @@ The following is a good starting point for the structure\idx{Report structure} o
         \node[process] (approach) at (\xoffset+\xspacing*0, \yoffset+\yspacing*4) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]approach) {\textsl{approach choice}};
         \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*5) pic{file={0.3,Approach}};
-        \node[process] (related) at (\xoffset+\xspacing*0, \yoffset+\yspacing*6) {};
+        \node[process] (reqs) at (\xoffset+\xspacing*0, \yoffset+\yspacing*6) {};
+        \node[anchor=east] (_) at ([xshift=-1.0-4mm]reqs) {\textsl{requirement elicitation}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*7) pic{file={0.3,Requirements}};
+        \node[process] (related) at (\xoffset+\xspacing*0, \yoffset+\yspacing*8) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]related) {\textsl{review litterature}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*7) pic{file={0.3,Related Work}};
-        \node[process] (analysis) at (\xoffset+\xspacing*0, \yoffset+\yspacing*8) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*9) pic{file={0.3,Related Work}};
+        \node[process] (analysis) at (\xoffset+\xspacing*0, \yoffset+\yspacing*10) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]analysis) {\textsl{analyze}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*9) pic{file={0.3,Analysis}};
-        \node[process] (design) at (\xoffset+\xspacing*0, \yoffset+\yspacing*10) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*11) pic{file={0.3,Analysis}};
+        \node[process] (design) at (\xoffset+\xspacing*0, \yoffset+\yspacing*12) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]design) {\textsl{derive design}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*11) pic{file={0.3,Design}};
-        \node[process] (impl) at (\xoffset+\xspacing*0, \yoffset+\yspacing*12) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*13) pic{file={0.3,Design}};
+        \node[process] (impl) at (\xoffset+\xspacing*0, \yoffset+\yspacing*14) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]impl) {\textsl{implement}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*13) pic{file={0.3,Implementation}};
-        \node[process] (eval) at (\xoffset+\xspacing*0, \yoffset+\yspacing*14) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*15) pic{file={0.3,Implementation}};
+        \node[process] (eval) at (\xoffset+\xspacing*0, \yoffset+\yspacing*16) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]eval) {\textsl{evaluate}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*15) pic{file={0.3,Evaluation Results}};
-        \node[process] (discuss) at (\xoffset+\xspacing*0, \yoffset+\yspacing*16) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*17) pic{file={0.3,Evaluation Results}};
+        \node[process] (discuss) at (\xoffset+\xspacing*0, \yoffset+\yspacing*18) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]discuss) {\textsl{analyse results}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*17) pic{file={0.3,Discussion}};
-        \node[process] (future) at (\xoffset+\xspacing*0, \yoffset+\yspacing*18) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*19) pic{file={0.3,Discussion}};
+        \node[process] (future) at (\xoffset+\xspacing*0, \yoffset+\yspacing*20) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]future) {\textsl{plan}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*19) pic{file={0.3,Future Work}};
-        \node[process] (hindsight) at (\xoffset+\xspacing*0, \yoffset+\yspacing*20) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*21) pic{file={0.3,Future Work}};
+        \node[process] (hindsight) at (\xoffset+\xspacing*0, \yoffset+\yspacing*22) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]hindsight) {\textsl{reflect}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*21) pic{file={0.3,Hindsight}};
-        \node[process] (conclusion) at (\xoffset+\xspacing*0, \yoffset+\yspacing*22) {};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*23) pic{file={0.3,Hindsight}};
+        \node[process] (conclusion) at (\xoffset+\xspacing*0, \yoffset+\yspacing*24) {};
         \node[anchor=east] (_) at ([xshift=-1.0-4mm]conclusion) {\textsl{conclude}};
-        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*23) pic{file={0.3,Conclusion}};
+        \draw (\xoffset+\xspacing*0, \yoffset+\yspacing*25) pic{file={0.3,Conclusion}};
       }
       
       % left edges
@@ -916,33 +919,36 @@ The following is a good starting point for the structure\idx{Report structure} o
         \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*3-3mm) -- (approach);
         
         \draw[edge] (approach) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*5+3mm);
-        \draw[edge]               (\xoffset+\xspacing*0, \yoffset+\yspacing*5-3mm) -- (related);
+        \draw[edge]               (\xoffset+\xspacing*0, \yoffset+\yspacing*5-3mm) -- (reqs);
         
-        \draw[edge] (related) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*7+3mm);
-        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*7-3mm) -- (analysis);
+        \draw[edge] (reqs) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*7+3mm);
+        \draw[edge]           (\xoffset+\xspacing*0, \yoffset+\yspacing*7-3mm) -- (related);
         
-        \draw[edge] (analysis) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*9+3mm);
-        \draw[edge]               (\xoffset+\xspacing*0, \yoffset+\yspacing*9-3mm) -- (design);
+        \draw[edge] (related) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*9+3mm);
+        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*9-3mm) -- (analysis);
         
-        \draw[edge] (design) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*11+3mm);
-        \draw[edge]             (\xoffset+\xspacing*0, \yoffset+\yspacing*11-3mm) -- (impl);
+        \draw[edge] (analysis) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*11+3mm);
+        \draw[edge]               (\xoffset+\xspacing*0, \yoffset+\yspacing*11-3mm) -- (design);
         
-        \draw[edge] (impl) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*13+3mm);
-        \draw[edge]           (\xoffset+\xspacing*0, \yoffset+\yspacing*13-3mm) -- (eval);
+        \draw[edge] (design) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*13+3mm);
+        \draw[edge]             (\xoffset+\xspacing*0, \yoffset+\yspacing*13-3mm) -- (impl);
         
-        \draw[edge] (eval) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*15+3mm);
-        \draw[edge]           (\xoffset+\xspacing*0, \yoffset+\yspacing*15-3mm) -- (discuss);
+        \draw[edge] (impl) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*15+3mm);
+        \draw[edge]           (\xoffset+\xspacing*0, \yoffset+\yspacing*15-3mm) -- (eval);
         
-        \draw[edge] (discuss) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*17+3mm);
-        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*17-3mm) -- (future);
+        \draw[edge] (eval) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*17+3mm);
+        \draw[edge]           (\xoffset+\xspacing*0, \yoffset+\yspacing*17-3mm) -- (discuss);
         
-        \draw[edge] (future) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*19+3mm);
-        \draw[edge]             (\xoffset+\xspacing*0, \yoffset+\yspacing*19-3mm) -- (hindsight);
+        \draw[edge] (discuss) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*19+3mm);
+        \draw[edge]              (\xoffset+\xspacing*0, \yoffset+\yspacing*19-3mm) -- (future);
         
-        \draw[edge] (hindsight) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*21+3mm);
-        \draw[edge]                (\xoffset+\xspacing*0, \yoffset+\yspacing*21-3mm) -- (conclusion);
+        \draw[edge] (future) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*21+3mm);
+        \draw[edge]             (\xoffset+\xspacing*0, \yoffset+\yspacing*21-3mm) -- (hindsight);
         
-        \draw[edge] (conclusion) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*23+3mm);
+        \draw[edge] (hindsight) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*23+3mm);
+        \draw[edge]                (\xoffset+\xspacing*0, \yoffset+\yspacing*23-3mm) -- (conclusion);
+        
+        \draw[edge] (conclusion) -- (\xoffset+\xspacing*0, \yoffset+\yspacing*25+3mm);
       }
       
       % themes
@@ -956,6 +962,9 @@ The following is a good starting point for the structure\idx{Report structure} o
         \draw[theme] ([xshift=\xspacing]                     approach.north)
                   -- ([xshift=\xspacing,yshift=\yspacing-3mm]approach.center)
                   node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Approach} subsection of \textcolor{purple}{Introduction}}};
+        \draw[theme] ([xshift=\xspacing]                     reqs.north)
+                  -- ([xshift=\xspacing,yshift=\yspacing-3mm]reqs.center)
+                  node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Requirements} section}};
         \draw[theme] ([xshift=\xspacing]                     related.north)
                   -- ([xshift=\xspacing,yshift=\yspacing-3mm]related.center)
                   node[midway,right] {\scalebox{1.0}{\textcolor{purple}{Related Work} section}};
@@ -1003,50 +1012,55 @@ The following is a good starting point for the structure\idx{Report structure} o
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*5)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*5);
         
-        \draw[connect] ([xshift=2mm]related.east)
-                    -- ([xshift=\xspacing-2mm]related.center);
+        \draw[connect] ([xshift=2mm]reqs.east)
+                    -- ([xshift=\xspacing-2mm]reqs.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*7)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*7);
         
-        \draw[connect] ([xshift=2mm]analysis.east)
-                    -- ([xshift=\xspacing-2mm]analysis.center);
+        \draw[connect] ([xshift=2mm]related.east)
+                    -- ([xshift=\xspacing-2mm]related.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*9)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*9);
         
-        \draw[connect] ([xshift=2mm]design.east)
-                    -- ([xshift=\xspacing-2mm]design.center);
+        \draw[connect] ([xshift=2mm]analysis.east)
+                    -- ([xshift=\xspacing-2mm]analysis.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*11)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*11);
         
-        \draw[connect] ([xshift=2mm]impl.east)
-                    -- ([xshift=\xspacing-2mm]impl.center);
+        \draw[connect] ([xshift=2mm]design.east)
+                    -- ([xshift=\xspacing-2mm]design.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*13)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*13);
         
-        \draw[connect] ([xshift=2mm]eval.east)
-                    -- ([xshift=\xspacing-2mm]eval.center);
+        \draw[connect] ([xshift=2mm]impl.east)
+                    -- ([xshift=\xspacing-2mm]impl.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*15)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*15);
         
-        \draw[connect] ([xshift=2mm]discuss.east)
-                    -- ([xshift=\xspacing-2mm]discuss.center);
+        \draw[connect] ([xshift=2mm]eval.east)
+                    -- ([xshift=\xspacing-2mm]eval.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*17)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*17);
         
-        \draw[connect] ([xshift=2mm]future.east)
-                    -- ([xshift=\xspacing-2mm]future.center);
+        \draw[connect] ([xshift=2mm]discuss.east)
+                    -- ([xshift=\xspacing-2mm]discuss.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*19)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*19);
         
-        \draw[connect] ([xshift=2mm]hindsight.east)
-                    -- ([xshift=\xspacing-2mm]hindsight.center);
+        \draw[connect] ([xshift=2mm]future.east)
+                    -- ([xshift=\xspacing-2mm]future.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*21)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*21);
         
-        \draw[connect] ([xshift=2mm]conclusion.east)
-                    -- ([xshift=\xspacing-2mm]conclusion.center);
+        \draw[connect] ([xshift=2mm]hindsight.east)
+                    -- ([xshift=\xspacing-2mm]hindsight.center);
         \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*23)
                     -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*23);
+        
+        \draw[connect] ([xshift=2mm]conclusion.east)
+                    -- ([xshift=\xspacing-2mm]conclusion.center);
+        \draw[connect] (\xoffset+\xspacing*0+4.5mm, \yoffset+\yspacing*25)
+                    -- (\xoffset+\xspacing*1-2mm  , \yoffset+\yspacing*25);
       }
       
       % responses
