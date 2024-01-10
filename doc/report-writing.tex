@@ -133,6 +133,7 @@
   \textcolor{white}{\index{Network equipment provider|see {NEP}}}
   \textcolor{white}{\index{Non-disclosure agreement|see {NDA}}}
   \textcolor{white}{\index{Open telecom platform|see {OTP}}}
+  \textcolor{white}{\index{Requirement!Absolute|see {Unbounded}}}
   \textcolor{white}{\index{SE|see {Software engineering}}}
   \textcolor{white}{\index{SP|see {Service provider}}}
   \textcolor{white}{\index{Snippet|see {Code inclusion}}}
@@ -1790,11 +1791,23 @@ If you don't know the stories behind these planes, do yourself a favour and watc
 % hidden tradeoffs (https://www.youtube.com/watch?v=4rOPAYoR80M)
 
 
-\section{Absolute Non-Functionalitites}
+\section{Unbounded Non-Functionalitites}
 
 \begin{inspiration}{Aslak Johansen\idxx{Johansen, Aslak}{Aslak Johansen}}
   \textbf{Aslak's first law:} \quoted{An unbounded requirement will consume all design space allowed by any related tradeoffs}
 \end{inspiration}
+
+% problem: it is natural to come up with absolute functional requirements, it should be scalable/how much/forever, but there are consequences to this
+When it comes to non-binary properties\idxx{Property!Non-binary}{Non-binary properties}, people often have trouble differentiating between what the actual requirement is and what they want. It is natural to end up with absolute (aka unbounded)\idxx{Requirement!Unbounded}{Unbounded requirement} functional requirements. For instance, there is something very uncomfortable about bounding scalability; especially if you don't have a good feel for it. Determining that boundary can be a mini-project in and of itself. However, not doing it also comes with consequences.
+
+% that requirement likely plays into multiple tradeoffs, an absolute requirement will force an extreme resolution of each tradeoff it is involved in (however the magnitude of the real-world impact), if multiple unbounded requirements exists then they are likely to counteract each other in some tradeoffs and thus leave the system architect with no valid path forward (if both are top priority, then none of them are top priority)
+Most performance-related requirements play into a number of tradeoffs\idx{Tradeoff}. If such a requirement is unbounded it will force an extreme resolution of each tradeoff it is involved in (however, the magnitude of the real-world impact). Such resolutions will often be costly in other properties while providing little benefit in the dimension of the property the requirement relates to. If multiple unbounded requirements exists then they are likely to counteract each other in some tradeoffs and thus leave the system architect with no valid or good path forward: If both are top priority, then none of them are top priority.
+
+% priority doesn't help much: it is also an absolute concept, it only make some unbounded requirements less unbounded, example: a situation where we need to maximize availability as first priority and response time as second priority (given the involved tradeoffs, the "right" solution might result in a horrible response time because the availability requirement is stronger and eats consumes all the design space it touches)
+One might prioritize requirements\idxx{Requirement!Priority}{Requirement priority} then. But as priority is also an absolute concept it doesn't help much. It only makes some unbounded requirements \textsl{weakly} unbounded. For instance, lets imagine a situation where we are building a system where we need to maximize availability as first priority and response time as second priority. Given the involved tradeoffs the \say{right} solution might result in an absolutely horrible response time because the availability requirement is stronger and consumes all the design space it touches.
+
+% back to the roots: a requirement is just that, minimum acceptable criteria, that leaves room for system architects to navigate the involved tradeoffs and maximize value, if you want to guide those architects you should provide a list of attractive qualities.
+When such requirements manifest it is important to go back to the roots. A requirements is just that; a minimum acceptable criteria. Sticking to that leaves room for system architects to navigate the involved tradeoffs and maximize value. If you want to provide those architects with more guidance, you should provide a list of attractive qualities.
 
 \begin{inspiration}{Obi-Wan Kenobi\idxx{Kenobi, Obi-Wan}{Obi-Wan Kenobi}\cite{episodeIIIrevenge}}
   \quoted{Only a Sith deals in absolutes}
