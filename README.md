@@ -19,3 +19,17 @@ On Debian, this includes (at least) the following packages: `biber`, `fonts-fira
 cd doc ; make
 ```
 
+### Using Docker
+
+Build image:
+
+```shell
+docker build -t report-writing .
+```
+
+Running `make` inside of docker image:
+
+```shell
+docker run --user "$(id -u):$(id -g)" -v `pwd`:/workdir report-writing make
+```
+
