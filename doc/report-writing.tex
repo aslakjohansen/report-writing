@@ -599,6 +599,24 @@ A rejection in any of these steps means that you will have to reupload.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Project Management
 \chapter{Project Management}
 
+% need
+Few students have experience participating in projects the size of their BSc/MSc. Fewer yet managing such projects. Your semester\idx{Semester project} projects have been neatly laid out in such a way that project problems happen to coincide with solutions presented in semester courses. You have had deadlines and your project advisors\idx{Advisor} have made sure that the work needed for these deadlines is doable within the time given. These projects have been managed for you.
+
+% your role
+Now, it is time for you to take over this role; the role of project\idx{Project Manager} manager. That is, to plan (or structure) the work needed in such a way that you end up with a product (code and report, that is) that you are happy about within the allotted time. This touches on numerous different aspects, including:
+\begin{itemize}
+  \item Time management
+  \item Resource management
+  \item Work disaggregation
+  \item Risk management
+\end{itemize}
+
+% model of plan
+Briefly speaking, you need to come up with a plan for how you disaggregate the full project into small tangible work\idx{Work package} packages that are placed on a timeline. That includes a start time and a duration. Each such work packages require some set of resources, and depends on the completion of a (potentially empty) set of other work packages.
+
+% risks
+This, obviously, wont happen to perfection. To manage the risks\idx{Risk} associated with potential imperfections, we analyze each work package for risks. When appropriate (and possible) we plan for risk mitigation. This will often take the form of an alternative subgraph in the work package dependency graph that can be activated under certain conditions.
+
 \section{Project Timeline}
 
 % what: to get an overview of where you are compared to where you should be
@@ -631,11 +649,35 @@ A rejection in any of these steps means that you will have to reupload.
 
 \section{Time Management}
 
+Each work package is associated with at least an expected duration (which could be a range), a set of resources, and a set of work package dependencies. This will allow you to reason about
+\begin{itemize}
+  \item Which work packages cannot be worked on in parallel.
+  \item When work on a certain task can begin at the earliest.
+  \item The feasibility of a plan (task $\mapsto$ time range mapping).
+\end{itemize}
+
+Sometimes you may be ahead of your plan. Do you then give yourself a bonus break, or do you carry on knowing that you will be under less pressure moving on? At other times, you may be behind schedule. This is a much more likely situation. You should always have a bit of slack\idx{Slack}, but only a bit.
+
+Once that slack has been consumed, you will have to wake up and face reality: Either you go all in (e.g., pull an all-nighter) or you will be forced to reduce or cut a work package in order to meet the deadline. At times, no amount of work towards the former will fix the situation, and the situation will eventually have to be resolved through the latter mechanism. It can be important (and very hard) to recognize such situations and cut ones losses.
+
 \subsection{Urgency}
 
 \section{Resource Management}
 
 % what: scarce resources, related to time management
+
+Resources can have a number of different properties. Lets try to give examples of resources through some of their key properties:
+\begin{itemize}
+  \descitem{External vs Internal} Some resources are our of your control; you have to ask for access. Those are external resources\idxx{Resource!external}{External resource}. Lets say that you are doing a project with a company, and you need an interview with a stakeholder from that company. That stakeholder is likely to take a few days replying and agree to a date a week or two later. That is an external resource. You have to plan around them and make sure that you will have reasonable things to do while waiting for them. Internal\idxx{Resource!internal}{Internal resource} resources are easier though. They are under your control. Examples include group members and computers owned by group members.
+  \descitem{Budgets} Ideally, all resources should always be available to you, but in reality some come with budgets. Examples include:
+    \begin{itemize}
+      \item A representative for a company you are collaborating with may have agreed to give you 6 hours of their time.
+      \item A free cloud account (such as those given to students) work on a credit system, and at the end of the day, only that many credits are free. If you break that budget you may have to put in your own money. This is a \textsl{soft}\idxx{Budget!soft}{Soft budget} budget.
+      \item If you are doing time-critical work, like performance evaluation, then all participating components must be dedicated to this job. So, if you are benchmarking some code on a laptop, then it cannot be used to look stuff up on the internet or write report. For this work package the laptop is a fully consumed\idxx{Resource!consumed}{Consumed resource} resource.
+    \end{itemize}
+\end{itemize}
+
+It is your job to lay out work packages in such a way that all resource constraints are satisfied and that the utilization of scarce resources is optimized. For instance, all project members should always have something to do.
 
 \subsection{Hardware}
 
