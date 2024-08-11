@@ -617,67 +617,6 @@ Briefly speaking, you need to come up with a plan for how you disaggregate the f
 % risks
 This, obviously, wont happen to perfection. To manage the risks\idx{Risk} associated with potential imperfections, we analyze each work package for risks. When appropriate (and possible) we plan for risk mitigation. This will often take the form of an alternative subgraph in the work package dependency graph that can be activated under certain conditions.
 
-\section{Project Timeline}
-
-% what: to get an overview of where you are compared to where you should be
-
-% production: splitting into tasks, estimation of length
-
-% unit size
-
-\subsection{Rehashing}
-
-\section{Work Management}
-
-% mostly to match the timeline
-
-\subsection{Dependencies}
-
-\subsection{Critical Path}
-
-\subsection{Delays}
-
-% intro: delays can happen, reasons (including illness, task turns out to be harder than anticipated)
-
-% decisions: work longer to catch up, or skip task, dependency graphs can help one reason about consequences
-
-\section{Risk Management}
-
-\begin{inspiration}{Nick Fury\idxx{Fury, Nick}{Nick Fury}\cite{avengers}}
-  \quoted{Until such time as the world ends, we will act as though it intends to spin on.}
-\end{inspiration}
-
-\section{Time Management}
-
-Each work package is associated with at least an expected duration (which could be a range), a set of resources, and a set of work package dependencies. This will allow you to reason about
-\begin{itemize}
-  \item Which work packages cannot be worked on in parallel.
-  \item When work on a certain task can begin at the earliest.
-  \item The feasibility of a plan (task $\mapsto$ time range mapping).
-\end{itemize}
-
-Sometimes you may be ahead of your plan. Do you then give yourself a bonus break, or do you carry on knowing that you will be under less pressure moving on? At other times, you may be behind schedule. This is a much more likely situation. You should always have a bit of slack\idx{Slack}, but only a bit.
-
-Once that slack has been consumed, you will have to wake up and face reality: Either you go all in (e.g., pull an all-nighter\idx{All-nighter}) or you will be forced to reduce or cut a work package in order to meet the deadline. At times, no amount of work towards the former will fix the situation, and the situation will eventually have to be resolved through the latter mechanism. It can be important (and very hard) to recognize such situations and cut ones losses.
-
-\subsection{Urgency}
-
-\section{Resource Management}
-
-% what: scarce resources, related to time management
-
-Resources can have a number of different properties. Lets try to give examples of resources through some of their key properties:
-\begin{itemize}
-  \descitem{External vs Internal} Some resources are our of your control; you have to ask for access. Those are external resources\idxx{Resource!external}{External resource}. Lets say that you are doing a project with a company, and you need an interview with a stakeholder from that company. That stakeholder is likely to take a few days replying and agree to a date a week or two later. That is an external resource. You have to plan around them and make sure that you will have reasonable things to do while waiting for them. Internal\idxx{Resource!internal}{Internal resource} resources are easier though. They are under your control. Examples include group members and computers owned by group members.
-  \descitem{Budgets} Ideally, all resources should always be available to you, but in reality some come with budgets. Examples include:
-    \begin{itemize}
-      \item A representative for a company you are collaborating with may have agreed to give you 6 hours of their time.
-      \item A free cloud account (such as those given to students) work on a credit system, and at the end of the day, only that many credits are free. If you break that budget you may have to put in your own money. This is a \textsl{soft}\idxx{Budget!soft}{Soft budget} budget.
-      \item If you are doing time-critical work, like performance evaluation, then all participating components must be dedicated to this job. So, if you are benchmarking some code on a laptop, then it cannot be used to look stuff up on the internet or write report. For this work package the laptop is a fully consumed\idxx{Resource!consumed}{Consumed resource} resource.
-    \end{itemize}
-\end{itemize}
-
-It is your job to lay out work packages in such a way that all resource constraints are satisfied and that the utilization of scarce resources is optimized. For instance, all project members should always have something to do.
 
 \section{Work Packages}
 
@@ -854,6 +793,68 @@ The next step is to iteratively break down these work packages into smaller piec
 Ideally, we stop the process once every work package has been assigned a duration. A final sanity check reveals whether this is doable within the project period (and not too much shorter time). If that is not the case, then you should revisit one of the previous stages.
 
 Another approach would be to assign time to each work package before you subdivide them. Then, to be on the safe side, the longest dependency path within the new set of work packages should -- assuming that you have enough group members to do the concurrent work packages -- have the same duration as the original work package.
+
+%\section{Project Timeline}
+
+%% what: to get an overview of where you are compared to where you should be
+
+%% production: splitting into tasks, estimation of length
+
+%% unit size
+
+%\subsection{Rehashing}
+
+%\section{Work Management}
+
+%% mostly to match the timeline
+
+%\subsection{Dependencies}
+
+%\subsection{Critical Path}
+
+%\subsection{Delays}
+
+%% intro: delays can happen, reasons (including illness, task turns out to be harder than anticipated)
+
+%% decisions: work longer to catch up, or skip task, dependency graphs can help one reason about consequences
+
+\section{Time Management}
+
+Each work package is associated with at least an expected duration (which could be a range), a set of resources, and a set of work package dependencies. This will allow you to reason about
+\begin{itemize}
+  \item Which work packages cannot be worked on in parallel.
+  \item When work on a certain task can begin at the earliest.
+  \item The feasibility of a plan (task $\mapsto$ time range mapping).
+\end{itemize}
+
+Sometimes you may be ahead of your plan. Do you then give yourself a bonus break, or do you carry on knowing that you will be under less pressure moving on? At other times, you may be behind schedule. This is a much more likely situation. You should always have a bit of slack\idx{Slack}, but only a bit.
+
+Once that slack has been consumed, you will have to wake up and face reality: Either you go all in (e.g., pull an all-nighter\idx{All-nighter}) or you will be forced to reduce or cut a work package in order to meet the deadline. At times, no amount of work towards the former will fix the situation, and the situation will eventually have to be resolved through the latter mechanism. It can be important (and very hard) to recognize such situations and cut ones losses.
+
+\subsection{Urgency}
+
+\section{Resource Management}
+
+% what: scarce resources, related to time management
+
+Resources can have a number of different properties. Lets try to give examples of resources through some of their key properties:
+\begin{itemize}
+  \descitem{External vs Internal} Some resources are our of your control; you have to ask for access. Those are external resources\idxx{Resource!external}{External resource}. Lets say that you are doing a project with a company, and you need an interview with a stakeholder from that company. That stakeholder is likely to take a few days replying and agree to a date a week or two later. That is an external resource. You have to plan around them and make sure that you will have reasonable things to do while waiting for them. Internal\idxx{Resource!internal}{Internal resource} resources are easier though. They are under your control. Examples include group members and computers owned by group members.
+  \descitem{Budgets} Ideally, all resources should always be available to you, but in reality some come with budgets. Examples include:
+    \begin{itemize}
+      \item A representative for a company you are collaborating with may have agreed to give you 6 hours of their time.
+      \item A free cloud account (such as those given to students) work on a credit system, and at the end of the day, only that many credits are free. If you break that budget you may have to put in your own money. This is a \textsl{soft}\idxx{Budget!soft}{Soft budget} budget.
+      \item If you are doing time-critical work, like performance evaluation, then all participating components must be dedicated to this job. So, if you are benchmarking some code on a laptop, then it cannot be used to look stuff up on the internet or write report. For this work package the laptop is a fully consumed\idxx{Resource!consumed}{Consumed resource} resource.
+    \end{itemize}
+\end{itemize}
+
+It is your job to lay out work packages in such a way that all resource constraints are satisfied and that the utilization of scarce resources is optimized. For instance, all project members should always have something to do.
+
+\section{Risk Management}
+
+\begin{inspiration}{Nick Fury\idxx{Fury, Nick}{Nick Fury}\cite{avengers}}
+  \quoted{Until such time as the world ends, we will act as though it intends to spin on.}
+\end{inspiration}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% First Steps
