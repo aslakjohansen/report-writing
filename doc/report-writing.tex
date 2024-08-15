@@ -603,7 +603,7 @@ A rejection in any of these steps means that you will have to reupload.
 Few students have experience participating in projects the size of their BSc/MSc. Fewer yet managing such projects. Your semester\idx{Semester project} projects have been neatly laid out in such a way that project problems happen to coincide with solutions presented in semester courses. You have had deadlines and your project advisors\idx{Advisor} have made sure that the work needed for these deadlines is doable within the time given. These projects have been managed for you.
 
 % your role
-Now, it is time for you to take over this role; the role of project\idx{Project Manager} manager. That is, to plan (or structure) the work needed in such a way that you end up with a product (code and report, that is) that you are happy about within the allotted time. This touches on numerous different aspects, including:
+Now, it is time for you to take over this role; the role of project\idx{Project Manager} manager. That is, to plan\idx{Plan} (or structure) the work needed in such a way that you end up with a product (code and report, that is) that you are happy about within the allotted time. This touches on numerous different aspects, including:
 \begin{itemize}
   \item Time management
   \item Resource management
@@ -616,7 +616,6 @@ Briefly speaking, you need to come up with a plan for how you disaggregate the f
 
 % risks
 This, obviously, wont happen to perfection. To manage the risks\idx{Risk} associated with potential imperfections, we analyze each work package for risks. When appropriate (and possible) we plan for risk mitigation. This will often take the form of an alternative subgraph in the work package dependency graph that can be activated under certain conditions.
-
 
 \section{Work Packages}
 
@@ -804,19 +803,20 @@ Another approach would be to assign time to each work package before you subdivi
 
 %\subsection{Rehashing}
 
-%\section{Work Management}
+\section{Work Management}
 
-%% mostly to match the timeline
+% mostly to match the timeline
 
-%\subsection{Dependencies}
+\subsection{Dependencies}
 
-%\subsection{Critical Path}
+\subsection{Critical Path}
 
-%\subsection{Delays}
+People often talk about a critical\idx{Critical path} path. It is the shortest path through the dependency graph. Intuitively, that defines the shortest possible amount of time needed to complete the project. This works out fairly well for projects of a single person. Most groups consists for multiple group members though, and this complicates things. One the one hand you have twice the number of man-hours, but on the other hand you can -- in principle -- work on two concurrent tasks at the same time. And thus, the single path model no longer applies. You might get something useful out of reasoning about the longest of the two shortest non-overlapping paths. But that model becomes less useful.
 
-%% intro: delays can happen, reasons (including illness, task turns out to be harder than anticipated)
+\subsection{Delays}
 
-%% decisions: work longer to catch up, or skip task, dependency graphs can help one reason about consequences
+% delays can happen: reasons (including illness, task turns out to be harder than anticipated)
+The sad reality is that sometimes people get\idx{Illness} ill, and when they get really ill they (or those around them) cannot participate in a project like this. Such illness will result in a delay that needs to be addressed. At other times, a task turns out to be harder than anticipated. That causes it to take longer and this makes the whole plan shift. If the effects of the disruption are great enough, you will have to revisit the plan in order to (i) get a feel of the implications, and (ii) come up with a revised plan.
 
 \section{Time Management}
 
@@ -829,9 +829,19 @@ Each work package is associated with at least an expected duration (which could 
 
 Sometimes you may be ahead of your plan. Do you then give yourself a bonus break, or do you carry on knowing that you will be under less pressure moving on? At other times, you may be behind schedule. This is a much more likely situation. You should always have a bit of slack\idx{Slack}, but only a bit.
 
+% decisions: work longer to catch up, or skip task, dependency graphs can help one reason about consequences
 Once that slack has been consumed, you will have to wake up and face reality: Either you go all in (e.g., pull an all-nighter\idx{All-nighter}) or you will be forced to reduce or cut a work package in order to meet the deadline. At times, no amount of work towards the former will fix the situation, and the situation will eventually have to be resolved through the latter mechanism. It can be important (and very hard) to recognize such situations and cut ones losses.
 
 \subsection{Urgency}
+
+% situation
+Some projects suffer serious delays. It could be that the project started late, or that access to an external resource came very late. As a advisor, I have seen both, and the implications were counted in months.
+
+% natural reaction
+In such situations, any plan that may exist can no longer stand up against the reality of the situation. For it to become useful, significant work has to be directed at it. That, however, will take time away from progressing the project and that time is now at a premium. Most students will push the plan aside -- along with most of what they have learned about good project work -- and start coding towards the end goal. Why not start with the analysis or the design? Because the implementation is what delivers the product. Except that it is not! The primary product is the report. What went wrong was that the stress of the feeling of urgency caused bad decisions to be made. This is one of the mechanism that scammers\idx{Scammer} seek to exploit.
+
+% alternative reaction
+It you have very little time left, then the right decision is to go for it. But otherwise, coming up with a revised\idxx{Plan!Revising}{Revised plan} plan (at any granularity) will (i) calm you down enough to now have an unpleasant time during the remaining part of the project, and (ii) allow you to focus on what matters through informed decisions.
 
 \section{Resource Management}
 
