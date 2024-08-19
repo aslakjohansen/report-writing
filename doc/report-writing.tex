@@ -75,6 +75,7 @@
 \newcommand{\textdesc}[1]{\textit{\textbf{#1}}}
 \newcommand{\descitem}[1]{\item \textdesc{#1}}
 \newcommand{\quoted}[1]{\textsl{\say{#1}}}
+\newcommand{\termname}[1]{\textsl{\textcolor{purple}{#1}}}
 
 \newenvironment{inspiration}[2][0.9]
 {
@@ -86,6 +87,22 @@
   
   \raggedleft{--- \textsl{\saveme}}
   \end{minipagewithmarginpars}
+  \end{center}
+}
+
+\newenvironment{terminology}[1][0.9]
+{
+  \begin{center}
+    \begin{tabular}{|p{#1\textwidth}|}
+      \hline
+      \cellcolor[gray]{0.8}
+      \textbf{Terminology} \\
+      \hline
+      \cellcolor[gray]{0.9}
+}{
+      \\
+      \hline
+    \end{tabular}
   \end{center}
 }
 
@@ -1658,10 +1675,20 @@ So, what constitutes such a contribution? Anything that could bring value to the
 
 \subsection{Definitions}
 
+Over time, any domain of even modest complexity will develop a vocabulary\idx{Vocabulary}; that is, terminology for expressing domain-relevant information. This allows domain experts to communicate quickly and efficiently, and that leaves more time to tackle the problem itself. The terminology of a BSc/MSc project falls into two categories:
+\begin{enumerate}
+  \descitem{Domain-Specific Terminology} Any project is related to one or more domains, and these come with established terminology. That is terminology that experts have agreed on. If you deviate from this, then people will have trouble understanding you. The term \textsl{variable}, for instance, is well established. If you start calling it something different (e.g., a box), then the recipients of your communication will assume that you are talking about something else. So, you need to be away of the prevailing terminology within relevant domains and adopt this.
+  \descitem{Project-Specific Terminology} Most projects reach a level of nontriviality where concepts are introduced, and you have a need to refer to these. That means that you have to define them. By doing so, you construct a terminology foundation for your project that allows you to talk about it. This should be done explicitly with consistent formatting so that attention is drawn to it. That could be accomplished like this:
+\end{enumerate}
+
+\begin{terminology}
+  We define the \termname{lookup latency} as the time penalty incurred by looking up the definition in the database.
+\end{terminology}
+
 \subsection{Floats}
 
 % intro: what, examples (figure, table, code listing), refs are necessary
-\idx{Floats} A float is a piece of the report that you allow the layouter to place on your behalf. You don't have to care about it being broken up across multiple pages and you get a number that you can use to refer to it through. This is beneficial when you need to refer to it from multiple places in the document. In \LaTeX\idxx{LaTeX@\LaTeX}{\LaTeX}, there are a number of predefined float types (figure, table and code listing springs to mind), and you can define your own. The floats are also presented with a caption and stand out from the normal text.
+\idx{Floats} A float is a piece of the report that you allow the layouter\idx{Layouter} to place on your behalf. You don't have to care about it being broken up across multiple pages and you get a number that you can use to refer to it through. This is beneficial when you need to refer to it from multiple places in the document. In \LaTeX\idxx{LaTeX@\LaTeX}{\LaTeX}, there are a number of predefined float types (figure, table and code listing springs to mind), and you can define your own. The floats are also presented with a caption and stand out from the normal text.
 
 % refs and context
 No matter where the float ends up, you will have to refer to it by number\idxx{Floats!Referencing}{Referencing floats}. The text should always be written in such a manner that it is optional to look at the float. You must explicitly point out what you want the reader to take away from it. In the same way, the floats should make sense without locating the text that refers to them.
