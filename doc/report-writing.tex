@@ -2158,6 +2158,212 @@ That strategy does not scale with the number of papers though. Another option is
 
 % theme figure: tree structure with bitvector for which times are covered by which papers
 
+\section{Example}
+
+\begin{figure}
+  \centering
+  \rotatebox{90}{
+  \scalebox{1.0}{
+    \begin{tikzpicture}[]
+      \newcommand{\nodeheight}{8mm}
+      \newcommand{\nodewidth}{8mm}
+      \newcommand{\spacing}{6mm}
+      \newcommand{\multistep}{1mm}
+      \newcommand{\filteredshift}{2mm}
+      \newcommand{\queuingshift}{6mm}
+      
+      \newcommand{\qH}[0]{10mm}
+      \newcommand{\qD}[0]{8mm}
+      \newcommand{\aD}[0]{48mm}
+      \newcommand{\qO}[0]{1*\qD}
+      \newcommand{\queue}[2]{ % note: Parameter 1 is unused
+        \node[align=center,anchor=south] () at ([xshift=\qO-\aD/2-0*\qD,yshift=\qH/2]#2) {Priority Queue};
+        
+        \draw[thick]
+             ([xshift=\qO-\aD/2-1.5*\qD,yshift=-\qH/2]#2)
+          to [out=0, in=0]
+             ([xshift=\qO-\aD/2-1.5*\qD,yshift= \qH/2]#2)
+          to [out=180, in=180]
+             ([xshift=\qO-\aD/2-1.5*\qD,yshift=-\qH/2]#2)
+        ;
+        \draw[thick]
+             ([xshift=\qO-\aD/2-1.5*\qD,yshift=-\qH/2]#2)
+          -- ([xshift=\qO-\aD/2-0.5*\qD,yshift=-\qH/2]#2)
+          to [out=0, in=0]
+             ([xshift=\qO-\aD/2-0.5*\qD,yshift= \qH/2]#2)
+          -- ([xshift=\qO-\aD/2-1.5*\qD,yshift= \qH/2]#2)
+        ;
+        \draw[thick]
+             ([xshift=\qO-\aD/2-0.5*\qD,yshift=-\qH/2]#2)
+          -- ([xshift=\qO-\aD/2+0.5*\qD,yshift=-\qH/2]#2)
+          to [out=0, in=0]
+             ([xshift=\qO-\aD/2+0.5*\qD,yshift= \qH/2]#2)
+          -- ([xshift=\qO-\aD/2-0.5*\qD,yshift= \qH/2]#2)
+        ;
+        \draw[thick]
+             ([xshift=\qO-\aD/2+0.5*\qD,yshift=-\qH/2]#2)
+          -- ([xshift=\qO-\aD/2+1.5*\qD,yshift=-\qH/2]#2)
+          to [out=0, in=0]
+             ([xshift=\qO-\aD/2+1.5*\qD,yshift= \qH/2]#2)
+          -- ([xshift=\qO-\aD/2+0.5*\qD,yshift= \qH/2]#2)
+        ;
+      }
+      
+      \tikzstyle{node}=[
+        draw,
+        circle,
+        rounded corners=2pt,
+        minimum height=\nodeheight,
+        minimum width=\nodewidth,
+        fill=white!10,
+        anchor=center,
+        thick
+      ]
+      \tikzstyle{condition}=[
+        draw,
+        diamond,
+        anchor=center,
+        thick
+      ]
+      \tikzstyle{follower}=[
+        draw,
+        rectangle,
+        rounded corners=2pt,
+        minimum width=4cm,
+        fill=white!10,
+        anchor=north,
+        thick
+      ]
+      \tikzstyle{line} = [thick, draw=black]
+      \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+      
+      \coordinate (origo) at (1,1);
+      \coordinate (venueAnchor)     at ([yshift=-2*(\nodeheight+\spacing)] origo);
+      \coordinate (queryAnchor)     at ([yshift= 2*(\nodeheight+\spacing)] origo);
+      \coordinate (initresesAnchor) at ([xshift= 5*\spacing] origo);
+      \coordinate (queueAnchor)     at ([xshift=13.82*\spacing] origo); % TODO: Make non-ugly
+      \coordinate (endAnchor)       at ([xshift=17.2*\spacing] origo);
+      
+      % queries
+      \node[node] (queryI)   at ([yshift= 1.25*(\nodeheight+\spacing)] queryAnchor) {$Q_1$};
+      \node[node] (queryII)  at ([yshift= 0.25*(\nodeheight+\spacing)] queryAnchor) {$Q_2$};
+      \node[    ] ()         at ([yshift=-0.50*(\nodeheight+\spacing)] queryAnchor) {$\vdots$};
+      \node[node] (queryIII) at ([yshift=-1.25*(\nodeheight+\spacing)] queryAnchor) {$Q_n$};
+      \draw[line] ([xshift=-\nodewidth/2-0.5*\spacing]queryI.north)
+               -- ([xshift=-\nodewidth/2-0.5*\spacing]queryIII.south);
+      \node[rotate=90] ()    at ([xshift=-1.8*\spacing] queryAnchor) {Queries};
+      \draw[line] ([xshift=\nodewidth/2+0.5*\spacing]queryI.north)
+               -- ([xshift=\nodewidth/2+0.5*\spacing]queryIII.south);
+      
+      % sources
+      \node[node] (venueI)   at ([yshift= 1.25*(\nodeheight+\spacing)] venueAnchor) {$V_1$};
+      \node[node] (venueII)  at ([yshift= 0.25*(\nodeheight+\spacing)] venueAnchor) {$V_2$};
+      \node[] ()             at ([yshift=-0.50*(\nodeheight+\spacing)] venueAnchor) {$\vdots$};
+      \node[node] (venueIII) at ([yshift=-1.25*(\nodeheight+\spacing)] venueAnchor) {$V_m$};
+      \draw[line] ([xshift=-\nodewidth/2-0.5*\spacing]venueI.north)
+               -- ([xshift=-\nodewidth/2-0.5*\spacing]venueIII.south);
+      \node[rotate=90] ()  at ([xshift=-1.8*\spacing] venueAnchor) {Venues};
+      \draw[line] ([xshift=\nodewidth/2+0.5*\spacing]venueI.north)
+               -- ([xshift=\nodewidth/2+0.5*\spacing]venueIII.south);
+      
+      % initial results
+      \node[node] ()             at ([yshift= 1.25*(\nodeheight+\spacing)-1*\multistep,xshift= 1*\multistep] initresesAnchor) {};
+      \node[node] (initresesI)   at ([yshift= 1.25*(\nodeheight+\spacing)+0*\multistep,xshift= 0*\multistep] initresesAnchor) {};
+      \node[node] ()             at ([yshift= 1.25*(\nodeheight+\spacing)+1*\multistep,xshift=-1*\multistep] initresesAnchor) {};
+      \node[node] ()             at ([yshift= 0.25*(\nodeheight+\spacing)-1*\multistep,xshift= 1*\multistep] initresesAnchor) {};
+      \node[node] (initresesII)  at ([yshift= 0.25*(\nodeheight+\spacing)+0*\multistep,xshift= 0*\multistep] initresesAnchor) {};
+      \node[node] ()             at ([yshift= 0.25*(\nodeheight+\spacing)+1*\multistep,xshift=-1*\multistep] initresesAnchor) {};
+      \node[] ()                 at ([yshift=-0.50*(\nodeheight+\spacing)] initresesAnchor) {$\vdots$};
+      \node[node] ()             at ([yshift=-1.25*(\nodeheight+\spacing)-1*\multistep,xshift= 1*\multistep] initresesAnchor) {};
+      \node[node] (initresesIII) at ([yshift=-1.25*(\nodeheight+\spacing)+0*\multistep,xshift= 0*\multistep] initresesAnchor) {};
+      \node[node] ()             at ([yshift=-1.25*(\nodeheight+\spacing)+1*\multistep,xshift=-1*\multistep] initresesAnchor) {};
+      \draw[line] ([yshift= \multistep,xshift=-\multistep-\nodewidth/2-0.5*\spacing]initresesI.north)
+               -- ([yshift=-\multistep,xshift=-\multistep-\nodewidth/2-0.5*\spacing]initresesIII.south);
+      \node[rotate=90] ()  at ([xshift=-1.8*\spacing] initresesAnchor) {Initial Results};
+      \draw[line] ([yshift= \multistep,xshift=\multistep+\nodewidth/2+0.5*\spacing]initresesI.north)
+               -- ([yshift=-\multistep,xshift=\multistep+\nodewidth/2+0.5*\spacing]initresesIII.south);
+      
+      % (query|venue) -> initial results
+      \draw[arrow] ([xshift=\nodewidth/2+0.5*\spacing]queryAnchor)
+                   to[out=0, in=180, looseness=1.6]
+                   ([xshift=-\multistep-\nodewidth/2-0.5*\spacing]initresesI);
+      \draw[arrow] ([xshift=\nodewidth/2+0.5*\spacing]venueAnchor)
+                   to[out=0, in=180, looseness=1.6]
+                   ([xshift=-\multistep-\nodewidth/2-0.5*\spacing]initresesIII);
+      
+      % queue
+      \queue{queue}{queueAnchor}
+      \draw[arrow] ([xshift=\multistep+\nodewidth/2+0.5*\spacing]initresesAnchor)
+                   to[edge node={node [sloped,above] {\textsl{seed}}}]
+                   ([xshift=\multistep+\nodewidth/2+0.5*\spacing+1.4cm]initresesAnchor);
+    ﻿﻿  
+      % end condition
+      \node[condition] (endCondition) at (endAnchor) {end?};
+      \draw[arrow] ([xshift=-1.4cm]endCondition.west)
+                -- ([xshift=0.025cm]endCondition.west);
+      
+      % article
+      \node[node] (current)  at ([xshift=1.4cm]endCondition.east) {$A_{cand}$};
+      \draw[arrow] (endCondition)
+                   to[edge node={node [sloped,above] {\textsl{no}}}]
+                   (current);
+      \draw[line] (endCondition)
+               |- node[near start,sloped,right,rotate=-90] {\textsl{yes}}
+                  ([yshift=1.4cm]current.north);
+      \draw[line] ([yshift=1.4cm-1mm,xshift=-1mm]current.north)
+               -- ([yshift=1.4cm+1mm,xshift= 1mm]current.north);
+      
+      % filtering
+      \node[condition] (filterCondition) at ([xshift=1.4cm]current.east) {filter};
+      \draw[arrow] (current)
+                -- (filterCondition);
+      
+      % filtered article
+      \node[node] (filtered)  at ([xshift=1.4cm]filterCondition.east) {$A_{rel}$};
+      \draw[arrow] (filterCondition)
+                   to[edge node={node [sloped,above] {\textsl{in}}}]
+                   (filtered);
+      \draw[line] (filterCondition)
+               |- node[near start,sloped,right,rotate=-90] {\textsl{out}}
+                  ([yshift=1.4cm]filtered.north);
+      \draw[line] ([yshift=1.4cm-1mm,xshift=-1mm]filtered.north)
+               -- ([yshift=1.4cm+1mm,xshift= 1mm]filtered.north);
+      
+      % define follower x centerpoint
+      \coordinate (followerAnchor) at ([yshift=-\qH/2] $([xshift=-1mm]queueAnchor)!0.5!(filtered)$);
+      
+      % followers
+      \node[follower] (snowballing)    at ([yshift=-1*\spacing]followerAnchor) {Snowballing};
+      \node[follower] (revsnowballing) at ([yshift=-1*\spacing]snowballing.south) {Reverse Snowballing};
+      \node[follower] (atracking)      at ([yshift=-1*\spacing]revsnowballing.south) {Author Tracking};
+      \node[follower] (vtracking)      at ([yshift=-1*\spacing]atracking.south) {Venue Tracking};
+      
+      % follower source edges
+      \draw[arrow] ([xshift=-1.5*\filteredshift,yshift=-4.1mm]filtered.center)
+                |- (snowballing);
+      \draw[arrow] ([xshift=-0.5*\filteredshift,yshift=-5.0mm]filtered.center)
+                |- (revsnowballing);
+      \draw[arrow] ([xshift= 0.5*\filteredshift,yshift=-5.0mm]filtered.center)
+                |- (atracking);
+      \draw[arrow] ([xshift= 1.5*\filteredshift,yshift=-4.1mm]filtered.center)
+                |- (vtracking);
+      
+      % follower destination edges
+      \coordinate (bottomQueueAnchor) at ([xshift=\qO-\aD/2-0*\qD,yshift=-\qH/2] queueAnchor);
+      \draw[arrow] (snowballing)
+                -| ([xshift= 1.5*\queuingshift]bottomQueueAnchor);
+      \draw[arrow] (revsnowballing)
+                -| ([xshift= 0.5*\queuingshift]bottomQueueAnchor);
+      \draw[arrow] (atracking)
+                -| ([xshift=-0.5*\queuingshift]bottomQueueAnchor);
+      \draw[arrow] (vtracking)
+                -| ([xshift=-1.5*\queuingshift]bottomQueueAnchor);
+    \end{tikzpicture}
+  }
+  }
+  \caption{\label{fig:relatedwork:example:process} Example process for picking articles.}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Requirements
 \chapter{Requirements Section}
