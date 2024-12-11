@@ -2303,7 +2303,7 @@ That strategy does not scale with the number of papers though. Another option is
                 -- ([xshift=0.025cm]endCondition.west);
       
       % article
-      \node[node] (current)  at ([xshift=1.4cm]endCondition.east) {$A_{cand}$};
+      \node[node,anchor=west] (current)  at ([xshift=1.4cm]endCondition.east) {$A_{cand}$};
       \draw[arrow] (endCondition)
                    to[edge node={node [sloped,above] {\textsl{no}}}]
                    (current);
@@ -2314,12 +2314,12 @@ That strategy does not scale with the number of papers though. Another option is
                -- ([yshift=1.4cm+1mm,xshift= 1mm]current.north);
       
       % filtering
-      \node[condition] (filterCondition) at ([xshift=1.4cm]current.east) {filter};
+      \node[condition,anchor=west] (filterCondition) at ([xshift=1.4cm]current.east) {filter};
       \draw[arrow] (current)
                 -- (filterCondition);
       
       % filtered article
-      \node[node] (filtered)  at ([xshift=1.4cm]filterCondition.east) {$A_{rel}$};
+      \node[node,anchor=west] (filtered)  at ([xshift=1.4cm]filterCondition.east) {$A_{rel}$};
       \draw[arrow] (filterCondition)
                    to[edge node={node [sloped,above] {\textsl{in}}}]
                    (filtered);
@@ -2330,7 +2330,7 @@ That strategy does not scale with the number of papers though. Another option is
                -- ([yshift=1.4cm+1mm,xshift= 1mm]filtered.north);
       
       % define follower x centerpoint
-      \coordinate (followerAnchor) at ([yshift=-\qH/2] $([xshift=-1mm]queueAnchor)!0.5!(filtered)$);
+      \coordinate (followerAnchor) at ([yshift=-\qH/2] $([xshift=-1.4cm]endCondition.west)!0.5!(filtered.west)$);
       
       % followers
       \node[follower] (snowballing)    at ([yshift=-1*\spacing]followerAnchor) {Snowballing};
