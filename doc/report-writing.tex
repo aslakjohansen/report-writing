@@ -2169,8 +2169,10 @@ Figure \ref{fig:relatedwork:example:process} illustrates the process for discove
 In order to cover the necessary areas, we have constructed $n$ queries ($Q_1$ through $Q_2$). Each of these were formatted in the appropriate query language and used at an appropriate subset of $m$ venues ($V_1$ through $V_m$)\footnote{The specific mapping should be documented.}. Each of these combinations resulted in a set of articles which (combined) were used as the initial seed for the priority queue.
 
 % priority queue
+From the priority queue one article is extracted at a time. A priority function is used the score the likelihood of the article being relevant.
 
 % completion condition
+The scoring function is never going to be perfect, and there is likely to be wa too many papers in the initial seeding alone to go through. So we need to define when we stop. This is the completion condition.
 
 % filtering
 
