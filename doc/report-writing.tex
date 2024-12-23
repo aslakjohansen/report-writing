@@ -2175,6 +2175,7 @@ From the priority queue one article is extracted at a time. A priority function 
 The scoring function is never going to be perfect, and there is likely to be way too many papers in the initial seeding alone to go through. So we need to define when we stop. This is the completion condition.
 
 % filtering
+When a candidate article ($A_{cand}$) is pulled out of the priority queue we need to decide whether it is \textsl{relevant}. That is, whether we are going to consider it for (i) result extraction and (ii) further article discovery. If relevant, it becomes $A_{rel}$.
 
 % down the rabbit hole: snowballing and friends
 
