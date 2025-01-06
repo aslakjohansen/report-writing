@@ -144,8 +144,10 @@
   \textcolor{white}{\index{CS|see {Computer science}}}
   \textcolor{white}{\index{Cypher|see {OpenCypher}}}
   \textcolor{white}{\index{EOF|see {End of file}}}
+  \textcolor{white}{\index{Exclusion criteria|see {Criteria, Exclusion}}}
   \textcolor{white}{\index{Folder|see {Directory}}}
   \textcolor{white}{\index{I|see {First person pronouns}}}
+  \textcolor{white}{\index{Inclusion criteria|see {Criteria, Inclusion}}}
   \textcolor{white}{\index{Lock|see {Mutex}}}
   \textcolor{white}{\index{Mean time between failures|see {MTBF}}}
   \textcolor{white}{\index{Mean time between repair|see {MTBR}}}
@@ -153,8 +155,10 @@
   \textcolor{white}{\index{Non-disclosure agreement|see {NDA}}}
   \textcolor{white}{\index{Open telecom platform|see {OTP}}}
   \textcolor{white}{\index{Pronouns|see {First person pronouns}}}
+  \textcolor{white}{\index{Rejection criteria|see {Criteria, Exclusion}}}
   \textcolor{white}{\index{Requirement!Absolute|see {Unbounded}}}
   \textcolor{white}{\index{SE|see {Software engineering}}}
+  \textcolor{white}{\index{Selection criteria|see {Criteria, Selection}}}
   \textcolor{white}{\index{SP|see {Service provider}}}
   \textcolor{white}{\index{Snippet|see {Code inclusion}}}
   \textcolor{white}{\index{Software product line|see {Product line}}}
@@ -2409,10 +2413,10 @@ After having seen 30 articles fail to pass the filtering process in a row, we de
 \subsubsection{Article Filtering}
 
 % intro: subjectivity of picking articles, reproducibility, limiting subjectivity by being up-front about criteria, inclusion criteria, rejection criteria,  inclusion vs rejection importance
-When picking which articles to look into, it is easy to accidentally introduce subjectivity. The temptation to pick on a whim must be resisted so that our results can be reproducible. We limit subjectivity by being up-front about the criteria by which we choose articles. Such criteria are typically split into an inclusion criteria and an exclusion (or rejection) criteria. These criteria must be documented, and so must how their individual application.
+When picking which articles to look into, it is easy to accidentally introduce subjectivity\idx{Subjectivity}. The temptation to pick on a whim must be resisted so that our results can be reproducible\idx{Reproducibility}. We limit subjectivity by being up-front about the criteria by which we choose articles. Such criteria are typically split into an inclusion\idxx{Criteria!Inclusion}{Inclusion criteria} criteria and an exclusion\idxx{Criteria!Exclusion}{Exclusion criteria} (or rejection) criteria. These criteria must be documented, and so must how their individual application.
 
 % seeing criteria in terms of set theory
-One way of describing the selection criteria is through operations on sets of articles. The inclusion criteria could be expressed as the set of articles in $\mathbb{P}_1 \cap \mathbb{P}_2 \cap (\mathbb{P}_3 \cup \mathbb{P}_4)$, where $\mathbb{P}_1$ through $\mathbb{P}_4$ are satisfied properties. If the seto of articles satisfying the inclusion criteria is $\mathbb{I}$ and the set of articles satisfying the exclusion criteria (expressed in a similar way) is $\mathbb{E}$, then the set of articles chosen for study is $\mathbb{I} \backslash \mathbb{E}$.
+One way of describing the selection\idxx{Criteria!Selection}{Selection criteria} criteria is through operations on sets of articles. The inclusion criteria could be expressed as the set of articles in $\mathbb{P}_1 \cap \mathbb{P}_2 \cap (\mathbb{P}_3 \cup \mathbb{P}_4)$, where $\mathbb{P}_1$ through $\mathbb{P}_4$ are satisfied properties. If the set of articles satisfying the inclusion criteria is $\mathbb{I}$ and the set of articles satisfying the exclusion criteria (expressed in a similar way) is $\mathbb{E}$, then the set of articles chosen for study is $\mathbb{I} \backslash \mathbb{E}$.
 
 % multistage filtering: title, abstract, full paper
 In practice, it is not efficient to real a full article in order to decide on whether to include it or not. Instead, we typically to this in stages. First, we look at something that holds the potential to quickly reject it. Then we look into something that has a higher cost-per-rejection-potential, and so on. At the end we read the whole article. A common order is to first look at the title, then the abstract, and finally the whole article. However, there could also be some structure to the last step. All of this needs to be documented.
