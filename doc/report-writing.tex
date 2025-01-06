@@ -2415,6 +2415,7 @@ When picking which articles to look into, it is easy to accidentally introduce s
 One way of describing the selection criteria is through operations on sets of articles. The inclusion criteria could be expressed as the set of articles in $\mathbb{P}_1 \cap \mathbb{P}_2 \cap (\mathbb{P}_3 \cup \mathbb{P}_4)$, where $\mathbb{P}_1$ through $\mathbb{P}_4$ are satisfied properties. If the seto of articles satisfying the inclusion criteria is $\mathbb{I}$ and the set of articles satisfying the exclusion criteria (expressed in a similar way) is $\mathbb{E}$, then the set of articles chosen for study is $\mathbb{I} \backslash \mathbb{E}$.
 
 % multistage filtering: title, abstract, full paper
+In practice, it is not efficient to real a full article in order to decide on whether to include it or not. Instead, we typically to this in stages. First, we look at something that holds the potential to quickly reject it. Then we look into something that has a higher cost-per-rejection-potential, and so on. At the end we read the whole article. A common order is to first look at the title, then the abstract, and finally the whole article. However, there could also be some structure to the last step. All of this needs to be documented.
 
 \subsubsection{Related Article Discovery}
 
