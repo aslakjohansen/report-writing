@@ -15,6 +15,7 @@
 \usepackage{siunitx} % for units (\si command)
 \usepackage{xstring} % for \IfSubStr command
 \usepackage{functional} % for nested macros
+\usepackage{amssymb} % for \mathbb
 
 % for subfigures
 \usepackage{caption}
@@ -2411,6 +2412,7 @@ After having seen 30 articles fail to pass the filtering process in a row, we de
 When picking which articles to look into, it is easy to accidentally introduce subjectivity. The temptation to pick on a whim must be resisted so that our results can be reproducible. We limit subjectivity by being up-front about the criteria by which we choose articles. Such criteria are typically split into an inclusion criteria and an exclusion (or rejection) criteria. These criteria must be documented, and so must how their individual application.
 
 % seeing criteria in terms of set theory
+One way of describing the selection criteria is through operations on sets of articles. The inclusion criteria could be expressed as the set of articles in $\mathbb{P}_1 \cap \mathbb{P}_2 \cap (\mathbb{P}_3 \cup \mathbb{P}_4)$, where $\mathbb{P}_1$ through $\mathbb{P}_4$ are satisfied properties. If the seto of articles satisfying the inclusion criteria is $\mathbb{I}$ and the set of articles satisfying the exclusion criteria (expressed in a similar way) is $\mathbb{E}$, then the set of articles chosen for study is $\mathbb{I} \backslash \mathbb{E}$.
 
 % multistage filtering: title, abstract, full paper
 
