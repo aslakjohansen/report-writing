@@ -2,6 +2,7 @@ TARGETS = \
 	report-writing.pdf
 
 DEPS = \
+	figs/*.tex \
 	generated/tabulardata.tex \
 
 
